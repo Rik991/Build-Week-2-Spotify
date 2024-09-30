@@ -11965,15 +11965,44 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-.barra-riproduzione {
-  width: 100%;
-  background-color: #181818;
+.controlli-riproduzione button {
+  color: white;
+  border: none;
+  padding: 0;
+  margin-inline: 0.5rem;
 }
 
-.testH {
-  background-color: rgba(58, 58, 58, 0);
+footer input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+  height: 4px;
+  background: white; /* Colore bianco per la barra */
+  outline: none;
+  transition: background-color 0.2s, opacity 0.2s;
 }
 
-.testH:hover {
-  background-color: rgb(58, 58, 58);
+footer input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 0;
+  height: 0;
+  background: transparent;
+}
+
+footer input:hover {
+  background: green; /* Barra verde al passaggio del mouse */
+  opacity: 1;
+}
+
+footer input:hover::-webkit-slider-thumb {
+  width: 12px; /* Rendi visibile il toggle */
+  height: 12px;
+  background: white;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.volume input {
+  width: 100px;
 }/*# sourceMappingURL=style.css.map */
