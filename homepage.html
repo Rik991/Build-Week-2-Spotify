@@ -20,16 +20,15 @@
       <div class="container-fluid">
         <div class="row gap-2 g-2">
           <!-- navbar 1  -->
-          <div class="col col text-bg-success">
-            <aside class="d-flex flex-column bg-dark text-white p-3 barra-laterale">
+          <div class="col col">
+            <aside class="d-flex flex-column bg-dark text-white vh-100 p-3 barra-laterale">
               <div class="d-flex align-items-center justify-content-between mb-4">
                 <div class="d-flex align-items-center">
-                  <i class="fas fa-book fs-4 me-2"></i>
                   <h3 class="mb-0">La tua libreria</h3>
                 </div>
                 <div class="d-flex align-items-center">
-                  <button class="btn btn-outline-light p-1 me-2"><i class="fas fa-plus"></i></button>
-                  <button class="btn btn-outline-light p-1"><i class="fas fa-arrow-right"></i></button>
+                  <button class="btn btn-outline-light p-1 me-2"><i class="bi bi-plus"></i></button>
+                  <button class="btn btn-outline-light p-1"><i class="bi bi-arrow-right"></i></button>
                 </div>
               </div>
 
@@ -40,100 +39,103 @@
                 <button class="btn btn-outline-secondary rounded-pill text-white">Artisti</button>
               </div>
 
-              <!-- Input di ricerca -->
-              <div class="input-group mb-3">
-                <span class="input-group-text bg-dark border-0 text-white"><i class="fas fa-search"></i></span>
-                <input type="text" class="form-control bg-dark text-white border-0" placeholder="Cerca nella libreria" />
+              <!-- Input di ricerca  -->
+              <div class="d-flex align-items-center mb-3">
+                <div class="input-group" style="width: 150px">
+                  <span class="input-group-text bg-dark border-0 text-white">
+                    <i class="bi bi-search"></i>
+                  </span>
+                  <input type="text" class="form-control bg-dark text-white border-0" placeholder="Cerca" />
+                </div>
+
+                <!-- Sezione Recenti con icona -->
+                <div class="d-flex justify-content-between ms-3">
+                  <span class="text-secondary me-2" style="font-size: 14px">Recenti</span>
+                  <i class="bi bi-clock-history text-secondary"></i>
+                </div>
               </div>
 
               <!-- Lista di Playlist e Album -->
               <ul class="list-unstyled flex-grow-1">
                 <li class="d-flex align-items-center mb-3">
-                  <img src="https://via.placeholder.com/40" class="me-2 rounded" alt="Cover" />
+                  <img src="./assets/imgs/search/image-1.jpeg" class="me-2 rounded" alt="Cover" width="40" height="40" />
+                  <div class="playlist-text">
+                    <strong>Brani che ti piacciono</strong><br />
+                    <span class="playlist-description text-secondary">Playlist · 181 brani</span>
+                  </div>
+                </li>
+                <li class="d-flex align-items-center mb-3">
+                  <img src="./assets/imgs/search/image-10.jpg" class="me-2 rounded" alt="Cover" width="40" height="40" />
                   <div>
                     <strong>Brani che ti piacciono</strong><br />
-                    <span class="playlist-description text-muted">Playlist · 181 brani</span>
+                    <span class="playlist-description text-secondary">Playlist · 140 brani</span>
                   </div>
                 </li>
                 <li class="d-flex align-items-center mb-3">
-                  <img src="https://via.placeholder.com/40" class="me-2 rounded" alt="Cover" />
+                  <img src="./assets/imgs/search/image-11.jpg" class="me-2 rounded" alt="Cover" width="40" height="40" />
                   <div>
-                    <strong>Rockstar</strong><br />
-                    <span class="playlist-description text-muted">Album · Sfera Ebbasta</span>
+                    <strong>Brani che ti piacciono</strong><br />
+                    <span class="playlist-description text-secondary">Playlist · 115 brani</span>
                   </div>
                 </li>
                 <li class="d-flex align-items-center mb-3">
-                  <img src="https://via.placeholder.com/40" class="me-2 rounded" alt="Cover" />
+                  <img src="./assets/imgs/search/image-12.jpg" class="me-2 rounded" alt="Cover" width="40" height="40" />
                   <div>
-                    <strong>iPhone Fede</strong><br />
-                    <span class="playlist-description text-muted">Playlist · Federico Peralta</span>
+                    <strong>Brani che ti piacciono</strong><br />
+                    <span class="playlist-description text-secondary">Playlist · 136 brani</span>
                   </div>
                 </li>
                 <li class="d-flex align-items-center mb-3">
-                  <img src="https://via.placeholder.com/40" class="me-2 rounded" alt="Cover" />
+                  <img src="./assets/imgs/search/image-13.jpg" class="me-2 rounded" alt="Cover" width="40" height="40" />
                   <div>
-                    <strong>iPhone Fede</strong><br />
-                    <span class="playlist-description text-muted">Playlist · Federico Peralta</span>
+                    <strong>Brani che ti piacciono</strong><br />
+                    <span class="playlist-description text-secondary">Playlist · 117 brani</span>
                   </div>
                 </li>
                 <li class="d-flex align-items-center mb-3">
-                  <img src="https://via.placeholder.com/40" class="me-2 rounded" alt="Cover" />
+                  <img src="./assets/imgs/search/image-14.jpg" class="me-2 rounded" alt="Cover" width="40" height="40" />
                   <div>
-                    <strong>iPhone Fede</strong><br />
-                    <span class="playlist-description text-muted">Playlist · Federico Peralta</span>
+                    <strong>Brani che ti piacciono</strong><br />
+                    <span class="playlist-description text-secondary">Playlist · 125 brani</span>
                   </div>
                 </li>
                 <li class="d-flex align-items-center mb-3">
-                  <img src="https://via.placeholder.com/40" class="me-2 rounded" alt="Cover" />
+                  <img src="./assets/imgs/search/image-15.jpg" class="me-2 rounded" alt="Cover" width="40" height="40" />
                   <div>
-                    <strong>iPhone Fede</strong><br />
-                    <span class="playlist-description text-muted">Playlist · Federico Peralta</span>
+                    <strong>Brani che ti piacciono</strong><br />
+                    <span class="playlist-description text-secondary">Playlist · 180 brani</span>
                   </div>
                 </li>
                 <li class="d-flex align-items-center mb-3">
-                  <img src="https://via.placeholder.com/40" class="me-2 rounded" alt="Cover" />
+                  <img src="./assets/imgs/search/image-16.jpg" class="me-2 rounded" alt="Cover" width="40" height="40" />
                   <div>
-                    <strong>iPhone Fede</strong><br />
-                    <span class="playlist-description text-muted">Playlist · Federico Peralta</span>
+                    <strong>Brani che ti piacciono</strong><br />
+                    <span class="playlist-description text-secondary">Playlist · 178 brani</span>
                   </div>
                 </li>
                 <li class="d-flex align-items-center mb-3">
-                  <img src="https://via.placeholder.com/40" class="me-2 rounded" alt="Cover" />
+                  <img src="./assets/imgs/search/image-17.jpg" class="me-2 rounded" alt="Cover" width="40" height="40" />
                   <div>
-                    <strong>iPhone Fede</strong><br />
-                    <span class="playlist-description text-muted">Playlist · Federico Peralta</span>
-                  </div>
-                </li>
-                <li class="d-flex align-items-center mb-3">
-                  <img src="https://via.placeholder.com/40" class="me-2 rounded" alt="Cover" />
-                  <div>
-                    <strong>iPhone Fede</strong><br />
-                    <span class="playlist-description text-muted">Playlist · Federico Peralta</span>
-                  </div>
-                </li>
-                <li class="d-flex align-items-center mb-3">
-                  <img src="https://via.placeholder.com/40" class="me-2 rounded" alt="Cover" />
-                  <div>
-                    <strong>iPhone Fede</strong><br />
-                    <span class="playlist-description text-muted">Playlist · Federico Peralta</span>
+                    <strong>Brani che ti piacciono</strong><br />
+                    <span class="playlist-description text-secondary">Playlist · 181 brani</span>
                   </div>
                 </li>
 
-                <!-- Aggiungo altri titoli uguali sotto-->
+                <!-- Altre contenuti li aggiungiamo -->
               </ul>
             </aside>
           </div>
           <!-- main content -->
           <div class="col col-6 text-bg-secondary rounded">main content</div>
           <!-- aside 2 -->
-          <div class="col col text-bg-secondary">
+          <div class="col col">
             <aside class="aside-coda bg-dark text-white p-4">
               <div class="d-flex justify-content-between align-items-center mb-4">
                 <div class="d-flex align-items-center gap-3">
                   <h5 class="text-white fw-bold mb-0">Coda</h5>
-                  <h5 class="text-muted mb-0">Ascoltate di recente</h5>
+                  <h5 class="text-secondary mb-0">Ascoltate di recente</h5>
                 </div>
-                <button class="btn btn-outline-light btn-close"><i class="fas fa-times"></i></button>
+                <button class="btn btn-outline-light btn-close"><i class="bi bi-x-lg"></i></button>
               </div>
 
               <div class="d-flex">
@@ -142,9 +144,9 @@
 
               <!-- Icona e messaggio centrale -->
               <div class="text-center mt-5">
-                <i class="fas fa-bars fa-4x text-muted mb-4"></i>
+                <i class="bi bi-list fa-4x text-muted mb-4"></i>
                 <h3 class="fw-bold">Aggiungi in coda</h3>
-                <p class="text-muted">Tocca "Aggiungi in coda" dal menu di un brano per visualizzarlo qui</p>
+                <p class="text-secondary">Tocca "Aggiungi in coda" dal menu di un brano per visualizzarlo qui</p>
                 <button class="btn btn-light mt-4">Trova qualcosa da ascoltare</button>
               </div>
             </aside>
