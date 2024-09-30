@@ -15,7 +15,62 @@
     <link rel="stylesheet" href="./assets/css/circular-font.css" />
   </head>
   <body>
-    <header class="text-bg-dark">test</header>
+    <header class="text-bg-dark">
+      <nav class="navbar navbar-expand-lg text-bg-white justify-content-between">
+        <div class="container-fluid justify-content-between">
+          <div>
+            <a class="navbar-brand" href="./homepage.html"><img class="rounded-circle" height="40" src="./assets/imgs/logoSenzaScritta.png" /></a>
+          </div>
+          <div>
+            <form class="d-flex position-relative" role="search">
+              <input
+                class="form-control me-2 searchButton text-bg-secondary bg-black ps-5"
+                type="search"
+                placeholder="Cosa vuoi ascoltare?"
+                aria-label="Search"
+              />
+              <i class="bi bi-search position-absolute text-light" style="left: 15px; top: 50%; transform: translateY(-50%)"></i>
+              <!--inserito icona del cerca nel placeholder-->
+            </form>
+          </div>
+          <div class="d-flex">
+            <div>
+              <li class="nav-item dropdown d-flex ms-3">
+                <a class="nav-link" href="#" role="button" aria-expanded="false">
+                  <i class="bi bi-bell fs-4"></i>
+                </a>
+              </li>
+            </div>
+            <div>
+              <li class="nav-item dropdown d-flex align-items-center ms-3 me-3">
+                <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="bi bi-person-circle fs-4"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end mt-3 bg-secondary">
+                  <li>
+                    <a class="dropdown-item text-black" href="settings.html"><i class="far fa-user"></i> Account <i class="bi bi-box-arrow-up-right"></i></a>
+                  </li>
+                  <li>
+                    <a href="profile.html" class="dropdown-item text-black" href="#"><i class="fas fa-pencil-alt"></i>Profilo</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item text-black" href="#">
+                      <i class="fas fa-random"></i> Effettua l'upgrade a premium <i class="bi bi-box-arrow-up-right"></i
+                    ></a>
+                  </li>
+
+                  <li>
+                    <a class="dropdown-item text-black" href="#"><i class="far fa-question-circle"></i> Impostazioni</a>
+                  </li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li><a class="dropdown-item text-black" href="#">Esci</a></li>
+                </ul>
+              </li>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
     <main class="text-bg-dark">
       <div class="container-fluid">
         <div class="row gap-2 g-2">
