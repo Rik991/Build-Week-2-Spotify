@@ -12005,4 +12005,20 @@ footer input:hover::-webkit-slider-thumb {
 
 .volume input {
   width: 100px;
+}
+
+.testH {
+  background-color: rgba(58, 58, 58, 0);
+}
+
+.testH:hover {
+  background-color: rgb(58, 58, 58);
+}
+
+.testH {
+  background-color: rgba(58, 58, 58, 0);
+}
+
+.testH:hover {
+  background-color: rgb(58, 58, 58);
 }/*# sourceMappingURL=style.css.map */
