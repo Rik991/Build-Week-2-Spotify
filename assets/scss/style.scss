@@ -1,8 +1,5 @@
-@import "./bootstrap.scss";
-// aside
-
+@import "./partials/hero.scss"; // aside
 // footer
-
 .controlli-riproduzione button {
   color: white;
   border: none;
@@ -65,3 +62,5 @@ footer input:hover::-webkit-slider-thumb {
 .testH:hover {
   background-color: rgba(58, 58, 58, 1);
 }
+
+@import "./bootstrap.scss";
