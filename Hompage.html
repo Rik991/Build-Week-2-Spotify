@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spotify</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  </head>
+  <body>
+    <!-- Barra laterale -->
+    <aside class="barra-laterale">
+      <div class="logo">
+        <h1>Spotify Clone</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><i class="fas fa-home"></i> <a href="#">Home</a></li>
+          <li><i class="fas fa-search"></i> <a href="#">Cerca</a></li>
+          <li><i class="fas fa-book"></i> <a href="#">La tua libreria</a></li>
+        </ul>
+      </nav>
+      <div class="playlist">
+        <h3>Playlist</h3>
+        <ul>
+          <li><a href="#">Brani che ti piacciono</a></li>
+          <li><a href="#">Rockstar</a></li>
+          <li><a href="#">iPhone Fede</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Sezione principale -->
+    <main class="sezione-principale">
+      <header>
+        <input type="text" placeholder="Cosa vuoi ascoltare?" />
+        <div class="profilo-utente"><i class="fas fa-user"></i> <span>Profilo</span></div>
+      </header>
+
+      <section class="playlist-evidenza">
+        <div class="playlist-header">
+          <h2>Power Hits</h2>
+          <p>Ascolta tutte le hit del momento!</p>
+          <button class="btn-play">Play</button>
+          <button class="btn-follow">Segui</button>
+        </div>
+      </section>
+
+      <!-- Sezione con album popolari -->
+      <section class="album-popolari">
+        <h3>Stazioni radio più popolari</h3>
+        <div class="griglia-album">
+          <div class="album">
+            <img src="https://via.placeholder.com/150" alt="The Weeknd" />
+            <p>The Weeknd</p>
+          </div>
+          <div class="album">
+            <img src="https://via.placeholder.com/150" alt="Oasis" />
+            <p>Oasis</p>
+          </div>
+          <div class="album">
+            <img src="https://via.placeholder.com/150" alt="Coldplay" />
+            <p>Coldplay</p>
+          </div>
+          <div class="album">
+            <img src="https://via.placeholder.com/150" alt="Vasco Rossi" />
+            <p>Vasco Rossi</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Barra di riproduzione -->
+    <footer class="barra-riproduzione">
+      <div class="canzone-info">
+        <img src="https://via.placeholder.com/50" alt="Copertina album" />
+        <div class="titolo-canzone">
+          <p>Nome Canzone</p>
+          <p>Artista</p>
+        </div>
+      </div>
+      <div class="controlli-riproduzione">
+        <button><i class="fas fa-backward"></i></button>
+        <button><i class="fas fa-play"></i></button>
+        <button><i class="fas fa-forward"></i></button>
+      </div>
+      <div class="volume">
+        <i class="fas fa-volume-up"></i>
+        <input type="range" min="0" max="100" />
+      </div>
+    </footer>
+  </body>
+</html>

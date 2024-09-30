@@ -1,0 +1,191 @@
+/* Stili generali */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #121212;
+  color: #fff;
+}
+
+a {
+  text-decoration: none;
+  color: #b3b3b3;
+}
+
+a:hover {
+  color: #fff;
+}
+
+input[type="text"] {
+  padding: 10px;
+  width: 300px;
+  border-radius: 20px;
+  border: none;
+  background-color: #2e2e2e;
+  color: #fff;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+header input {
+  font-size: 16px;
+}
+
+header .profilo-utente {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+header .profilo-utente i {
+  margin-right: 10px;
+}
+
+/* Barra laterale */
+.barra-laterale {
+  width: 250px;
+  height: 100vh;
+  background-color: #000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 20px;
+}
+
+.barra-laterale .logo h1 {
+  color: #1db954;
+  margin-bottom: 20px;
+}
+
+.barra-laterale nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.barra-laterale nav ul li {
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+}
+
+.barra-laterale nav ul li i {
+  margin-right: 10px;
+}
+
+.playlist ul {
+  list-style: none;
+  padding: 0;
+}
+
+.playlist ul li {
+  margin: 10px 0;
+}
+
+/* Sezione principale */
+.sezione-principale {
+  margin-left: 250px;
+  padding: 20px;
+}
+
+.playlist-evidenza {
+  background-color: #282828;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.playlist-header h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.playlist-header p {
+  margin-bottom: 20px;
+}
+
+.btn-play {
+  background-color: #1db954;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-follow {
+  background-color: transparent;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 30px;
+  border: 1px solid #fff;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+/* Album popolari */
+.album-popolari {
+  margin-top: 30px;
+}
+
+.griglia-album {
+  display: flex;
+  gap: 20px;
+}
+
+.album {
+  text-align: center;
+}
+
+.album img {
+  width: 150px;
+  height: 150px;
+  border-radius: 10px;
+}
+
+.album p {
+  margin-top: 10px;
+}
+
+/* Barra di riproduzione */
+.barra-riproduzione {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #181818;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.canzone-info {
+  display: flex;
+  align-items: center;
+}
+
+.canzone-info img {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.controlli-riproduzione button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.volume {
+  display: flex;
+  align-items: center;
+}
+
+.volume input {
+  margin-left: 10px;
+}
