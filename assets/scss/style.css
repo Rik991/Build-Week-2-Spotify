@@ -11964,4 +11964,8 @@ textarea.form-control-lg {
   .d-print-none {
     display: none !important;
   }
+}
+.barra-riproduzione {
+  width: 100%;
+  background-color: #181818;
 }/*# sourceMappingURL=style.css.map */
