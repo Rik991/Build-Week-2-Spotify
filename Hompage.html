@@ -6,68 +6,91 @@
     <title>Spotify</title>
     <link rel="stylesheet" href="./assets/css/style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
   </head>
   <body>
-    <!-- Barra laterale -->
-    <aside class="barra-laterale">
-      <div class="logo">
-        <h1>Spotify Clone</h1>
-      </div>
-      <nav>
-        <ul>
-          <li><i class="fas fa-home"></i> <a href="#">Home</a></li>
-          <li><i class="fas fa-search"></i> <a href="#">Cerca</a></li>
-          <li><i class="fas fa-book"></i> <a href="#">La tua libreria</a></li>
-        </ul>
-      </nav>
-      <div class="playlist">
-        <h3>Playlist</h3>
-        <ul>
-          <li><a href="#">Brani che ti piacciono</a></li>
-          <li><a href="#">Rockstar</a></li>
-          <li><a href="#">iPhone Fede</a></li>
-        </ul>
-      </div>
-    </aside>
+    <!-- Header -->
+    <header class=""></header>
 
     <!-- Sezione principale -->
     <main class="sezione-principale">
-      <header>
-        <input type="text" placeholder="Cosa vuoi ascoltare?" />
-        <div class="profilo-utente"><i class="fas fa-user"></i> <span>Profilo</span></div>
-      </header>
+      <div class="container-fluid">
+        <!-- Barra laterale -->
+        <aside class="d-flex flex-column bg-dark text-white vh-100 p-3 barra-laterale">
+          <div class="logo mb-4">
+            <h1 class="fs-4 text-success">Spotify Clone</h1>
+          </div>
+          <nav>
+            <ul class="nav flex-column">
+              <li class="nav-item mb-3"><i class="fas fa-home"></i> <a href="#" class="nav-link text-white">Home</a></li>
+              <li class="nav-item mb-3"><i class="fas fa-search"></i> <a href="#" class="nav-link text-white">Cerca</a></li>
+              <li class="nav-item mb-3"><i class="fas fa-book"></i> <a href="#" class="nav-link text-white">La tua libreria</a></li>
+            </ul>
+          </nav>
+          <div class="playlist mt-4">
+            <h3 class="text-muted">Playlist</h3>
+            <ul class="nav flex-column">
+              <li class="nav-item"><a href="#" class="nav-link text-white">Brani che ti piacciono</a></li>
+              <li class="nav-item"><a href="#" class="nav-link text-white">Rockstar</a></li>
+              <li class="nav-item"><a href="#" class="nav-link text-white">iPhone Fede</a></li>
+            </ul>
+          </div>
+        </aside>
 
-      <section class="playlist-evidenza">
-        <div class="playlist-header">
-          <h2>Power Hits</h2>
-          <p>Ascolta tutte le hit del momento!</p>
-          <button class="btn-play">Play</button>
-          <button class="btn-follow">Segui</button>
-        </div>
-      </section>
+        <!-- Sezione playlist evidenza -->
+        <section class="playlist-evidenza bg-secondary p-5 rounded mb-4">
+          <div class="playlist-header">
+            <h2 class="text-white">Power Hits</h2>
+            <p class="text-muted">Ascolta tutte le hit del momento!</p>
+            <button class="btn btn-success me-2">Play</button>
+            <button class="btn btn-outline-light">Segui</button>
+          </div>
+        </section>
 
-      <!-- Sezione con album popolari -->
-      <section class="album-popolari">
-        <h3>Stazioni radio più popolari</h3>
-        <div class="griglia-album">
-          <div class="album">
-            <img src="https://via.placeholder.com/150" alt="The Weeknd" />
-            <p>The Weeknd</p>
+        <!-- Sezione album popolari -->
+        <section class="album-popolari">
+          <h3 class="text-white">Stazioni radio più popolari</h3>
+          <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mt-3">
+            <div class="col">
+              <div class="card bg-dark text-white">
+                <img src="https://via.placeholder.com/150" class="card-img-top" alt="The Weeknd" />
+                <div class="card-body">
+                  <h5 class="card-title">The Weeknd</h5>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card bg-dark text-white">
+                <img src="https://via.placeholder.com/150" class="card-img-top" alt="Oasis" />
+                <div class="card-body">
+                  <h5 class="card-title">Oasis</h5>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card bg-dark text-white">
+                <img src="https://via.placeholder.com/150" class="card-img-top" alt="Coldplay" />
+                <div class="card-body">
+                  <h5 class="card-title">Coldplay</h5>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card bg-dark text-white">
+                <img src="https://via.placeholder.com/150" class="card-img-top" alt="Vasco Rossi" />
+                <div class="card-body">
+                  <h5 class="card-title">Vasco Rossi</h5>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="album">
-            <img src="https://via.placeholder.com/150" alt="Oasis" />
-            <p>Oasis</p>
-          </div>
-          <div class="album">
-            <img src="https://via.placeholder.com/150" alt="Coldplay" />
-            <p>Coldplay</p>
-          </div>
-          <div class="album">
-            <img src="https://via.placeholder.com/150" alt="Vasco Rossi" />
-            <p>Vasco Rossi</p>
-          </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </main>
 
     <!-- Barra di riproduzione -->
@@ -89,5 +112,10 @@
         <input type="range" min="0" max="100" />
       </div>
     </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
