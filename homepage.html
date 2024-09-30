@@ -181,7 +181,7 @@
             </aside>
           </div>
           <!-- main content -->
-          <div class="col col-6 text-bg-secondary rounded p-3">
+          <div class="col col-6 rounded p-3" style="background-color: #181818">
             <!-- hero -->
             <div
               class="card mb-3 text-white position-relative border-0 fw-bolder"
@@ -189,27 +189,30 @@
                 background: linear-gradient(
                   185deg,
                   rgba(0, 0, 0, 0) 0%,
-                  rgba(0, 0, 0, 0.43040966386554624) 13%,
-                  rgba(0, 0, 0, 0.6152836134453781) 38%,
-                  rgba(0, 0, 0, 0.9290091036414566) 71%
+                  rgba(0, 0, 0, 0.43040966386554624) 55%,
+                  rgba(0, 0, 0, 0.5152836134453781) 60%,
+                  rgba(0, 0, 0, 0.9290091036414566) 90%
                 );
               "
             >
               <span class="badge text-bg-dark position-absolute rounded-1 end-0 top-0 p-2 m-3 fw-bolder">Sponsored</span>
 
-              <div class="row g-0">
-                <div class="col-md-4">
-                  <img src="./assets/imgs/main/image-10.jpg" class="img-fluid p-3" />
+              <div class="d-flex" style="height: 250px; min-width: 480px">
+                <div class="">
+                  <img src="./assets/imgs/main/image-10.jpg" style="height: 250px; width: 250px" class="p-3" />
                 </div>
-                <div class="col-md-8">
+                <div class="flex-grow-1">
                   <div class="card-body">
                     <p>Playlist</p>
                     <h2 class="card-title">Power Hits</h2>
-                    <p class="card-text">
+                    <p class="overflow-y-hidden mb-2" style="max-height: 90px">
                       Ascolta ora tutte le hit del momento dei numeri 1! Con Lazza, ANNA, The Weeknd, Mahmood, Karol G, Tananai e molti altri!
                     </p>
-                    <button type="button" class="btn rounded-pill btn-success me-2">Primary</button
-                    ><button type="button" class="btn rounded-pill btn-outline-secondary me-2">Primary</button><a href="#">...</a>
+                    <div class="d-flex align-items-center">
+                      <button type="button" class="btn rounded-pill btn-success me-2 px-4 py-2 text-dark fw-bold" style="background-color: #63d566">Play</button
+                      ><button type="button" class="btn rounded-pill btn-outline-secondary me-2 px-4 py-2 fw-bold">Follow</button
+                      ><a href="#" class="link-underline-opacity-0 fs-4 text-secondary"><i class="bi bi-three-dots"></i></a>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -217,11 +220,11 @@
             <!-- radio button -->
             <div class="mb-5" role="group" aria-label="Vertical radio toggle button group">
               <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio1" autocomplete="off" checked />
-              <label class="btn btn-primary rounded-pill me-1" for="vbtn-radio1">All</label>
+              <label class="btn btn-secondary rounded-pill me-1 px-3 fw-bolder" for="vbtn-radio1">All</label>
               <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio2" autocomplete="off" />
-              <label class="btn btn-primary rounded-pill me-1" for="vbtn-radio2">Music</label>
+              <label class="btn btn-secondary rounded-pill me-1 px-3 fw-bolder" for="vbtn-radio2">Music</label>
               <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio3" autocomplete="off" />
-              <label class="btn btn-primary rounded-pill me-1" for="vbtn-radio3">Podcasts</label>
+              <label class="btn btn-secondary rounded-pill me-1 px-3 fw-bolder" for="vbtn-radio3">Podcasts</label>
             </div>
             <!-- fine radio button -->
             <!-- carosello Popular radio -->
