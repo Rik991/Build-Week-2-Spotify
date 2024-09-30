@@ -1,10 +1,46 @@
 @import "./bootstrap.scss";
 
 // footer
-.barra-riproduzione {
-  //   position: fixed;
-  //   bottom: 0;
-  //   left: 0;
-  width: 100%;
-  background-color: #181818;
+
+.controlli-riproduzione button {
+  color: white;
+  border: none;
+  padding: 0;
+  margin-inline: 0.5rem;
+}
+
+footer input {
+  //stile per la barra di riproduzione e del volume
+  -webkit-appearance: none;
+  appearance: none; //rimuovo lo stile di default del type
+  height: 4px;
+  background: white; /* Colore bianco per la barra */
+  outline: none; //contorno
+  transition: background-color 0.2s, opacity 0.2s;
+}
+
+// Toggle invisibile
+footer input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 0;
+  height: 0;
+  background: transparent;
+}
+
+footer input:hover {
+  background: green; /* Barra verde al passaggio del mouse */
+  opacity: 1;
+}
+
+footer input:hover::-webkit-slider-thumb {
+  width: 12px; /* Rendi visibile il toggle */
+  height: 12px;
+  background: white;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.volume input {
+  width: 100px;
 }
