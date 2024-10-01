@@ -87,15 +87,15 @@
                 </div>
               </div>
 
-              <!-- Bottoni per Playlist, Album, Artisti -->
+              <!-- Bottoni per Playlist, Album, Artisti con link -->
               <div class="d-flex gap-2 mb-4">
-                <button class="btn btn-outline-secondary rounded-pill text-white">Playlist</button>
-                <button class="btn btn-outline-secondary rounded-pill text-white">Album</button>
-                <button class="btn btn-outline-secondary rounded-pill text-white">Artisti</button>
+                <a href="#" class="btn btn-outline-secondary rounded-pill text-white text-decoration-none">Playlist</a>
+                <a href="album.html" class="btn btn-outline-secondary rounded-pill text-white text-decoration-none">Album</a>
+                <a href="artist.html" class="btn btn-outline-secondary rounded-pill text-white text-decoration-none">Artisti</a>
               </div>
 
               <!-- Input di ricerca  -->
-              <div class="d-flex align-items-center mb-3">
+              <div class="d-flex justify-content-between mb-3">
                 <div class="input-group" style="width: 150px">
                   <span class="input-group-text bg-dark border-0 text-white">
                     <i class="bi bi-search"></i>
@@ -141,7 +141,7 @@
                   </div>
                 </li>
                 <li class="d-flex align-items-center mb-3">
-                  <img src="./assets/imgs/search/image-13.jpg" class="me-2 rounded" alt="Cover" width="40" height="40" />
+                  <img src="./assets/imgs/search/image-13.jpeg" class="me-2 rounded" alt="Cover" width="40" height="40" />
                   <div>
                     <strong>Brani che ti piacciono</strong><br />
                     <span class="playlist-description text-secondary">Playlist · 117 brani</span>
@@ -180,28 +180,25 @@
               </ul>
             </aside>
           </div>
-          <!-- main content -->
-          <div class="col col-6 rounded p-3">
+          <!--main content -->
+          <div class="col col-6 text-bg-secondary rounded p-3">
             <!-- hero -->
-            <div class="card mb-3 text-white position-relative border-0 fw-bolder hero-HomeG">
+            <div class="hero-HomeG card mb-3 text-white position-relative border-0 fw-bolder">
               <span class="badge text-bg-dark position-absolute rounded-1 end-0 top-0 p-2 m-3 fw-bolder">Sponsored</span>
 
-              <div class="d-flex" style="height: 250px; min-width: 480px">
-                <div class="">
-                  <img src="./assets/imgs/main/image-10.jpg" style="height: 250px; width: 250px" class="p-3" />
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img src="./assets/imgs/main/image-10.jpg" class="img-fluid p-3" />
                 </div>
-                <div class="flex-grow-1">
+                <div class="col-md-8">
                   <div class="card-body">
                     <p>Playlist</p>
                     <h2 class="card-title">Power Hits</h2>
-                    <p class="overflow-y-hidden mb-2" style="max-height: 90px">
+                    <p class="card-text">
                       Ascolta ora tutte le hit del momento dei numeri 1! Con Lazza, ANNA, The Weeknd, Mahmood, Karol G, Tananai e molti altri!
                     </p>
-                    <div class="d-flex align-items-center">
-                      <button type="button" class="btn rounded-pill btn-success me-2 px-4 py-2 text-dark fw-bold" style="background-color: #63d566">Play</button
-                      ><button type="button" class="btn rounded-pill btn-outline-secondary me-2 px-4 py-2 fw-bold">Follow</button
-                      ><a href="#" class="link-underline-opacity-0 fs-4 text-secondary"><i class="bi bi-three-dots"></i></a>
-                    </div>
+                    <button type="button" class="btn rounded-pill btn-success me-2">Primary</button
+                    ><button type="button" class="btn rounded-pill btn-outline-secondary me-2">Primary</button><a href="#">...</a>
                   </div>
                 </div>
               </div>
@@ -209,93 +206,53 @@
             <!-- radio button -->
             <div class="mb-5" role="group" aria-label="Vertical radio toggle button group">
               <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio1" autocomplete="off" checked />
-              <label class="btn btn-secondary rounded-pill me-1 px-3 fw-bolder" for="vbtn-radio1">All</label>
+              <label class="btn btn-primary rounded-pill me-1" for="vbtn-radio1">All</label>
               <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio2" autocomplete="off" />
-              <label class="btn btn-secondary rounded-pill me-1 px-3 fw-bolder" for="vbtn-radio2">Music</label>
+              <label class="btn btn-primary rounded-pill me-1" for="vbtn-radio2">Music</label>
               <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio3" autocomplete="off" />
-              <label class="btn btn-secondary rounded-pill me-1 px-3 fw-bolder" for="vbtn-radio3">Podcasts</label>
+              <label class="btn btn-primary rounded-pill me-1" for="vbtn-radio3">Podcasts</label>
             </div>
             <!-- fine radio button -->
             <!-- carosello Popular radio -->
             <h2 class="mb-3">Popular radio</h2>
             <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
               <div class="col">
-                <div class="card h-100 border-0 text-white testH position-relative">
-                  <div class="rounded p-2 m-0 badgePlay">
+                <div class="card h-100 border-0 text-white testH">
+                  <div class="rounded p-2 m-0">
                     <img src="./assets/imgs/main/image-11.jpg" class="img-fluid rounded" alt="..." />
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="30"
-                      height="30"
-                      fill="#63D566"
-                      class="bi bi-play-circle-fill position-absolute"
-                      viewBox="0 0 16 16"
-                    >
-                      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814z" />
-                    </svg>
                   </div>
                   <div class="card-body pt-0">
-                    <p class="card-text overflow-hidden text-secondary" style="max-height: 3rem">With Chase Atlantic, SZA,</p>
+                    <p class="card-text overflow-hidden" style="max-height: 3rem">With Chase Atlantic, SZA,</p>
                   </div>
                 </div>
               </div>
               <div class="col">
-                <div class="card h-100 border-0 text-white testH position-relative">
-                  <div class="rounded p-2 m-0 badgePlay">
+                <div class="card h-100 border-0 text-white testH">
+                  <div class="rounded p-2 m-0">
                     <img src="./assets/imgs/main/image-11.jpg" class="img-fluid rounded" alt="..." />
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="30"
-                      height="30"
-                      fill="#63D566"
-                      class="bi bi-play-circle-fill position-absolute"
-                      viewBox="0 0 16 16"
-                    >
-                      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814z" />
-                    </svg>
                   </div>
                   <div class="card-body pt-0">
-                    <p class="card-text overflow-hidden text-secondary" style="max-height: 3rem">With Chase Atlantic, SZA, The</p>
+                    <p class="card-text overflow-hidden" style="max-height: 3rem">With Chase Atlantic, SZA, The</p>
                   </div>
                 </div>
               </div>
               <div class="col">
-                <div class="card h-100 border-0 text-white testH position-relative">
-                  <div class="rounded p-2 m-0 badgePlay">
+                <div class="card h-100 border-0 text-white testH">
+                  <div class="rounded p-2 m-0">
                     <img src="./assets/imgs/main/image-11.jpg" class="img-fluid rounded" alt="..." />
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="30"
-                      height="30"
-                      fill="#63D566"
-                      class="bi bi-play-circle-fill position-absolute"
-                      viewBox="0 0 16 16"
-                    >
-                      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814z" />
-                    </svg>
                   </div>
                   <div class="card-body pt-0">
-                    <p class="card-text overflow-hidden text-secondary" style="max-height: 3rem">With Chase Atlantic, SZA, The</p>
+                    <p class="card-text overflow-hidden" style="max-height: 3rem">With Chase Atlantic, SZA, The</p>
                   </div>
                 </div>
               </div>
               <div class="col">
-                <div class="card h-100 border-0 text-white testH position-relative">
-                  <div class="rounded p-2 m-0 badgePlay">
+                <div class="card h-100 border-0 text-white testH">
+                  <div class="rounded p-2 m-0">
                     <img src="./assets/imgs/main/image-11.jpg" class="img-fluid rounded" alt="..." />
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="30"
-                      height="30"
-                      fill="#63D566"
-                      class="bi bi-play-circle-fill position-absolute"
-                      viewBox="0 0 16 16"
-                    >
-                      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814z" />
-                    </svg>
                   </div>
                   <div class="card-body pt-0">
-                    <p class="card-text overflow-hidden text-secondary" style="max-height: 3rem">With Chase Atlantic, SZA, The</p>
+                    <p class="card-text overflow-hidden" style="max-height: 3rem">With Chase Atlantic, SZA, The</p>
                   </div>
                 </div>
               </div>
@@ -304,86 +261,46 @@
             <h2 class="mb-3">Popular Albums</h2>
             <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
               <div class="col">
-                <div class="card h-100 border-0 text-white testH position-relative">
-                  <div class="rounded p-2 m-0 badgePlay">
+                <div class="card h-100 border-0 text-white testH">
+                  <div class="rounded p-2 m-0">
                     <img src="./assets/imgs/main/image-11.jpg" class="img-fluid rounded" alt="..." />
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="30"
-                      height="30"
-                      fill="#63D566"
-                      class="bi bi-play-circle-fill position-absolute mb-2"
-                      viewBox="0 0 16 16"
-                    >
-                      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814z" />
-                    </svg>
                   </div>
                   <div class="card-body pt-0">
-                    <h5>Pino</h5>
-                    <p class="card-text overflow-hidden text-secondary" style="max-height: 1.5rem">With Chase Atlantic, SZA,</p>
+                    <h5>Pino U panino</h5>
+                    <p class="card-text overflow-hidden" style="max-height: 3rem">With Chase Atlantic, SZA,</p>
                   </div>
                 </div>
               </div>
               <div class="col">
-                <div class="card h-100 border-0 text-white testH position-relative">
-                  <div class="rounded p-2 m-0 badgePlay">
+                <div class="card h-100 border-0 text-white testH">
+                  <div class="rounded p-2 m-0">
                     <img src="./assets/imgs/main/image-11.jpg" class="img-fluid rounded" alt="..." />
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="30"
-                      height="30"
-                      fill="#63D566"
-                      class="bi bi-play-circle-fill position-absolute mb-2"
-                      viewBox="0 0 16 16"
-                    >
-                      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814z" />
-                    </svg>
                   </div>
                   <div class="card-body pt-0">
-                    <h5>Pino</h5>
-                    <p class="card-text overflow-hidden text-secondary" style="max-height: 1.5rem">With Chase Atlantic, SZA, The</p>
+                    <h5>Pino U panino</h5>
+                    <p class="card-text overflow-hidden" style="max-height: 3rem">With Chase Atlantic, SZA, The</p>
                   </div>
                 </div>
               </div>
               <div class="col">
-                <div class="card h-100 border-0 text-white testH position-relative">
-                  <div class="rounded p-2 m-0 badgePlay">
+                <div class="card h-100 border-0 text-white testH">
+                  <div class="rounded p-2 m-0">
                     <img src="./assets/imgs/main/image-11.jpg" class="img-fluid rounded" alt="..." />
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="30"
-                      height="30"
-                      fill="#63D566"
-                      class="bi bi-play-circle-fill position-absolute mb-2"
-                      viewBox="0 0 16 16"
-                    >
-                      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814z" />
-                    </svg>
                   </div>
                   <div class="card-body pt-0">
-                    <h5>Pino</h5>
-                    <p class="card-text overflow-hidden text-secondary" style="max-height: 1.5rem">With Chase Atlantic, SZA, The</p>
+                    <h5>Pino U panino</h5>
+                    <p class="card-text overflow-hidden" style="max-height: 3rem">With Chase Atlantic, SZA, The</p>
                   </div>
                 </div>
               </div>
               <div class="col">
-                <div class="card h-100 border-0 text-white testH position-relative">
-                  <div class="rounded p-2 m-0 badgePlay">
+                <div class="card h-100 border-0 text-white testH">
+                  <div class="rounded p-2 m-0">
                     <img src="./assets/imgs/main/image-11.jpg" class="img-fluid rounded" alt="..." />
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="30"
-                      height="30"
-                      fill="#63D566"
-                      class="bi bi-play-circle-fill position-absolute mb-2"
-                      viewBox="0 0 16 16"
-                    >
-                      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814z" />
-                    </svg>
                   </div>
                   <div class="card-body pt-0">
-                    <h5>Pino</h5>
-                    <p class="card-text overflow-hidden text-secondary" style="max-height: 1.5rem">With Chase Atlantic, SZA, The</p>
+                    <h5>Pino U panino</h5>
+                    <p class="card-text overflow-hidden" style="max-height: 3rem">With Chase Atlantic, SZA, The</p>
                   </div>
                 </div>
               </div>
