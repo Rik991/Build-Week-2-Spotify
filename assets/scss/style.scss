@@ -1,8 +1,5 @@
-@import "./bootstrap.scss";
-// aside
-
+@import "./partials/hero.scss"; // aside
 // footer
-
 .controlli-riproduzione button {
   color: white;
   border: none;
@@ -49,6 +46,16 @@ footer input:hover::-webkit-slider-thumb {
 // main content
 
 .testH {
+  background-color: rgba(58, 58, 58, 0);
+}
+
+.testH:hover {
+  background-color: rgba(58, 58, 58, 1);
+}
+
+// main content
+
+.testH {
   background-color: rgba(48, 48, 48, 0);
   .badgePlay {
     svg {
@@ -71,3 +78,5 @@ footer input:hover::-webkit-slider-thumb {
     }
   }
 }
+
+@import "./bootstrap.scss";
