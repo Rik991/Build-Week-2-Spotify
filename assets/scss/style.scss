@@ -1,5 +1,13 @@
 @import "./partials/hero.scss"; // aside
 // footer
+footer {
+  position: sticky;
+  z-index: 950;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
 .controlli-riproduzione button {
   color: white;
   border: none;
@@ -46,17 +54,7 @@ footer input:hover::-webkit-slider-thumb {
 // main content
 
 .testH {
-  background-color: rgba(58, 58, 58, 0);
-}
-
-.testH:hover {
-  background-color: rgba(58, 58, 58, 1);
-}
-
-// main content
-
-.testH {
-  background-color: rgba(48, 48, 48, 0);
+  background-color: rgba(48, 48, 48, 0) !important;
   .badgePlay {
     svg {
       opacity: 0;
@@ -67,7 +65,7 @@ footer input:hover::-webkit-slider-thumb {
 }
 
 .testH:hover {
-  background-color: rgb(48, 48, 48);
+  background-color: rgb(48, 48, 48, 1) !important;
   .badgePlay:hover {
     svg {
       opacity: 1;
