@@ -79,10 +79,16 @@ const getData = (url) => {
     });
 };
 
-getData(genericUrl + "tizianoferro");
-getData(genericUrl + "queen");
-getData(genericUrl + "pino");
-getData(genericUrl + "lazza");
+const artisti = ["tizianoferro", "queen", "pino", "lazza", "weeknd", "travis", "Eminem", "Annalisa", "Billie", "post", "fedez", "lady", "adele"];
+
+getData(genericUrl + artisti[Math.floor(Math.random() * artisti.length)]);
+getData(genericUrl + artisti[Math.floor(Math.random() * artisti.length)]);
+getData(genericUrl + artisti[Math.floor(Math.random() * artisti.length)]);
+getData(genericUrl + artisti[Math.floor(Math.random() * artisti.length)]);
+
+// getData(genericUrl + "queen");
+// getData(genericUrl + "weeknd");
+// getData(genericUrl + "lazza");
 
 class Songs {
   constructor(_name, _title_short, _preview, _cover, _duration) {
