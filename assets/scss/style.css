@@ -1,4 +1,86 @@
 @charset "UTF-8";
+.hero-HomeG {
+  background: linear-gradient(185deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4304096639) 13%, rgba(0, 0, 0, 0.6152836134) 38%, rgba(0, 0, 0, 0.9290091036) 71%);
+}
+
+.hero-artistC {
+  background-color: darkcyan;
+}
+
+.verified-iconC {
+  color: #4cb3ff;
+}
+
+.playBtnC {
+  color: #1ed760;
+}
+
+.gradient-main {
+  /* fallback for old browsers */
+  background: #565658;
+  /* Chrome 10-25, Safari 5.1-6 */
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to top, rgba(86, 86, 88, 0.5), rgba(183, 184, 184, 0.5));
+}
+
+.controlli-riproduzione button {
+  color: white;
+  border: none;
+  padding: 0;
+  margin-inline: 0.5rem;
+}
+
+footer input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+  height: 4px;
+  background: white; /* Colore bianco per la barra */
+  outline: none;
+  transition: background-color 0.2s, opacity 0.2s;
+}
+
+footer input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 0;
+  height: 0;
+  background: transparent;
+}
+
+footer input:hover {
+  background: green; /* Barra verde al passaggio del mouse */
+  opacity: 1;
+}
+
+footer input:hover::-webkit-slider-thumb {
+  width: 12px; /* Rendi visibile il toggle */
+  height: 12px;
+  background: white;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.volume input {
+  width: 100px;
+}
+
+.testH {
+  background-color: rgba(58, 58, 58, 0);
+}
+
+.testH:hover {
+  background-color: rgb(58, 58, 58);
+}
+
+.testH {
+  background-color: rgba(58, 58, 58, 0);
+}
+
+.testH:hover {
+  background-color: rgb(58, 58, 58);
+}
+
 /*!
  * Bootstrap  v5.3.3 (https://getbootstrap.com/)
  * Copyright 2011-2024 The Bootstrap Authors
@@ -11964,65 +12046,4 @@ textarea.form-control-lg {
   .d-print-none {
     display: none !important;
   }
-}
-.controlli-riproduzione button {
-  color: white;
-  border: none;
-  padding: 0;
-  margin-inline: 0.5rem;
-}
-
-footer input {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-       appearance: none;
-  height: 4px;
-  background: white; /* Colore bianco per la barra */
-  outline: none;
-  transition: background-color 0.2s, opacity 0.2s;
-}
-
-footer input::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 0;
-  height: 0;
-  background: transparent;
-}
-
-footer input:hover {
-  background: green; /* Barra verde al passaggio del mouse */
-  opacity: 1;
-}
-
-footer input:hover::-webkit-slider-thumb {
-  width: 12px; /* Rendi visibile il toggle */
-  height: 12px;
-  background: white;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-.volume input {
-  width: 100px;
-}
-
-.testH {
-  background-color: rgba(48, 48, 48, 0);
-}
-.testH .badgePlay svg {
-  opacity: 0;
-  bottom: 4.5rem;
-  right: 1rem;
-}
-
-.testH:hover {
-  background-color: rgb(48, 48, 48);
-}
-.testH:hover .badgePlay:hover svg {
-  opacity: 1;
-  transition: 200ms;
-  bottom: 5rem;
-  right: 1rem;
-  cursor: pointer;
 }/*# sourceMappingURL=style.css.map */

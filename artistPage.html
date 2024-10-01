@@ -87,15 +87,15 @@
                 </div>
               </div>
 
-              <!-- Bottoni per Playlist, Album, Artisti con link -->
+              <!-- Bottoni per Playlist, Album, Artisti -->
               <div class="d-flex gap-2 mb-4">
-                <a href="#" class="btn btn-outline-secondary rounded-pill text-white text-decoration-none">Playlist</a>
-                <a href="album.html" class="btn btn-outline-secondary rounded-pill text-white text-decoration-none">Album</a>
-                <a href="#" class="btn btn-outline-secondary rounded-pill text-white text-decoration-none">Artisti</a>
+                <button class="btn btn-outline-secondary rounded-pill text-white">Playlist</button>
+                <button class="btn btn-outline-secondary rounded-pill text-white">Album</button>
+                <button class="btn btn-outline-secondary rounded-pill text-white">Artisti</button>
               </div>
 
               <!-- Input di ricerca  -->
-              <div class="d-flex justify-content-between mb-3">
+              <div class="d-flex align-items-center mb-3">
                 <div class="input-group" style="width: 150px">
                   <span class="input-group-text bg-dark border-0 text-white">
                     <i class="bi bi-search"></i>
@@ -141,7 +141,7 @@
                   </div>
                 </li>
                 <li class="d-flex align-items-center mb-3">
-                  <img src="./assets/imgs/search/image-13.jpeg" class="me-2 rounded" alt="Cover" width="40" height="40" />
+                  <img src="./assets/imgs/search/image-13.jpg" class="me-2 rounded" alt="Cover" width="40" height="40" />
                   <div>
                     <strong>Brani che ti piacciono</strong><br />
                     <span class="playlist-description text-secondary">Playlist · 117 brani</span>
@@ -180,132 +180,90 @@
               </ul>
             </aside>
           </div>
-          <!--main content -->
-          <div class="col col-6 text-bg-secondary rounded p-3">
-            <!-- hero -->
-            <div class="hero-HomeG card mb-3 text-white position-relative border-0 fw-bolder">
-              <span class="badge text-bg-dark position-absolute rounded-1 end-0 top-0 p-2 m-3 fw-bolder">Sponsored</span>
+          <!-- main content -->
 
-              <div class="row g-0">
-                <div class="col-md-4">
-                  <img src="./assets/imgs/main/image-10.jpg" class="img-fluid p-3" />
-                </div>
-                <div class="col-md-8">
-                  <div class="card-body">
-                    <p>Playlist</p>
-                    <h2 class="card-title">Power Hits</h2>
-                    <p class="card-text">
-                      Ascolta ora tutte le hit del momento dei numeri 1! Con Lazza, ANNA, The Weeknd, Mahmood, Karol G, Tananai e molti altri!
-                    </p>
-                    <button type="button" class="btn rounded-pill btn-success me-2">Primary</button
-                    ><button type="button" class="btn rounded-pill btn-outline-secondary me-2">Primary</button><a href="#">...</a>
-                  </div>
-                </div>
+          <div class="col col-6 gradient-main rounded p-3">
+            <!-- hero -->
+            <div class="hero-artistC card mb-3 text-dark position-relative border-0 fw-bolder">
+              <div class="hero-textC">
+                <p><i class="verified-iconC bi bi-patch-check-fill"></i> Artista verificato</p>
+                <h1>Artista es Pinguini Tattici Nucleari</h1>
+                <!--sia h1 e paragrafo devono prendere i datoi dal fetch-->
+                <p>visualizzazioni</p>
+              </div>
+              <!--chiusura herotext-->
+            </div>
+            <!--chiusura hero-->
+            <!--bottoni prima della sezione -->
+            <div class="mb-5 d-flex" role="group" aria-label="Vertical radio toggle button group ">
+              <div>
+                <i class="playBtnC bi bi-play-circle-fill fs-1"></i>
+              </div>
+              <div>
+                <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio2" autocomplete="off" />
+                <label class="btn btn-bg-transparent border-white text-white rounded-pill me-1" for="vbtn-radio2">Segui</label>
+              </div>
+              <div>
+                <li class="nav-item dropdown d-flex align-items-center ms-3 me-3">
+                  <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="./assets/scss/partials/imgsCorinne/polpette.png" />
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-end mt-3 bg-secondary">
+                    <li>
+                      <a class="dropdown-item text-black" href="settings.html"> <i class="bi bi-person-plus"></i> Segui</a>
+                    </li>
+                    <li>
+                      <a href="profile.html" class="dropdown-item text-black" href="#"> <i class="bi bi-ban"></i> Non riprodurre i contenuti dell'artista</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item text-black" href="#"> <i class="bi bi-broadcast"></i> Vai a Radio dell'artista </a>
+                    </li>
+
+                    <li>
+                      <a class="dropdown-item text-black" href="#">
+                        <i class="bi bi-exclamation-octagon"></i> Segnala <i class="bi bi-box-arrow-up-right"></i
+                      ></a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item text-black" href="#"><i class="bi bi-box-arrow-up"></i> Condividi</a>
+                    </li>
+                    <li><hr class="dropdown-divider" /></li>
+                    <li>
+                      <a class="dropdown-item text-black" href="#">
+                        <img class="rounded-circle" height="20" src="./assets/imgs/logoSenzaScritta.png" /> Apri con l'app per desktop</a
+                      >
+                    </li>
+                  </ul>
+                </li>
               </div>
             </div>
-            <!-- radio button -->
-            <div class="mb-5" role="group" aria-label="Vertical radio toggle button group">
-              <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio1" autocomplete="off" checked />
-              <label class="btn btn-primary rounded-pill me-1" for="vbtn-radio1">All</label>
-              <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio2" autocomplete="off" />
-              <label class="btn btn-primary rounded-pill me-1" for="vbtn-radio2">Music</label>
-              <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio3" autocomplete="off" />
-              <label class="btn btn-primary rounded-pill me-1" for="vbtn-radio3">Podcasts</label>
-            </div>
-            <!-- fine radio button -->
-            <!-- carosello Popular radio -->
-            <h2 class="mb-3">Popular radio</h2>
-            <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
-              <div class="col">
-                <div class="card h-100 border-0 text-white testH">
-                  <div class="rounded p-2 m-0">
-                    <img src="./assets/imgs/main/image-11.jpg" class="img-fluid rounded" alt="..." />
+            <div class="row">
+              <div class="col col-md-7">
+                <h5>Popolari</h5>
+                <div class="row">
+                  <div class="col-md-8">
+                    <!--devono essere inseriti con api -->
+                    <p><img src="./assets/imgs/main/image-1.jpg" height="30" /> 1. romantico ma muori</p>
+                    <p><img src="./assets/imgs/main/image-1.jpg" height="30" /> 2. Rubami la notte</p>
+                    <p><img src="./assets/imgs/main/image-1.jpg" height="30" /> 3. Ridere</p>
+                    <p><img src="./assets/imgs/main/image-1.jpg" height="30" /> 4. Giovani Wannabe</p>
+                    <p><img src="./assets/imgs/main/image-1.jpg" height="30" /> 5. Ricordi</p>
                   </div>
-                  <div class="card-body pt-0">
-                    <p class="card-text overflow-hidden" style="max-height: 3rem">With Chase Atlantic, SZA,</p>
+                  <div class="col-md-2">
+                    <p>57235</p>
+                    <p>394500</p>
+                    <p>437654</p>
+                    <p>200000</p>
+                    <p>115073015</p>
+                    <p>92007193</p>
                   </div>
+                  <div class="col-md-2"></div>
                 </div>
               </div>
-              <div class="col">
-                <div class="card h-100 border-0 text-white testH">
-                  <div class="rounded p-2 m-0">
-                    <img src="./assets/imgs/main/image-11.jpg" class="img-fluid rounded" alt="..." />
-                  </div>
-                  <div class="card-body pt-0">
-                    <p class="card-text overflow-hidden" style="max-height: 3rem">With Chase Atlantic, SZA, The</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="card h-100 border-0 text-white testH">
-                  <div class="rounded p-2 m-0">
-                    <img src="./assets/imgs/main/image-11.jpg" class="img-fluid rounded" alt="..." />
-                  </div>
-                  <div class="card-body pt-0">
-                    <p class="card-text overflow-hidden" style="max-height: 3rem">With Chase Atlantic, SZA, The</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="card h-100 border-0 text-white testH">
-                  <div class="rounded p-2 m-0">
-                    <img src="./assets/imgs/main/image-11.jpg" class="img-fluid rounded" alt="..." />
-                  </div>
-                  <div class="card-body pt-0">
-                    <p class="card-text overflow-hidden" style="max-height: 3rem">With Chase Atlantic, SZA, The</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- carosello Popular albums -->
-            <h2 class="mb-3">Popular Albums</h2>
-            <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
-              <div class="col">
-                <div class="card h-100 border-0 text-white testH">
-                  <div class="rounded p-2 m-0">
-                    <img src="./assets/imgs/main/image-11.jpg" class="img-fluid rounded" alt="..." />
-                  </div>
-                  <div class="card-body pt-0">
-                    <h5>Pino U panino</h5>
-                    <p class="card-text overflow-hidden" style="max-height: 3rem">With Chase Atlantic, SZA,</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="card h-100 border-0 text-white testH">
-                  <div class="rounded p-2 m-0">
-                    <img src="./assets/imgs/main/image-11.jpg" class="img-fluid rounded" alt="..." />
-                  </div>
-                  <div class="card-body pt-0">
-                    <h5>Pino U panino</h5>
-                    <p class="card-text overflow-hidden" style="max-height: 3rem">With Chase Atlantic, SZA, The</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="card h-100 border-0 text-white testH">
-                  <div class="rounded p-2 m-0">
-                    <img src="./assets/imgs/main/image-11.jpg" class="img-fluid rounded" alt="..." />
-                  </div>
-                  <div class="card-body pt-0">
-                    <h5>Pino U panino</h5>
-                    <p class="card-text overflow-hidden" style="max-height: 3rem">With Chase Atlantic, SZA, The</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="card h-100 border-0 text-white testH">
-                  <div class="rounded p-2 m-0">
-                    <img src="./assets/imgs/main/image-11.jpg" class="img-fluid rounded" alt="..." />
-                  </div>
-                  <div class="card-body pt-0">
-                    <h5>Pino U panino</h5>
-                    <p class="card-text overflow-hidden" style="max-height: 3rem">With Chase Atlantic, SZA, The</p>
-                  </div>
-                </div>
-              </div>
+              <div class="col col-md-5"></div>
             </div>
           </div>
+
           <!-- aside 2 -->
           <div class="col col">
             <aside class="aside-coda bg-dark text-white p-4">
@@ -374,6 +332,5 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
-    <script src="./script/index.js"></script>
   </body>
 </html>
