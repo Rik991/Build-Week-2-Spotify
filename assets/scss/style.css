@@ -15,12 +15,33 @@
   color: #1ed760;
 }
 
-.gradient-main {
+.main-gradientC {
+  background: linear-gradient(185deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4304096639) 7%, rgba(0, 0, 0, 0.6152836134) 20%, rgba(0, 0, 0, 0.9290091036) 50%);
+}
+
+.album-section-gradient {
   /* fallback for old browsers */
-  background: #565658;
+  background: #cd9cf2;
   /* Chrome 10-25, Safari 5.1-6 */
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background: linear-gradient(to top, rgba(86, 86, 88, 0.5), rgba(183, 184, 184, 0.5));
+  background: linear-gradient(to right, rgba(205, 156, 242, 0.5), rgba(10, 10, 10, 0.5));
+}
+
+.artist-section-gradient {
+  /* fallback for old browsers */
+  background: #84fab0;
+  /* Chrome 10-25, Safari 5.1-6 */
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(8, 8, 8, 0.5));
+}
+
+.footer-text {
+  font-size: 12px;
+  padding: 5px;
+}
+
+.text-f {
+  font-size: 13px;
 }
 
 footer {

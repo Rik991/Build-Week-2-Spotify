@@ -129,7 +129,7 @@ const artisti = [
   "lady",
   "adele",
   "guns",
-  "greenday"
+  "greenday",
 ];
 
 getData(genericUrl + artisti[Math.floor(Math.random() * artisti.length)]);
@@ -156,9 +156,25 @@ class Songs {
 footerPlayBtn.addEventListener("click", () => {
   if (currentAudio.paused) {
     currentAudio.play();
-    footerPlayBtn.textContent = "Pause";
+    footerPlayBtn.innerHTML = '<i class="bi bi-pause-circle-fill"></i>'; //aggiunte icone invece delel scritte
   } else {
     currentAudio.pause();
-    footerPlayBtn.textContent = "Play";
+    footerPlayBtn.innerHTML = '<i class="bi bi-play-circle-fill"></i>';
   }
 });
+
+// const playBtn = document.querySelector(".footerPlayBtn"); // Il bottone che contiene l'icona
+// const playIcon = document.querySelector(".footerPlayIcon"); // L'icona all'interno del bottone
+// // const currAudio = new Audio("your-audio-file.mp3"); // Il tuo audio
+
+// playBtn.addEventListener("click", () => {
+//   if (currentAudio.paused) {
+//     currentAudio.play();
+//     playIcon.classList.remove("bi-play-circle-fill"); // Rimuovi l'icona di play
+//     playIcon.classList.add("bi-pause-circle-fill"); // Aggiungi l'icona di pausa
+//   } else {
+//     currentAudio.pause();
+//     playIcon.classList.remove("bi-pause-circle-fill"); // Rimuovi l'icona di pausa
+//     playIcon.classList.add("bi-play-circle-fill"); // Aggiungi l'icona di play
+//   }
+// });

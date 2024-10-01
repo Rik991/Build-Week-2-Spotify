@@ -1,4 +1,45 @@
-@import "./partials/hero.scss"; // aside
+@import "./partials/hero.scss";
+
+//main
+
+.main-gradientC {
+  background: linear-gradient(
+    185deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.43040966386554624) 7%,
+    rgba(0, 0, 0, 0.6152836134453781) 20%,
+    rgba(0, 0, 0, 0.9290091036414566) 50%
+  );
+}
+.album-section-gradient {
+  /* fallback for old browsers */
+  background: #cd9cf2;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgba(205, 156, 242, 0.5), rgba(10, 10, 10, 0.5));
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgba(205, 156, 242, 0.5), rgba(10, 10, 10, 0.5));
+}
+.artist-section-gradient {
+  /* fallback for old browsers */
+  background: #84fab0;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(8, 8, 8, 0.5));
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(8, 8, 8, 0.5));
+}
+//foter reale
+.footer-text {
+  font-size: 12px;
+  padding: 5px;
+}
+.text-f {
+  font-size: 13px;
+}
+
 // footer
 footer {
   position: sticky;

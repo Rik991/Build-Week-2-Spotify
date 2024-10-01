@@ -33,13 +33,3 @@ $new-them-colors: (
 .playBtnC {
   color: #1ed760;
 }
-.gradient-main {
-  /* fallback for old browsers */
-  background: #565658;
-
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: -webkit-linear-gradient(to top, rgba(86, 86, 88, 0.5), rgba(183, 184, 184, 0.5));
-
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background: linear-gradient(to top, rgba(86, 86, 88, 0.5), rgba(183, 184, 184, 0.5));
-}
