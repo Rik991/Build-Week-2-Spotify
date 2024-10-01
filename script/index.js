@@ -90,10 +90,6 @@ getData(genericUrl + artisti[Math.floor(Math.random() * artisti.length)]);
 getData(genericUrl + artisti[Math.floor(Math.random() * artisti.length)]);
 getData(genericUrl + artisti[Math.floor(Math.random() * artisti.length)]);
 
-// getData(genericUrl + "queen");
-// getData(genericUrl + "weeknd");
-// getData(genericUrl + "lazza");
-
 class Songs {
   constructor(_name, _title_short, _preview, _cover, _duration) {
     this.name = _name;
