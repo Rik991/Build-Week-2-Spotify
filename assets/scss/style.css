@@ -12046,4 +12046,68 @@ textarea.form-control-lg {
   .d-print-none {
     display: none !important;
   }
+<<<<<<< HEAD
+=======
+}
+.controlli-riproduzione button {
+  color: white;
+  border: none;
+  padding: 0;
+  margin-inline: 0.5rem;
+}
+
+footer input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+  height: 4px;
+  background: white; /* Colore bianco per la barra */
+  outline: none;
+  transition: background-color 0.2s, opacity 0.2s;
+}
+
+footer input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 0;
+  height: 0;
+  background: transparent;
+}
+
+footer input:hover {
+  background: green; /* Barra verde al passaggio del mouse */
+  opacity: 1;
+}
+
+footer input:hover::-webkit-slider-thumb {
+  width: 12px; /* Rendi visibile il toggle */
+  height: 12px;
+  background: white;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.volume input {
+  width: 100px;
+}
+
+.testH {
+  background-color: rgba(48, 48, 48, 0);
+}
+.testH .badgePlay svg {
+  opacity: 0;
+  bottom: 4.5rem;
+  right: 1rem;
+}
+
+.testH:hover {
+  background-color: rgb(48, 48, 48);
+}
+.testH:hover .badgePlay:hover svg {
+  opacity: 1;
+  transition: 200ms;
+  bottom: 5rem;
+  right: 1rem;
+  cursor: pointer;
+>>>>>>> Giuseppe-main-Homepage
 }/*# sourceMappingURL=style.css.map */
