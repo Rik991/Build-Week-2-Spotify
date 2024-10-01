@@ -50,8 +50,24 @@ footer input:hover::-webkit-slider-thumb {
 
 .testH {
   background-color: rgba(48, 48, 48, 0);
+  .badgePlay {
+    svg {
+      opacity: 0;
+      bottom: 4.5rem;
+      right: 1rem;
+    }
+  }
 }
 
 .testH:hover {
   background-color: rgb(48, 48, 48);
+  .badgePlay:hover {
+    svg {
+      opacity: 1;
+      transition: 200ms;
+      bottom: 5rem;
+      right: 1rem;
+      cursor: pointer;
+    }
+  }
 }
