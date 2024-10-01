@@ -25,7 +25,7 @@ const getData = (url) => {
         <div class="card h-100 border-0 text-white testH position-relative">
                   <div class="rounded p-2 m-0 badgePlay">
                     <img src="${song.cover}" class="img-fluid rounded" alt="..." />
-                    <a href="artist.html?artId=${element.id}">
+                   <a class="play-song-btn" href="#">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="30"
@@ -57,7 +57,7 @@ const getData = (url) => {
     <div class="card h-100 border-0 text-white testH position-relative">
                     <div class="rounded p-2 m-0 badgePlay">
                         <img src="${song2.cover}" class="img-fluid rounded" alt="..." />
-                        <a href="artist.html?artId=${element2.id}">
+                        <a class="play-song-btn" href="#">
                             <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="30"
@@ -71,7 +71,7 @@ const getData = (url) => {
                         </a>
                     </div>
                     <div class="card-body pt-0">
-                        <h5>${song2.name}</h5>
+                        <h5>${song2.artist}</h5>
                         <p class="card-text overflow-hidden text-secondary" style="max-height: 1.5rem">${song2.title_short}</p>
                     </div>
                     </div>
@@ -91,8 +91,8 @@ getData(genericUrl + artisti[Math.floor(Math.random() * artisti.length)]);
 getData(genericUrl + artisti[Math.floor(Math.random() * artisti.length)]);
 
 class Songs {
-  constructor(_name, _title_short, _preview, _cover, _duration) {
-    this.name = _name;
+  constructor(_artist, _title_short, _preview, _cover, _duration) {
+    this.artist = _artist;
     this.title_short = _title_short;
     this.preview = _preview;
     this.cover = _cover;
