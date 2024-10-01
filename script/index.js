@@ -42,7 +42,7 @@ const getData = (url) => {
                           width="30"
                           height="30"
                           fill="#63D566"
-                          class="bi bi-play-circle-fill position-absolute"
+                          class="bi bi-play-circle-fill position-absolute footerPlay"
                           viewBox="0 0 16 16"
                         >
                           <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814z" />
@@ -81,7 +81,7 @@ const getData = (url) => {
                     </a>
                     </div>
                     <div class="card-body pt-0">
-                        <h5>${song2.artist}</h5>
+                        <h6>${song2.artist}</h6>
                         <p class="card-text overflow-hidden text-secondary" style="max-height: 1.5rem">${song2.title_short}</p>
                     </div>
                     </div>
@@ -130,7 +130,7 @@ const artisti = [
   "lady",
   "adele",
   "guns",
-  "greenday",
+  "greenday"
 ];
 
 getData(genericUrl + artisti[Math.floor(Math.random() * artisti.length)]);
@@ -159,10 +159,10 @@ class Songs {
 footerPlayBtn.addEventListener("click", () => {
   if (currentAudio.paused) {
     currentAudio.play();
-    footerPlayBtn.textContent = "Pause";
+    footerPlayBtn.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
   } else {
     currentAudio.pause();
-    footerPlayBtn.textContent = "Play";
+    footerPlayBtn.innerHTML = `<i class="bi bi-play-circle-fill"></i>`;
   }
 });
 
