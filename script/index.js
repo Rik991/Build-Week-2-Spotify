@@ -151,30 +151,27 @@ class Songs {
   }
 }
 
-//funzione pulsante Play nel footer
-
+//funzione pulsante Play nel footer FUNZIONA SOLO IL FOOTER, DEVE ESSERE AGGIORNATO AL PLAY SULLE CARD. NON CI SONO RIUSCITA
+const footerPlayIcon = document.querySelector(".footerPlayIcon");
 footerPlayBtn.addEventListener("click", () => {
   if (currentAudio.paused) {
     currentAudio.play();
-    footerPlayBtn.innerHTML = '<i class="bi bi-pause-circle-fill"></i>'; //aggiunte icone invece delel scritte
+    footerPlayIcon.classList.remove("bi-play-circle-fill"); // Rimuovi l'icona di play
+    footerPlayIcon.classList.add("bi-pause-circle-fill"); // Aggiungi l'icona di pausa
   } else {
     currentAudio.pause();
-    footerPlayBtn.innerHTML = '<i class="bi bi-play-circle-fill"></i>';
+    footerPlayIcon.classList.remove("bi-pause-circle-fill"); // Rimuovi l'icona di pausa
+    footerPlayIcon.classList.add("bi-play-circle-fill"); // Aggiungi l'icona di play
   }
 });
 
-// const playBtn = document.querySelector(".footerPlayBtn"); // Il bottone che contiene l'icona
-// const playIcon = document.querySelector(".footerPlayIcon"); // L'icona all'interno del bottone
-// // const currAudio = new Audio("your-audio-file.mp3"); // Il tuo audio
-
-// playBtn.addEventListener("click", () => {
+// footerPlayBtn.addEventListener("click", () => {
 //   if (currentAudio.paused) {
 //     currentAudio.play();
-//     playIcon.classList.remove("bi-play-circle-fill"); // Rimuovi l'icona di play
-//     playIcon.classList.add("bi-pause-circle-fill"); // Aggiungi l'icona di pausa
+//     footerPlayBtn.innerHTML = '<i class="bi bi-pause-circle-fill"></i>'; //aggiunte icone invece delel scritte
+//     footerPlayBtn.style.display = "none";
 //   } else {
 //     currentAudio.pause();
-//     playIcon.classList.remove("bi-pause-circle-fill"); // Rimuovi l'icona di pausa
-//     playIcon.classList.add("bi-play-circle-fill"); // Aggiungi l'icona di play
+//     footerPlayBtn.innerHTML = '<i class="bi bi-play-circle-fill"></i>';
 //   }
 // });
