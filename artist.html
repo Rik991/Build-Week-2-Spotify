@@ -71,8 +71,8 @@
     <!-- Main Content: Libreria, Album, Coda -->
     <main class="main-gradientC container-fluid">
       <div class="row gap-2 g-2">
-        <!-- navbar 1  -->
-        <div class="col col">
+        <!-- aside 1  -->
+        <div class="col-3">
           <aside class="d-flex flex-column bg-dark text-white vh-100 p-3 barra-laterale artist-section-gradient">
             <div class="d-flex align-items-center justify-content-between mb-4">
               <div class="d-flex align-items-center">
@@ -179,7 +179,7 @@
         </div>
 
         <!-- Main Artist Content -->
-        <div class="col col-6 text-bg-dark rounded p-3 artist-section-gradient">
+        <div class="col text-bg-dark rounded p-3 artist-section-gradient">
           <div class="row mb-4">
             <div class="col-md-4">
               <img src="./assets/imgs/main/image-15.jpg" alt="Album Cover" class="img-fluid rounded" />
@@ -293,7 +293,7 @@
         </div>
 
         <!-- aside 2 -->
-        <div class="col col">
+        <div class="col-3 d-none hiddenAside">
           <aside class="aside-coda bg-dark text-white p-4 artist-section-gradient">
             <div class="d-flex justify-content-between align-items-center mb-4">
               <div class="d-flex align-items-center gap-3">
@@ -370,9 +370,8 @@
         </div>
       </section>
     </main>
-
     <footer>
-      <audio id="current-audio">
+      <audio id="current-audio" cusrom-controls>
         <source id="source" src="" type="audio/mpeg" />
       </audio>
       <div class="container-fluid bg-black text-light">
@@ -387,12 +386,13 @@
           <div class="col controlli-riproduzione fs-4 text-center">
             <button class="bg-black fs-5"><i class="bi bi-shuffle"></i></button>
             <button class="bg-black"><i class="bi bi-skip-start-fill"></i></button>
-            <button class="bg-black fs-2"><i class="bi bi-play-circle-fill footerPlay"></i></button>
+            <button class="bg-black fs-2 footerPlay"><i class="bi bi-play-circle-fill footerPlayIcon"></i></button>
             <button class="bg-black"><i class="bi bi-skip-end-fill"></i></button>
             <button class="bg-black"><i class="bi bi-repeat"></i></button>
             <div class="d-flex align-items-center justify-content-center">
               <span class="fs-6" id="current-time">0:00</span>
-              <input type="range" id="progress-bar" class="w-100 mx-2" min="0" max="100" value="0" />
+              <!-- progress-bar -->
+              <input type="range" id="progress-bar" class="w-100 mx-2" min="0" max="30" value="0" />
               <span id="duration" class="fs-6" id="total-time">3:45</span>
             </div>
           </div>
@@ -402,7 +402,8 @@
             <i class="bi bi-view-list"></i>
             <i class="bi bi-headphones"></i>
             <i class="bi bi-volume-down-fill"></i>
-            <input type="range" min="0" max="100" />
+            <!-- volume -->
+            <input id="volume" type="range" min="0" max="100" />
             <i class="bi bi-arrows-angle-expand"></i>
           </div>
         </div>

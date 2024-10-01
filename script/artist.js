@@ -13,6 +13,15 @@ const currentAudioServer = localStorage.getItem("currentAudioServer");
 const currentArtisServer = localStorage.getItem("currentArtisServer");
 const currentNameSongServer = localStorage.getItem("currentNameSongServer");
 
+//mostro o nascondo aside 2
+const hiddenAsideBtn = document.querySelector(".bi-view-list");
+hiddenAsideBtn.addEventListener("click", () => {
+  const hiddenAside = document.querySelector(".hiddenAside");
+  hiddenAsideBtn.classList.toggle("text-success");
+  hiddenAside.classList.toggle("d-none");
+});
+
+// player nel footer
 //recupero i dati della canzone in riproduzione
 if (time) {
   currentAudio.currentTime = time;
@@ -33,3 +42,21 @@ function registra() {
   currentAudioTime.innerText = Math.round(currentAudio.currentTime);
   progress.value = currentAudio.currentTime;
 }
+footerPlayBtn.addEventListener("click", () => {
+  if (currentAudio.paused) {
+    currentAudio.play();
+    footerPlayBtn.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
+  } else {
+    currentAudio.pause();
+    footerPlayBtn.innerHTML = `<i class="bi bi-play-circle-fill"></i>`;
+  }
+});
+volume.addEventListener("input", () => {
+  currentAudio.volume = volume.value / 100;
+  console.log(currentAudio.volume);
+});
+
+progress.addEventListener("input", () => {
+  currentAudio.currentTime = progress.value;
+  console.log(currentAudio.currentTime);
+});
