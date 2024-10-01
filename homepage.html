@@ -347,9 +347,8 @@
       </div>
     </main>
     <!-- barra audio -->
-
     <footer>
-      <audio id="current-audio" controls>
+      <audio id="current-audio" cusrom-controls>
         <source id="source" src="" type="audio/mpeg" />
       </audio>
       <div class="container-fluid bg-black text-light">
@@ -369,7 +368,8 @@
             <button class="bg-black"><i class="bi bi-repeat"></i></button>
             <div class="d-flex align-items-center justify-content-center">
               <span class="fs-6" id="current-time">0:00</span>
-              <input type="range" id="progress-bar" class="w-100 mx-2" min="0" max="100" value="0" />
+              <!-- progress-bar -->
+              <input type="range" id="progress-bar" class="w-100 mx-2" min="0" max="30" value="0" />
               <span id="duration" class="fs-6" id="total-time">3:45</span>
             </div>
           </div>
@@ -379,7 +379,8 @@
             <i class="bi bi-view-list"></i>
             <i class="bi bi-headphones"></i>
             <i class="bi bi-volume-down-fill"></i>
-            <input type="range" min="0" max="100" />
+            <!-- volume -->
+            <input id="volume" type="range" min="0" max="100" />
             <i class="bi bi-arrows-angle-expand"></i>
           </div>
         </div>

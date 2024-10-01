@@ -6,6 +6,7 @@ const footerImg = document.getElementById("footer-img");
 const duration = document.getElementById("duration");
 const currentAudio = document.getElementById("current-audio");
 const footerPlayBtn = document.querySelector(".footerPlay");
+const currentAudioTime = document.getElementById("current-time");
 
 const hiddenAsideBtn = document.querySelector(".bi-view-list");
 hiddenAsideBtn.addEventListener("click", () => {
@@ -23,7 +24,7 @@ const getData = (url) => {
       }
     })
     .then((albums) => {
-      console.log("album disponibili", albums);
+      //   console.log("album disponibili", albums);
       const albArray = albums.data;
       const element = albArray[Math.floor(Math.random() * 25)];
       const song = new Songs(element.artist.name, element.title_short, element.preview, element.album.cover, element.duration);
@@ -80,7 +81,7 @@ const getData = (url) => {
                     </a>
                     </div>
                     <div class="card-body pt-0">
-                        <h6>${song2.artist}</h6>
+                        <h5>${song2.artist}</h5>
                         <p class="card-text overflow-hidden text-secondary" style="max-height: 1.5rem">${song2.title_short}</p>
                     </div>
                     </div>
@@ -129,7 +130,7 @@ const artisti = [
   "lady",
   "adele",
   "guns",
-  "greenday"
+  "greenday",
 ];
 
 getData(genericUrl + artisti[Math.floor(Math.random() * artisti.length)]);
@@ -151,27 +152,58 @@ class Songs {
   }
 }
 
-//funzione pulsante Play nel footer FUNZIONA SOLO IL FOOTER, DEVE ESSERE AGGIORNATO AL PLAY SULLE CARD. NON CI SONO RIUSCITA
-const footerPlayIcon = document.querySelector(".footerPlayIcon");
+// funzioni media player
+
+// pulsante Play nel footer
+
 footerPlayBtn.addEventListener("click", () => {
   if (currentAudio.paused) {
     currentAudio.play();
-    footerPlayIcon.classList.remove("bi-play-circle-fill"); // Rimuovi l'icona di play
-    footerPlayIcon.classList.add("bi-pause-circle-fill"); // Aggiungi l'icona di pausa
+    footerPlayBtn.textContent = "Pause";
   } else {
     currentAudio.pause();
-    footerPlayIcon.classList.remove("bi-pause-circle-fill"); // Rimuovi l'icona di pausa
-    footerPlayIcon.classList.add("bi-play-circle-fill"); // Aggiungi l'icona di play
+    footerPlayBtn.textContent = "Play";
   }
 });
 
-// footerPlayBtn.addEventListener("click", () => {
-//   if (currentAudio.paused) {
-//     currentAudio.play();
-//     footerPlayBtn.innerHTML = '<i class="bi bi-pause-circle-fill"></i>'; //aggiunte icone invece delel scritte
-//     footerPlayBtn.style.display = "none";
-//   } else {
-//     currentAudio.pause();
-//     footerPlayBtn.innerHTML = '<i class="bi bi-play-circle-fill"></i>';
-//   }
-// });
+const progress = document.getElementById("progress-bar");
+const volume = document.getElementById("volume");
+console.log(volume.value);
+
+volume.addEventListener("input", () => {
+  currentAudio.volume = volume.value / 100;
+  console.log(currentAudio.volume);
+});
+
+progress.addEventListener("input", () => {
+  currentAudio.currentTime = progress.value;
+  console.log(currentAudio.currentTime);
+});
+
+const time = localStorage.getItem("timeAudio");
+const footerImgServer = localStorage.getItem("footerImgServer");
+const currentAudioServer = localStorage.getItem("currentAudioServer");
+const currentArtisServer = localStorage.getItem("currentArtisServer");
+const currentNameSongServer = localStorage.getItem("currentNameSongServer");
+
+console.log(time);
+
+if (time) {
+  currentAudio.currentTime = time;
+  footerImg.src = footerImgServer;
+  currentAudio.src = currentAudioServer;
+  artistSong.innerText = currentArtisServer;
+  nameSong.innerText = currentNameSongServer;
+}
+
+setInterval(registra, 1000);
+
+function registra() {
+  localStorage.setItem("timeAudio", currentAudio.currentTime);
+  localStorage.setItem("footerImgServer", footerImg.src);
+  localStorage.setItem("currentAudioServer", currentAudio.src);
+  localStorage.setItem("currentArtisServer", artistSong.innerText);
+  localStorage.setItem("currentNameSongServer", nameSong.innerText);
+  currentAudioTime.innerText = Math.round(currentAudio.currentTime);
+  progress.value = currentAudio.currentTime;
+}
