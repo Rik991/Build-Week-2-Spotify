@@ -80,7 +80,7 @@ const getData = (url) => {
                     </a>
                     </div>
                     <div class="card-body pt-0">
-                        <h5>${song2.artist}</h5>
+                        <h6>${song2.artist}</h6>
                         <p class="card-text overflow-hidden text-secondary" style="max-height: 1.5rem">${song2.title_short}</p>
                     </div>
                     </div>
@@ -129,7 +129,7 @@ const artisti = [
   "lady",
   "adele",
   "guns",
-  "greenday",
+  "greenday"
 ];
 
 getData(genericUrl + artisti[Math.floor(Math.random() * artisti.length)]);

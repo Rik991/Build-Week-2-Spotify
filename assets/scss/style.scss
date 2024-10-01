@@ -2,6 +2,17 @@
 
 //main
 
+body {
+  height: 100%;
+  overflow: hidden; /* Evita lo scroll del body */
+}
+
+/* Imposta un'altezza fissa per il main e rendilo scrollabile */
+main {
+  height: calc(100vh - 80px); /* Calcola l'altezza sottraendo quella dell'header */
+  overflow-y: auto; /* Rende il main scrollabile */
+}
+
 .main-gradientC {
   background: linear-gradient(
     185deg,
