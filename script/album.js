@@ -65,8 +65,6 @@ const getData = () => {
 
         trackList.appendChild(tr);
 
-        let x = 0;
-
         const playSong = tr.querySelector(".hoverTr");
         playSong.addEventListener("click", () => {
           footerImg.src = album.cover;
@@ -74,7 +72,6 @@ const getData = () => {
           artistSong.innerText = album.artist.name;
           duration.innerText = (singleTrack.duration / 60).toFixed(2);
 
-          x = i;
           currentAudio.src = albumArray[i].preview;
           currentAudio.play();
           footerPlayBtn.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
@@ -92,6 +89,7 @@ const getData = () => {
       });
 
       playBtnC.addEventListener("click", () => {
+        let x = 0;
         btnPrevious.addEventListener("click", () => {
           x--;
           currentAudio.src = albumArray[x].preview;
@@ -180,6 +178,13 @@ const formatDuration = (seconds) => {
   //ternary per prendere 2 cifre di secondi
   return `${minutes}:${remainingSeconds < 10 ? "0" : ""}${remainingSeconds}`;
 };
+
+//progress bar da sistemare
+const audio = document.getElementById("current-audio");
+const progressBar = document.getElementById("progress-bar");
+const currentTimeElement = document.getElementById("current-time");
+const durationElement = document.getElementById("duration");
+const volumeControl = document.getElementById("volume");
 
 // Quando l'audio carica, imposta la durata
 audio.addEventListener("loadedmetadata", () => {
