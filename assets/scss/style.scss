@@ -7,10 +7,35 @@ body {
   overflow: hidden; /* Evita lo scroll del body */
 }
 
+.asideScroll {
+  --sb-track-color: #ffffff00;
+  --sb-thumb-color: #a3a3a35f;
+  --sb-size: 8px;
+}
+
+.asideScroll::-webkit-scrollbar {
+  width: var(--sb-size);
+}
+
+.asideScroll::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 8px;
+}
+
+.asideScroll::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 8px;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  .asideScroll {
+    scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+  }
+}
+
 /* Imposta un'altezza fissa per il main e rendilo scrollabile */
 main {
   height: calc(100vh - 80px); /* Calcola l'altezza sottraendo quella dell'header */
-  overflow-y: auto; /* Rende il main scrollabile */
 }
 
 .main-gradientC {
@@ -133,6 +158,24 @@ footer input:hover::-webkit-slider-thumb {
 
 .hoverTr:hover {
   color: green !important;
+}
+
+.search-bar {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.search-bar input {
+  background-color: #1c1c1c;
+  color: #fff;
+  border-radius: 50px;
+  outline: none;
+}
+
+.search-bar input:focus {
+  box-shadow: none;
+  outline: none;
 }
 
 @import "./bootstrap.scss";

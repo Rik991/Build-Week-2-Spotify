@@ -101,7 +101,7 @@ const getData = (url) => {
         nameSong.innerText = song.title_short;
         artistSong.innerText = song.artist;
         footerImg.src = song.cover;
-        duration.innerText = parseFloat((song.duration / 60).toFixed(2));
+        duration.innerText = `${formatDuration(song.duration)}`;
         currentAudio.src = song.preview;
         currentAudio.play();
       });
@@ -113,7 +113,7 @@ const getData = (url) => {
         nameSong.innerText = song2.title_short;
         artistSong.innerText = song2.artist;
         footerImg.src = song2.cover;
-        duration.innerText = parseFloat((song2.duration / 60).toFixed(2));
+        duration.innerText = `${formatDuration(song2.duration)}`;
         currentAudio.src = song2.preview;
         currentAudio.play();
       });
@@ -138,7 +138,7 @@ const artisti = [
   "lady",
   "adele",
   "guns",
-  "greenday"
+  "greenday",
 ];
 
 getData(genericUrl + artisti[Math.floor(Math.random() * artisti.length)]);
@@ -177,16 +177,13 @@ footerPlayBtn.addEventListener("click", () => {
 
 const progress = document.getElementById("progress-bar");
 const volume = document.getElementById("volume");
-console.log(volume.value);
 
 volume.addEventListener("input", () => {
   currentAudio.volume = volume.value / 100;
-  console.log(currentAudio.volume);
 });
 
 progress.addEventListener("input", () => {
   currentAudio.currentTime = progress.value;
-  console.log(currentAudio.currentTime);
 });
 
 const time = localStorage.getItem("timeAudio");
@@ -194,8 +191,6 @@ const footerImgServer = localStorage.getItem("footerImgServer");
 const currentAudioServer = localStorage.getItem("currentAudioServer");
 const currentArtisServer = localStorage.getItem("currentArtisServer");
 const currentNameSongServer = localStorage.getItem("currentNameSongServer");
-
-console.log(time);
 
 if (time) {
   currentAudio.currentTime = time;
@@ -217,48 +212,17 @@ function registra() {
   progress.value = currentAudio.currentTime;
 }
 
-const audio = document.getElementById("current-audio");
-const progressBar = document.getElementById("progress-bar");
-const currentTimeElement = document.getElementById("current-time");
-const durationElement = document.getElementById("duration");
-const volumeControl = document.getElementById("volume");
-
-// Quando l'audio carica, imposta la durata
-audio.addEventListener("loadedmetadata", () => {
-  progressBar.max = Math.floor(audio.duration); // Imposta la durata massima della barra
-  durationElement.textContent = formatTime(audio.duration); // Mostra la durata totale del brano
-});
-
-// Aggiorna la barra di avanzamento e il tempo corrente dell'audio
-audio.addEventListener("timeupdate", () => {
-  progressBar.value = Math.floor(audio.currentTime); // Aggiorna la barra di avanzamento
-  currentTimeElement.textContent = formatTime(audio.currentTime); // Mostra il tempo corrente
-  updateProgressBarColor(progressBar); // Aggiorna il colore della barra di avanzamento
-});
-
-// Funzione per aggiornare il colore verde della barra di avanzamento
-function updateProgressBarColor(bar) {
-  const value = (bar.value / bar.max) * 100; // Percentuale del progresso
-  bar.style.background = `linear-gradient(to right, green ${value}%, white ${value}%)`; // Sfuma da verde a bianco
-}
-
-// Permetti all'utente di modificare la posizione di riproduzione
-progressBar.addEventListener("input", () => {
-  audio.currentTime = progressBar.value;
-  updateProgressBarColor(progressBar); // Aggiorna il colore della barra di avanzamento
-});
-
-// Gestione del volume e aggiornamento della barra del volume
-volumeControl.addEventListener("input", () => {
-  audio.volume = volumeControl.value / 100; // Imposta il volume dell'audio
-  updateProgressBarColor(volumeControl); // Aggiorna il colore della barra del volume
-});
-
-// Funzione per formattare il tempo in minuti e secondi
-function formatTime(seconds) {
+const formatDuration = (seconds) => {
+  //minuti
   const minutes = Math.floor(seconds / 60);
-  const secs = Math.floor(seconds % 60)
-    .toString()
-    .padStart(2, "0");
-  return `${minutes}:${secs}`;
-}
+  //secondi che rimangono dalla trasformazione in minuti
+  const remainingSeconds = Math.floor(seconds % 60);
+  //ternary per prendere 2 cifre di secondi
+  return `${minutes}:${remainingSeconds < 10 ? "0" : ""}${remainingSeconds}`;
+};
+
+duration.innerText = formatDuration(song.duration);
+//vecchio codice qui sotto commentato
+// duration.innerText = parseFloat((song.duration / 60).toFixed(2));
+currentAudio.src = song.preview;
+currentAudio.play();
