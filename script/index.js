@@ -101,7 +101,21 @@ const getData = (url) => {
         nameSong.innerText = song.title_short;
         artistSong.innerText = song.artist;
         footerImg.src = song.cover;
-        duration.innerText = parseFloat((song.duration / 60).toFixed(2));
+        //le canzoni hanno una un minutaggio non convenzionale
+        //da qui inizia la funzione per  trasformare i secondi in minuti e secondi
+
+        const formatDuration = (seconds) => {
+          //minuti
+          const minutes = Math.floor(seconds / 60);
+          //secondi che rimangono dalla trasformazione in minuti
+          const remainingSeconds = Math.floor(seconds % 60);
+          //ternary per prendere 2 cifre di secondi
+          return `${minutes}:${remainingSeconds < 10 ? "0" : ""}${remainingSeconds}`;
+        };
+
+        duration.innerText = formatDuration(song.duration);
+        //vecchio codice qui sotto commentato
+        // duration.innerText = parseFloat((song.duration / 60).toFixed(2));
         currentAudio.src = song.preview;
         currentAudio.play();
       });
