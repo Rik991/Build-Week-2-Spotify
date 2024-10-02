@@ -13,6 +13,35 @@ const currentAudioServer = localStorage.getItem("currentAudioServer");
 const currentArtisServer = localStorage.getItem("currentArtisServer");
 const currentNameSongServer = localStorage.getItem("currentNameSongServer");
 
+// Url barra
+const idBar = new URLSearchParams(location.search);
+const artistId = idBar.get("artistId");
+
+// (genericUrl + "/" + artistId)
+
+// get artist
+const genericUrl = `https://striveschool-api.herokuapp.com/api/deezer/album/${artistId}`;
+
+const getData = () => {
+  fetch(genericUrl)
+    .then((response) => {
+      if (response.ok) {
+        console.log(response);
+
+        return response.json();
+      } else {
+        throw new Error("Errore nel recupero dei dati");
+      }
+    })
+    .then((albums) => {
+      console.log("album disponibili", albums);
+      const albArray = albums.data;
+    })
+    .catch((err) => {
+      console.log("ERROR", err);
+    });
+};
+
 //mostro o nascondo aside 2
 const hiddenAsideBtn = document.querySelector(".bi-view-list");
 hiddenAsideBtn.addEventListener("click", () => {
@@ -60,3 +89,5 @@ progress.addEventListener("input", () => {
   currentAudio.currentTime = progress.value;
   console.log(currentAudio.currentTime);
 });
+
+getData();
