@@ -138,7 +138,7 @@ const artisti = [
   "lady",
   "adele",
   "guns",
-  "greenday",
+  "greenday"
 ];
 
 getData(genericUrl + artisti[Math.floor(Math.random() * artisti.length)]);
@@ -215,4 +215,50 @@ function registra() {
   localStorage.setItem("currentNameSongServer", nameSong.innerText);
   currentAudioTime.innerText = Math.round(currentAudio.currentTime);
   progress.value = currentAudio.currentTime;
+}
+
+const audio = document.getElementById("current-audio");
+const progressBar = document.getElementById("progress-bar");
+const currentTimeElement = document.getElementById("current-time");
+const durationElement = document.getElementById("duration");
+const volumeControl = document.getElementById("volume");
+
+// Quando l'audio carica, imposta la durata
+audio.addEventListener("loadedmetadata", () => {
+  progressBar.max = Math.floor(audio.duration); // Imposta la durata massima della barra
+  durationElement.textContent = formatTime(audio.duration); // Mostra la durata totale del brano
+});
+
+// Aggiorna la barra di avanzamento e il tempo corrente dell'audio
+audio.addEventListener("timeupdate", () => {
+  progressBar.value = Math.floor(audio.currentTime); // Aggiorna la barra di avanzamento
+  currentTimeElement.textContent = formatTime(audio.currentTime); // Mostra il tempo corrente
+  updateProgressBarColor(progressBar); // Aggiorna il colore della barra di avanzamento
+});
+
+// Funzione per aggiornare il colore verde della barra di avanzamento
+function updateProgressBarColor(bar) {
+  const value = (bar.value / bar.max) * 100; // Percentuale del progresso
+  bar.style.background = `linear-gradient(to right, green ${value}%, white ${value}%)`; // Sfuma da verde a bianco
+}
+
+// Permetti all'utente di modificare la posizione di riproduzione
+progressBar.addEventListener("input", () => {
+  audio.currentTime = progressBar.value;
+  updateProgressBarColor(progressBar); // Aggiorna il colore della barra di avanzamento
+});
+
+// Gestione del volume e aggiornamento della barra del volume
+volumeControl.addEventListener("input", () => {
+  audio.volume = volumeControl.value / 100; // Imposta il volume dell'audio
+  updateProgressBarColor(volumeControl); // Aggiorna il colore della barra del volume
+});
+
+// Funzione per formattare il tempo in minuti e secondi
+function formatTime(seconds) {
+  const minutes = Math.floor(seconds / 60);
+  const secs = Math.floor(seconds % 60)
+    .toString()
+    .padStart(2, "0");
+  return `${minutes}:${secs}`;
 }
