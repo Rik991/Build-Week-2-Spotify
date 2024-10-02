@@ -113,7 +113,6 @@ const getData = (url) => {
         nameSong.innerText = song2.title_short;
         artistSong.innerText = song2.artist;
         footerImg.src = song2.cover;
-        duration.innerText = `${formatDuration(song2.duration)}`;
         currentAudio.src = song2.preview;
         currentAudio.play();
       });
@@ -138,7 +137,7 @@ const artisti = [
   "lady",
   "adele",
   "guns",
-  "greenday",
+  "greenday"
 ];
 
 getData(genericUrl + artisti[Math.floor(Math.random() * artisti.length)]);
@@ -208,7 +207,7 @@ function registra() {
   localStorage.setItem("currentAudioServer", currentAudio.src);
   localStorage.setItem("currentArtisServer", artistSong.innerText);
   localStorage.setItem("currentNameSongServer", nameSong.innerText);
-  currentAudioTime.innerText = Math.round(currentAudio.currentTime);
+  currentAudioTime.innerText = `00:${Math.round(currentAudio.currentTime)}`;
   progress.value = currentAudio.currentTime;
 }
 
@@ -220,6 +219,53 @@ const formatDuration = (seconds) => {
   //ternary per prendere 2 cifre di secondi
   return `${minutes}:${remainingSeconds < 10 ? "0" : ""}${remainingSeconds}`;
 };
+
+//progress bar da sistemare
+const audio = document.getElementById("current-audio");
+const progressBar = document.getElementById("progress-bar");
+const currentTimeElement = document.getElementById("current-time");
+const durationElement = document.getElementById("duration");
+const volumeControl = document.getElementById("volume");
+
+// Quando l'audio carica, imposta la durata
+audio.addEventListener("loadedmetadata", () => {
+  progressBar.max = Math.floor(audio.duration);
+  durationElement.textContent = formatTime(audio.duration);
+});
+
+// Aggiorna la barra di avanzamento e il tempo corrente dell'audio
+audio.addEventListener("timeupdate", () => {
+  progressBar.value = Math.floor(audio.currentTime);
+  updateProgressBarColor(progressBar);
+});
+
+// Funzione per aggiornare il colore verde della barra di avanzamento
+function updateProgressBarColor(bar) {
+  const value = (bar.value / bar.max) * 100;
+  bar.style.background = `linear-gradient(to right, green ${value}%, white ${value}%)`; // Sfuma da verde a bianco
+}
+
+// Permetti all'utente di modificare la posizione di riproduzione
+progressBar.addEventListener("input", () => {
+  audio.currentTime = progressBar.value;
+  updateProgressBarColor(progressBar);
+});
+
+// Gestione del volume e aggiornamento della barra del volume
+volumeControl.addEventListener("input", () => {
+  audio.volume = volumeControl.value / 100;
+  updateProgressBarColor(volumeControl);
+});
+
+// Funzione per formattare il tempo in minuti e secondi
+function formatTime(seconds) {
+  const minutes = Math.floor(seconds / 60);
+  const secs = Math.floor(seconds % 60)
+    .toString()
+    .padStart(2, "0");
+  return `${minutes}:${secs}`;
+}
+//fine progress bar
 
 duration.innerText = formatDuration(song.duration);
 //vecchio codice qui sotto commentato
