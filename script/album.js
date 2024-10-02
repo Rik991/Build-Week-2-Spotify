@@ -17,6 +17,11 @@ const albumCover = document.getElementById("albumCover");
 const albumTitle = document.getElementById("albumTitle");
 const albumInfo = document.getElementById("albumInfo");
 const trackList = document.getElementById("trackList");
+const table = document.querySelector("table");
+// button
+const playBtnC = document.querySelector(".playBtnC");
+const btnPrevious = document.getElementById("btnPrevious");
+const btnNext = document.getElementById("btnNext");
 
 // Url barra
 const idBar = new URLSearchParams(location.search);
@@ -51,13 +56,54 @@ const getData = () => {
       albumArray.forEach((singleTrack, i) => {
         // console.log(singleTrack);
         const tr = document.createElement("tr");
+        tr.classList.add("hoverTr");
         tr.innerHTML = `
-                <th scope="row">${i + 1}</th>
-                <td>${singleTrack.title}</td>
-                <td>${singleTrack.rank.toString().slice(0, 3)}.${singleTrack.rank.toString().slice(3, 7)}</td>
-                <td>${(singleTrack.duration / 60).toFixed(2)}</td>`;
+                  <th class="d-flex align-items-center gap-1" scope="row">${i + 1} <img src="../assets/imgs/sound Sp.gif" height="18"  class="d-none"/> </th>
+                  <td class="hoverTr">${singleTrack.title}</td>
+                  <td>${singleTrack.rank.toString().slice(0, 3)}.${singleTrack.rank.toString().slice(3, 7)}</td>
+                  <td>${(singleTrack.duration / 60).toFixed(2)}</td>`;
 
         trackList.appendChild(tr);
+
+        const playSong = tr.querySelector(".hoverTr");
+        playSong.addEventListener("click", () => {
+          currentAudio.src = albumArray[i].preview;
+          currentAudio.play();
+
+          const imgAll = table.querySelectorAll("img");
+          console.log(imgAll);
+
+          imgAll.forEach((element) => {
+            element.classList.add("d-none");
+          });
+
+          const img = tr.querySelector("img");
+          img.classList.remove("d-none");
+          img.classList.add("d-block");
+        });
+      });
+
+      playBtnC.addEventListener("click", () => {
+        let x = 0;
+
+        btnPrevious.addEventListener("click", () => {
+          x--;
+          currentAudio.src = albumArray[x].preview;
+          currentAudio.play();
+          footerPlayBtn.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
+        });
+
+        btnNext.addEventListener("click", () => {
+          x++;
+          currentAudio.src = albumArray[x].preview;
+          currentAudio.play();
+          footerPlayBtn.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
+        });
+
+        console.log(albumArray[x].preview);
+        currentAudio.src = albumArray[x].preview;
+        currentAudio.play();
+        footerPlayBtn.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
       });
     })
     .catch((err) => {
