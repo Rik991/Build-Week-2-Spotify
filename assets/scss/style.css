@@ -20,10 +20,34 @@ body {
   overflow: hidden; /* Evita lo scroll del body */
 }
 
+.asideScroll {
+  --sb-track-color: #ffffff00;
+  --sb-thumb-color: #a3a3a35f;
+  --sb-size: 8px;
+}
+
+.asideScroll::-webkit-scrollbar {
+  width: var(--sb-size);
+}
+
+.asideScroll::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 8px;
+}
+
+.asideScroll::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 8px;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  .asideScroll {
+    scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+  }
+}
 /* Imposta un'altezza fissa per il main e rendilo scrollabile */
 main {
   height: calc(100vh - 80px); /* Calcola l'altezza sottraendo quella dell'header */
-  overflow-y: auto; /* Rende il main scrollabile */
 }
 
 .main-gradientC {

@@ -101,7 +101,7 @@ const getData = (url) => {
         nameSong.innerText = song.title_short;
         artistSong.innerText = song.artist;
         footerImg.src = song.cover;
-        duration.innerText = parseFloat((song.duration / 60).toFixed(2));
+        duration.innerText = `${formatDuration(song.duration)}`;
         currentAudio.src = song.preview;
         currentAudio.play();
       });
@@ -113,7 +113,7 @@ const getData = (url) => {
         nameSong.innerText = song2.title_short;
         artistSong.innerText = song2.artist;
         footerImg.src = song2.cover;
-        duration.innerText = parseFloat((song2.duration / 60).toFixed(2));
+        duration.innerText = `${formatDuration(song2.duration)}`;
         currentAudio.src = song2.preview;
         currentAudio.play();
       });
@@ -216,3 +216,18 @@ function registra() {
   currentAudioTime.innerText = Math.round(currentAudio.currentTime);
   progress.value = currentAudio.currentTime;
 }
+
+const formatDuration = (seconds) => {
+  //minuti
+  const minutes = Math.floor(seconds / 60);
+  //secondi che rimangono dalla trasformazione in minuti
+  const remainingSeconds = Math.floor(seconds % 60);
+  //ternary per prendere 2 cifre di secondi
+  return `${minutes}:${remainingSeconds < 10 ? "0" : ""}${remainingSeconds}`;
+};
+
+duration.innerText = formatDuration(song.duration);
+//vecchio codice qui sotto commentato
+// duration.innerText = parseFloat((song.duration / 60).toFixed(2));
+currentAudio.src = song.preview;
+currentAudio.play();
