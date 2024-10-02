@@ -27,8 +27,6 @@ const btnNext = document.getElementById("btnNext");
 const idBar = new URLSearchParams(location.search);
 const albumId = idBar.get("albumId");
 
-console.log(albumId);
-
 // get album
 const Url = `https://striveschool-api.herokuapp.com/api/deezer/album/${albumId}`;
 
@@ -58,20 +56,27 @@ const getData = () => {
         const tr = document.createElement("tr");
         tr.classList.add("hoverTr");
         tr.innerHTML = `
-                  <th class="d-flex align-items-center gap-1" scope="row">${i + 1} <img src="../assets/imgs/sound Sp.gif" height="18"  class="d-none"/> </th>
+                  <th scope="row"><div class="d-flex justify-content-start align-items-center">${
+                    i + 1
+                  }<img src="../assets/imgs/sound Sp.gif" height="20"  class="d-none"/></div></th>
                   <td class="hoverTr">${singleTrack.title}</td>
                   <td>${singleTrack.rank.toString().slice(0, 3)}.${singleTrack.rank.toString().slice(3, 7)}</td>
-                  <td>${(singleTrack.duration / 60).toFixed(2)}</td>`;
+                  <td>${formatDuration(singleTrack.duration)}</td>`;
 
         trackList.appendChild(tr);
 
         const playSong = tr.querySelector(".hoverTr");
         playSong.addEventListener("click", () => {
+          footerImg.src = album.cover;
+          nameSong.innerText = singleTrack.title;
+          artistSong.innerText = album.artist.name;
+          duration.innerText = (singleTrack.duration / 60).toFixed(2);
+
           currentAudio.src = albumArray[i].preview;
           currentAudio.play();
+          footerPlayBtn.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
 
           const imgAll = table.querySelectorAll("img");
-          console.log(imgAll);
 
           imgAll.forEach((element) => {
             element.classList.add("d-none");
@@ -85,7 +90,6 @@ const getData = () => {
 
       playBtnC.addEventListener("click", () => {
         let x = 0;
-
         btnPrevious.addEventListener("click", () => {
           x--;
           currentAudio.src = albumArray[x].preview;
@@ -104,6 +108,10 @@ const getData = () => {
         currentAudio.src = albumArray[x].preview;
         currentAudio.play();
         footerPlayBtn.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
+        footerImg.src = album.cover;
+        nameSong.innerText = albumArray[x].title;
+        artistSong.innerText = album.artist.name;
+        duration.innerText = `${formatDuration(singleTrack.duration)}`;
       });
     })
     .catch((err) => {
@@ -161,3 +169,65 @@ progress.addEventListener("input", () => {
 });
 
 getData();
+
+const formatDuration = (seconds) => {
+  //minuti
+  const minutes = Math.floor(seconds / 60);
+  //secondi che rimangono dalla trasformazione in minuti
+  const remainingSeconds = Math.floor(seconds % 60);
+  //ternary per prendere 2 cifre di secondi
+  return `${minutes}:${remainingSeconds < 10 ? "0" : ""}${remainingSeconds}`;
+};
+
+//progress bar da sistemare
+const audio = document.getElementById("current-audio");
+const progressBar = document.getElementById("progress-bar");
+const currentTimeElement = document.getElementById("current-time");
+const durationElement = document.getElementById("duration");
+const volumeControl = document.getElementById("volume");
+
+// Quando l'audio carica, imposta la durata
+audio.addEventListener("loadedmetadata", () => {
+  progressBar.max = Math.floor(audio.duration);
+  durationElement.textContent = formatTime(audio.duration);
+});
+
+// Aggiorna la barra di avanzamento e il tempo corrente dell'audio
+audio.addEventListener("timeupdate", () => {
+  progressBar.value = Math.floor(audio.currentTime);
+  updateProgressBarColor(progressBar);
+});
+
+// Funzione per aggiornare il colore verde della barra di avanzamento
+function updateProgressBarColor(bar) {
+  const value = (bar.value / bar.max) * 100;
+  bar.style.background = `linear-gradient(to right, green ${value}%, white ${value}%)`; // Sfuma da verde a bianco
+}
+
+// Permetti all'utente di modificare la posizione di riproduzione
+progressBar.addEventListener("input", () => {
+  audio.currentTime = progressBar.value;
+  updateProgressBarColor(progressBar);
+});
+
+// Gestione del volume e aggiornamento della barra del volume
+volumeControl.addEventListener("input", () => {
+  audio.volume = volumeControl.value / 100;
+  updateProgressBarColor(volumeControl);
+});
+
+// Funzione per formattare il tempo in minuti e secondi
+function formatTime(seconds) {
+  const minutes = Math.floor(seconds / 60);
+  const secs = Math.floor(seconds % 60)
+    .toString()
+    .padStart(2, "0");
+  return `${minutes}:${secs}`;
+}
+//fine progress bar
+
+duration.innerText = formatDuration(song.duration);
+//vecchio codice qui sotto commentato
+// duration.innerText = parseFloat((song.duration / 60).toFixed(2));
+currentAudio.src = song.preview;
+currentAudio.play();

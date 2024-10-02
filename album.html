@@ -70,9 +70,9 @@
 
     <!-- Main Content: Libreria, Album, Coda -->
     <main class="container-fluid">
-      <div class="row gap-2 g-2">
+      <div class="d-flex gap-2 g-2" style="height: 80vh; overflow: hidden">
         <!-- aside 1  -->
-        <div class="col-3">
+        <div class="asideScroll overflow-y-scroll mt-2 rounded" style="min-width: max-content">
           <aside class="d-flex flex-column bg-dark text-white vh-100 p-3 barra-laterale album-section-gradient">
             <div class="d-flex align-items-center justify-content-between mb-4">
               <div class="d-flex align-items-center">
@@ -178,14 +178,14 @@
         </div>
 
         <!-- Main Album Content -->
-        <div class="col text-bg-dark rounded p-3 album-section-gradient">
+        <div class="asideScroll overflow-y-scroll mt-2 text-bg-dark rounded p-3 album-section-gradient flex-grow-1">
           <div class="row mb-4">
             <div class="col-md-4">
               <img id="albumCover" src="https://via.placeholder.com/200" alt="Album Cover" class="img-fluid rounded" />
             </div>
             <div class="col-md-8">
               <p><i class="verified-iconC bi bi-patch-check-fill"></i> Artista verificato</p>
-              <h1 id="albumTitle" class="display-3 fw-bold">LOCURA</h1>
+              <h1 id="albumTitle" class="display-3 fw-bold fs-1">LOCURA</h1>
               <!--deve prendere i dati dell'api, se riuscuamo il colore dell'album-->
               <p id="albumInfo" class="lead">Lazza • 2024 • 18 brani, 59 min 32 sec</p>
               <div class="d-flex align-items-center gap-3 mb-4">
@@ -252,7 +252,7 @@
         </div>
 
         <!-- aside 2 -->
-        <div class="col-3 d-none hiddenAside">
+        <div class="asideScroll overflow-y-scroll mt-2 d-none hiddenAside rounded">
           <aside class="aside-coda bg-dark text-white p-4 album-section-gradient">
             <div class="d-flex justify-content-between align-items-center mb-4">
               <div class="d-flex align-items-center gap-3">
