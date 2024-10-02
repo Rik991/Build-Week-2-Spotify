@@ -177,16 +177,13 @@ footerPlayBtn.addEventListener("click", () => {
 
 const progress = document.getElementById("progress-bar");
 const volume = document.getElementById("volume");
-console.log(volume.value);
 
 volume.addEventListener("input", () => {
   currentAudio.volume = volume.value / 100;
-  console.log(currentAudio.volume);
 });
 
 progress.addEventListener("input", () => {
   currentAudio.currentTime = progress.value;
-  console.log(currentAudio.currentTime);
 });
 
 const time = localStorage.getItem("timeAudio");
@@ -194,8 +191,6 @@ const footerImgServer = localStorage.getItem("footerImgServer");
 const currentAudioServer = localStorage.getItem("currentAudioServer");
 const currentArtisServer = localStorage.getItem("currentArtisServer");
 const currentNameSongServer = localStorage.getItem("currentNameSongServer");
-
-console.log(time);
 
 if (time) {
   currentAudio.currentTime = time;

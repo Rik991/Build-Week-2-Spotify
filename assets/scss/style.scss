@@ -160,4 +160,22 @@ footer input:hover::-webkit-slider-thumb {
   color: green !important;
 }
 
+.search-bar {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.search-bar input {
+  background-color: #1c1c1c;
+  color: #fff;
+  border-radius: 50px;
+  outline: none;
+}
+
+.search-bar input:focus {
+  box-shadow: none;
+  outline: none;
+}
+
 @import "./bootstrap.scss";

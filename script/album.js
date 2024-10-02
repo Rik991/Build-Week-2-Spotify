@@ -56,14 +56,16 @@ const getData = () => {
         const tr = document.createElement("tr");
         tr.classList.add("hoverTr");
         tr.innerHTML = `
-                  <th class="d-flex justify-content-start align-items-center" scope="row">${
+                  <th scope="row"><div class="d-flex justify-content-start align-items-center">${
                     i + 1
-                  }<img src="../assets/imgs/sound Sp.gif" height="20"  class="d-none"/> </th>
+                  }<img src="../assets/imgs/sound Sp.gif" height="20"  class="d-none"/></div></th>
                   <td class="hoverTr">${singleTrack.title}</td>
                   <td>${singleTrack.rank.toString().slice(0, 3)}.${singleTrack.rank.toString().slice(3, 7)}</td>
                   <td>${formatDuration(singleTrack.duration)}</td>`;
 
         trackList.appendChild(tr);
+
+        let x = 0;
 
         const playSong = tr.querySelector(".hoverTr");
         playSong.addEventListener("click", () => {
@@ -72,6 +74,7 @@ const getData = () => {
           artistSong.innerText = album.artist.name;
           duration.innerText = (singleTrack.duration / 60).toFixed(2);
 
+          x = i;
           currentAudio.src = albumArray[i].preview;
           currentAudio.play();
           footerPlayBtn.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
@@ -89,8 +92,6 @@ const getData = () => {
       });
 
       playBtnC.addEventListener("click", () => {
-        let x = 0;
-
         btnPrevious.addEventListener("click", () => {
           x--;
           currentAudio.src = albumArray[x].preview;
