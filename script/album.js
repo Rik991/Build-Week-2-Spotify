@@ -41,14 +41,15 @@ const getData = () => {
         throw new Error("Errore nel recupero dei dati");
       }
     })
-    .then((album) => {
-      console.log("album disponibili", album);
-      albumCover.src = album.cover_medium;
-      albumTitle.innerText = album.title;
-      albumInfo.innerHTML = `${album.artist.name} • ${album.release_date.substring(0, 4)} • ${album.nb_tracks} brani, ${(album.duration / 60).toFixed(0)} min`;
+    .then((albums) => {
+      albumCover.src = albums.cover_medium;
+      albumTitle.innerText = albums.title;
+      albumInfo.innerHTML = `${albums.artist.name} • ${albums.release_date.substring(0, 4)} • ${albums.nb_tracks} brani, ${(albums.duration / 60).toFixed(
+        0
+      )} min`;
 
-      console.log(album.tracks);
-      const albumArray = album.tracks.data;
+      console.log(albums.tracks);
+      const albumArray = albums.tracks.data;
       albumArray.forEach((singleTrack, i) => {
         const tr = document.createElement("tr");
         tr.classList.add("hoverRiga");
@@ -56,22 +57,50 @@ const getData = () => {
                   <th style="padding: 1rem; width: 30px;" scope="row"><div class="d-flex justify-content-start align-items-center">${
                     i + 1
                   }<img src="../assets/imgs/ImgSpotLoop.gif" height="40" style="margin-block: -1rem;" class="d-none"/></div></th>
-                  <td class="hoverTr">${singleTrack.title}</td>
+                  <td class="hoverTr hoverValue" data-value="${i}">${singleTrack.title}</td>
                   <td>${singleTrack.rank.toString().slice(0, 3)}.${singleTrack.rank.toString().slice(3, 7)}</td>
                   <td>${formatDuration(singleTrack.duration)}</td>`;
 
         trackList.appendChild(tr);
-
+        let x = 0;
         const playSong = tr.querySelector(".hoverTr");
         playSong.addEventListener("click", () => {
-          footerImg.src = album.cover;
+          const hoverValue = tr.querySelector(".hoverValue");
+          x = hoverValue.getAttribute("data-value");
+          console.log(x);
+          footerImg.src = albums.cover;
           nameSong.innerText = singleTrack.title;
-          artistSong.innerText = album.artist.name;
+          artistSong.innerText = albums.artist.name;
           duration.innerText = (singleTrack.duration / 60).toFixed(2);
 
           currentAudio.src = albumArray[i].preview;
           currentAudio.play();
           footerPlayBtn.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
+
+          // controlli footer dalla songList
+          btnPrevious.addEventListener("click", () => {
+            x--;
+            console.log(x);
+            currentAudio.src = albumArray[x].preview;
+            currentAudio.play();
+            footerPlayBtn.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
+            footerImg.src = albums.cover;
+            nameSong.innerText = albumArray[x].title;
+            artistSong.innerText = albums.artist.name;
+            duration.innerText = `${formatDuration(singleTrack.duration)}`;
+          });
+
+          btnNext.addEventListener("click", () => {
+            x++;
+            console.log(x);
+            currentAudio.src = albumArray[x].preview;
+            currentAudio.play();
+            footerPlayBtn.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
+            footerImg.src = albums.cover;
+            nameSong.innerText = albumArray[x].title;
+            artistSong.innerText = albums.artist.name;
+            duration.innerText = `${formatDuration(singleTrack.duration)}`;
+          });
 
           const imgAll = table.querySelectorAll("img");
 
@@ -105,9 +134,9 @@ const getData = () => {
         currentAudio.src = albumArray[x].preview;
         currentAudio.play();
         footerPlayBtn.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
-        footerImg.src = album.cover;
+        footerImg.src = albums.cover;
         nameSong.innerText = albumArray[x].title;
-        artistSong.innerText = album.artist.name;
+        artistSong.innerText = albums.artist.name;
         duration.innerText = `${formatDuration(singleTrack.duration)}`;
       });
     })
