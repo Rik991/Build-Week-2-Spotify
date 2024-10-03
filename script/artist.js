@@ -180,30 +180,42 @@ const getData = () => {
         });
       });
 
+      let x = 0;
+
       playBtnC.addEventListener("click", () => {
-        let x = 0;
-        btnPrevious.addEventListener("click", () => {
-          x--;
+        if (currentAudio.paused) {
+          // Se l'audio è in pausa, inizia la riproduzione
+          currentAudio.play();
+          playBtnC.classList.remove("bi-play-circle-fill");
+          playBtnC.classList.add("bi-pause-circle-fill");
+          footerPlayBtn.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
+        } else {
+          // Se l'audio è in riproduzione, metti in pausa
+          currentAudio.pause();
+          playBtnC.classList.remove("bi-pause-circle-fill");
+          playBtnC.classList.add("bi-play-circle-fill");
+          footerPlayBtn.innerHTML = `<i class="bi bi-play-circle-fill"></i>`;
+        }
+      });
+
+      btnPrevious.addEventListener("click", () => {
+        if (x > 0) {
+          x--; // Riduci l'indice
           currentAudio.src = albumArray[x].preview;
           currentAudio.play();
           footerPlayBtn.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
-        });
+          aggiornaDettagliBrano(); // Funzione per aggiornare dettagli
+        }
+      });
 
-        btnNext.addEventListener("click", () => {
-          x++;
+      btnNext.addEventListener("click", () => {
+        if (x < albumArray.length - 1) {
+          x++; // Aumenta l'indice
           currentAudio.src = albumArray[x].preview;
           currentAudio.play();
           footerPlayBtn.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
-        });
-
-        console.log(albumArray[x].preview);
-        currentAudio.src = albumArray[x].preview;
-        currentAudio.play();
-        footerPlayBtn.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
-        footerImg.src = albums.cover;
-        nameSong.innerText = albumArray[x].title;
-        artistSong.innerText = albums.artist.name;
-        duration.innerText = `${formatDuration(singleTrack.duration)}`;
+          aggiornaDettagliBrano(); // Funzione per aggiornare dettagli
+        }
       });
     })
     .catch((err) => {
@@ -240,12 +252,17 @@ function registra() {
   currentAudioTime.innerText = Math.round(currentAudio.currentTime);
   progress.value = currentAudio.currentTime;
 }
+// footer btn
 footerPlayBtn.addEventListener("click", () => {
   if (currentAudio.paused) {
     currentAudio.play();
+    playBtnC.classList.remove("bi-play-circle-fill");
+    playBtnC.classList.add("bi-pause-circle-fill");
     footerPlayBtn.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
   } else {
     currentAudio.pause();
+    playBtnC.classList.remove("bi-pause-circle-fill");
+    playBtnC.classList.add("bi-play-circle-fill");
     footerPlayBtn.innerHTML = `<i class="bi bi-play-circle-fill"></i>`;
   }
 });
