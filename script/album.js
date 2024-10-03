@@ -12,6 +12,34 @@ const footerImgServer = localStorage.getItem("footerImgServer");
 const currentAudioServer = localStorage.getItem("currentAudioServer");
 const currentArtisServer = localStorage.getItem("currentArtisServer");
 const currentNameSongServer = localStorage.getItem("currentNameSongServer");
+// dom libreria
+let albumLibreria = [];
+const albumLibreriaServerFase2 = JSON.parse(localStorage.getItem("albumLibreria"));
+if (albumLibreriaServerFase2) {
+  albumLibreriaServerFase2.forEach((element) => {
+    const liAlbumLibreria = document.createElement("li");
+    liAlbumLibreria.innerHTML = `
+      <li class="d-flex align-items-center mb-3">
+                <img src="${element.img}" class="me-2 rounded" alt="Cover" width="40" height="40" />
+                <div class="playlist-text">
+                  <strong>${element.albumTitle}</strong><br />
+                </div>
+              </li>
+      `;
+    albumList.appendChild(liAlbumLibreria);
+  });
+} else {
+  localStorage.setItem("albumLibreria", JSON.stringify(albumLibreria));
+}
+
+// classe per creare oggetto in memoria libreria
+class MyAlbum {
+  constructor(_img, _albumTitle) {
+    this.img = _img;
+    this.albumTitle = _albumTitle;
+  }
+}
+
 // dom album
 const albumCover = document.getElementById("albumCover");
 const albumTitle = document.getElementById("albumTitle");
@@ -34,6 +62,8 @@ const getData = () => {
   fetch(Url)
     .then((response) => {
       if (response.ok) {
+        console.log(response);
+
         return response.json();
       } else {
         throw new Error("Errore nel recupero dei dati");
@@ -46,87 +76,129 @@ const getData = () => {
         0
       )} min`;
 
+      const albumSegui = document.getElementById("albumSegui");
+      albumSegui.addEventListener("click", () => {
+        // creo l'oggetto
+        const followAlbum = new MyAlbum(albums.cover_medium, albums.title);
+        // pusho
+        albumLibreria = albumLibreriaServerFase2;
+
+        albumLibreria.push(followAlbum);
+        console.log(albumLibreria);
+        // salvo in libreria
+        localStorage.setItem("albumLibreria", JSON.stringify(albumLibreria));
+        // convertire array
+        const albumLibreriaServer = JSON.parse(localStorage.getItem("albumLibreria"));
+
+        // albumList ul contenitore
+        const albumList = document.getElementById("albumList");
+        albumList.innerHTML = "";
+
+        // for each
+        albumLibreriaServer.forEach((element) => {
+          const liAlbumLibreria = document.createElement("li");
+          liAlbumLibreria.innerHTML = `
+            <li class="d-flex align-items-center mb-3">
+                      <img src="${element.img}" class="me-2 rounded" alt="Cover" width="40" height="40" />
+                      <div class="playlist-text">
+                        <strong>${element.albumTitle}</strong><br />
+                      </div>
+                    </li>
+            `;
+          albumList.appendChild(liAlbumLibreria);
+        });
+      });
+
+      console.log(albums.tracks);
       const albumArray = albums.tracks.data;
-
-      // Variabile per tracciare la canzone corrente
-      let currentTrackIndex = 0;
-
-      // Funzione per aggiornare il footer e riprodurre la traccia selezionata
-      const playSelectedSong = (index) => {
-        currentTrackIndex = index; // Aggiorna l'indice della traccia corrente
-        const singleTrack = albumArray[currentTrackIndex];
-        currentAudio.src = singleTrack.preview; // Aggiorna l'URL della traccia audio
-        currentAudio.play(); // Riproduci l'audio
-
-        // Aggiorna il footer con i dettagli della canzone
-        footerImg.src = albums.cover;
-        nameSong.innerText = singleTrack.title;
-        artistSong.innerText = albums.artist.name;
-        duration.innerText = formatDuration(singleTrack.duration);
-
-        // Cambia l'icona di play/pause nel footer
-        footerPlayBtn.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
-        playBtnC.classList.remove("bi-play-circle-fill");
-        playBtnC.classList.add("bi-pause-circle-fill");
-      };
-
-      // Crea la lista delle tracce
       albumArray.forEach((singleTrack, i) => {
         const tr = document.createElement("tr");
         tr.classList.add("hoverRiga");
         tr.innerHTML = `
-                  <th style="padding: 1rem; width: 30px;" scope="row">
-                      <div class="d-flex justify-content-start align-items-center">${i + 1}
-                          <img src="../assets/imgs/ImgSpotLoop.gif" height="40" style="margin-block: -1rem;" class="d-none"/>
-                      </div>
-                  </th>
+                  <th style="padding: 1rem; width: 30px;" scope="row"><div class="d-flex justify-content-start align-items-center">${
+                    i + 1
+                  }<img src="../assets/imgs/ImgSpotLoop.gif" height="40" style="margin-block: -1rem;" class="d-none"/></div></th>
                   <td class="hoverTr hoverValue" data-value="${i}">${singleTrack.title}</td>
                   <td>${singleTrack.rank.toString().slice(0, 3)}.${singleTrack.rank.toString().slice(3, 7)}</td>
                   <td>${formatDuration(singleTrack.duration)}</td>`;
 
         trackList.appendChild(tr);
-
-        // Quando una canzone viene cliccata, riproduci la traccia corrispondente
+        let x = 0;
         const playSong = tr.querySelector(".hoverTr");
         playSong.addEventListener("click", () => {
-          playSelectedSong(i); // Riproduci la traccia selezionata
+          const hoverValue = tr.querySelector(".hoverValue");
+          x = hoverValue.getAttribute("data-value");
+          console.log(x);
+          footerImg.src = albums.cover;
+          nameSong.innerText = singleTrack.title;
+          artistSong.innerText = albums.artist.name;
+          duration.innerText = (singleTrack.duration / 60).toFixed(2);
+
+          currentAudio.src = albumArray[i].preview;
+          currentAudio.play();
+          footerPlayBtn.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
+
+          // controlli footer dalla songList
+          btnPrevious.addEventListener("click", () => {
+            x--;
+            console.log(x);
+            currentAudio.src = albumArray[x].preview;
+            currentAudio.play();
+            footerPlayBtn.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
+            footerImg.src = albums.cover;
+            nameSong.innerText = albumArray[x].title;
+            artistSong.innerText = albums.artist.name;
+            duration.innerText = `${formatDuration(singleTrack.duration)}`;
+          });
+
+          btnNext.addEventListener("click", () => {
+            x++;
+            console.log(x);
+            currentAudio.src = albumArray[x].preview;
+            currentAudio.play();
+            footerPlayBtn.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
+            footerImg.src = albums.cover;
+            nameSong.innerText = albumArray[x].title;
+            artistSong.innerText = albums.artist.name;
+            duration.innerText = `${formatDuration(singleTrack.duration)}`;
+          });
+
+          const imgAll = table.querySelectorAll("img");
+
+          imgAll.forEach((element) => {
+            element.classList.add("d-none");
+          });
+
+          const img = tr.querySelector("img");
+          img.classList.remove("d-none");
+          img.classList.add("d-block");
         });
       });
 
-      // Gestione del pulsante play/pausa dell'album (playBtnC)
       playBtnC.addEventListener("click", () => {
-        if (currentAudio.paused) {
-          playSelectedSong(currentTrackIndex); // Se l'audio è in pausa, riproduci la traccia corrente (o la prima traccia)
-        } else {
-          currentAudio.pause(); // Se l'audio è in riproduzione, metti in pausa
-          footerPlayBtn.innerHTML = `<i class="bi bi-play-circle-fill"></i>`;
-          playBtnC.classList.remove("bi-pause-circle-fill");
-          playBtnC.classList.add("bi-play-circle-fill");
-        }
-      });
-      const imgAll = table.querySelectorAll("img");
+        let x = 0;
+        btnPrevious.addEventListener("click", () => {
+          x--;
+          currentAudio.src = albumArray[x].preview;
+          currentAudio.play();
+          footerPlayBtn.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
+        });
 
-      imgAll.forEach((element) => {
-        element.classList.add("d-none");
-      });
+        btnNext.addEventListener("click", () => {
+          x++;
+          currentAudio.src = albumArray[x].preview;
+          currentAudio.play();
+          footerPlayBtn.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
+        });
 
-      const img = tr.querySelector("img");
-      img.classList.remove("d-none");
-      img.classList.add("d-block");
-
-      // Pulsanti per traccia precedente e successiva
-      btnPrevious.addEventListener("click", () => {
-        if (currentTrackIndex > 0) {
-          currentTrackIndex--;
-          playSelectedSong(currentTrackIndex); // Riproduci la traccia precedente
-        }
-      });
-
-      btnNext.addEventListener("click", () => {
-        if (currentTrackIndex < albumArray.length - 1) {
-          currentTrackIndex++;
-          playSelectedSong(currentTrackIndex); // Riproduci la traccia successiva
-        }
+        console.log(albumArray[x].preview);
+        currentAudio.src = albumArray[x].preview;
+        currentAudio.play();
+        footerPlayBtn.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
+        footerImg.src = albums.cover;
+        nameSong.innerText = albumArray[x].title;
+        artistSong.innerText = albums.artist.name;
+        duration.innerText = `${formatDuration(singleTrack.duration)}`;
       });
     })
     .catch((err) => {
@@ -168,13 +240,9 @@ footerPlayBtn.addEventListener("click", () => {
   if (currentAudio.paused) {
     currentAudio.play();
     footerPlayBtn.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
-    playBtnC.classList.remove("bi-play-circle-fill");
-    playBtnC.classList.add("bi-pause-circle-fill");
   } else {
     currentAudio.pause();
     footerPlayBtn.innerHTML = `<i class="bi bi-play-circle-fill"></i>`;
-    playBtnC.classList.remove("bi-pause-circle-fill");
-    playBtnC.classList.add("bi-play-circle-fill");
   }
 });
 volume.addEventListener("input", () => {

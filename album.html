@@ -81,26 +81,26 @@
               <div class="d-flex align-items-center">
                 <h3 class="mb-0">La tua libreria</h3>
               </div>
-              <div class="d-flex align-items-center">
+              <!-- <div class="d-flex align-items-center">
                 <button class="btn btn-outline-light p-1 me-2"><i class="bi bi-plus"></i></button>
                 <button class="btn btn-outline-light p-1"><i class="bi bi-arrow-right"></i></button>
-              </div>
+              </div> -->
             </div>
 
             <!-- Bottoni per Playlist, Album, Artisti con link -->
-            <div class="d-flex gap-2 mb-4">
+            <!-- <div class="d-flex gap-2 mb-4">
               <a href="#" class="btn btn-outline-secondary rounded-pill text-white text-decoration-none">Playlist</a>
               <a href="album.html" class="btn btn-outline-secondary rounded-pill text-white text-decoration-none">Album</a>
               <a href="artist.html" class="btn btn-outline-secondary rounded-pill text-white text-decoration-none">Artisti</a>
-            </div>
+            </div> -->
             <!-- Input di ricerca  -->
             <div class="d-flex justify-content-between mb-3">
-              <div class="input-group" style="width: 150px">
+              <!-- <div class="input-group" style="width: 150px">
                 <span class="input-group-text bg-dark border-0 text-white">
                   <i class="bi bi-search"></i>
                 </span>
                 <input type="text" class="form-control bg-dark text-white border-0" placeholder="Cerca" />
-              </div>
+              </div> -->
 
               <!-- Sezione Recenti con icona -->
               <div class="d-flex justify-content-between ms-3">
@@ -110,70 +110,14 @@
             </div>
 
             <!-- Lista di Playlist e Album -->
-            <ul class="list-unstyled flex-grow-1">
-              <li class="d-flex align-items-center mb-3">
+            <ul id="albumList" class="list-unstyled flex-grow-1">
+              <!-- <li class="d-flex align-items-center mb-3">
                 <img src="./assets/imgs/search/image-1.jpeg" class="me-2 rounded" alt="Cover" width="40" height="40" />
                 <div class="playlist-text">
                   <strong>Brani che ti piacciono</strong><br />
                   <span class="playlist-description text-light-emphasis">Playlist · 181 brani</span>
                 </div>
-              </li>
-              <li class="d-flex align-items-center mb-3">
-                <img src="./assets/imgs/search/image-10.jpg" class="me-2 rounded" alt="Cover" width="40" height="40" />
-                <div>
-                  <strong>Brani che ti piacciono</strong><br />
-                  <span class="playlist-description text-light-emphasis">Playlist · 140 brani</span>
-                </div>
-              </li>
-              <li class="d-flex align-items-center mb-3">
-                <img src="./assets/imgs/search/image-11.jpg" class="me-2 rounded" alt="Cover" width="40" height="40" />
-                <div>
-                  <strong>Brani che ti piacciono</strong><br />
-                  <span class="playlist-description text-light-emphasis">Playlist · 115 brani</span>
-                </div>
-              </li>
-              <li class="d-flex align-items-center mb-3">
-                <img src="./assets/imgs/search/image-12.jpg" class="me-2 rounded" alt="Cover" width="40" height="40" />
-                <div>
-                  <strong>Brani che ti piacciono</strong><br />
-                  <span class="playlist-description text-light-emphasis">Playlist · 136 brani</span>
-                </div>
-              </li>
-              <li class="d-flex align-items-center mb-3">
-                <img src="./assets/imgs/search/image-2.jpg" class="me-2 rounded" alt="Cover" width="40" height="40" />
-                <div>
-                  <strong>Brani che ti piacciono</strong><br />
-                  <span class="playlist-description text-light-emphasis">Playlist · 117 brani</span>
-                </div>
-              </li>
-              <li class="d-flex align-items-center mb-3">
-                <img src="./assets/imgs/search/image-14.jpg" class="me-2 rounded" alt="Cover" width="40" height="40" />
-                <div>
-                  <strong>Brani che ti piacciono</strong><br />
-                  <span class="playlist-description text-light-emphasis">Playlist · 125 brani</span>
-                </div>
-              </li>
-              <li class="d-flex align-items-center mb-3">
-                <img src="./assets/imgs/search/image-15.jpg" class="me-2 rounded" alt="Cover" width="40" height="40" />
-                <div>
-                  <strong>Brani che ti piacciono</strong><br />
-                  <span class="playlist-description text-light-emphasis">Playlist · 180 brani</span>
-                </div>
-              </li>
-              <li class="d-flex align-items-center mb-3">
-                <img src="./assets/imgs/search/image-16.jpg" class="me-2 rounded" alt="Cover" width="40" height="40" />
-                <div>
-                  <strong>Brani che ti piacciono</strong><br />
-                  <span class="playlist-description text-light-emphasis">Playlist · 178 brani</span>
-                </div>
-              </li>
-              <li class="d-flex align-items-center mb-3">
-                <img src="./assets/imgs/search/image-17.jpg" class="me-2 rounded" alt="Cover" width="40" height="40" />
-                <div>
-                  <strong>Brani che ti piacciono</strong><br />
-                  <span class="playlist-description text-light-emphasis">Playlist · 181 brani</span>
-                </div>
-              </li>
+              </li> -->
 
               <!-- Altre contenuti li aggiungiamo -->
             </ul>
@@ -197,7 +141,7 @@
                 <div>
                   <a href="#"><i class="playBtnC bi bi-play-circle-fill fs-1"></i></a>
                 </div>
-                <button class="btn btn-outline-light">Segui</button>
+                <button id="albumSegui" class="btn btn-outline-light">Segui</button>
                 <div>
                   <li class="nav-item dropdown d-flex align-items-center ms-3 me-3">
                     <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
