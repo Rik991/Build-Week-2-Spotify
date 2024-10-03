@@ -30,8 +30,6 @@ const albumId = idBar.get("albumId");
 // get album
 const Url = `https://striveschool-api.herokuapp.com/api/deezer/album/${albumId}`;
 
-console.log(Url);
-
 const getData = () => {
   fetch(Url)
     .then((response) => {
@@ -52,7 +50,6 @@ const getData = () => {
       console.log(album.tracks);
       const albumArray = album.tracks.data;
       albumArray.forEach((singleTrack, i) => {
-        // console.log(singleTrack);
         const tr = document.createElement("tr");
         tr.classList.add("hoverRiga");
         tr.innerHTML = `

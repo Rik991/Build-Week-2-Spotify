@@ -180,15 +180,15 @@
 
         <!-- Main Artist Content -->
         <div class="asideScroll overflow-y-scroll rounded mt-2 text-bg-dark rounded p-3 artist-section-gradient flex-grow-1">
-          <div class="row mb-4">
-            <div class="col-md-4">
-              <img src="./assets/imgs/main/image-15.jpg" alt="Album Cover" class="img-fluid rounded" />
+          <div class="d-flex gap-3 mt-4 mb-3">
+            <div>
+              <img src="" alt="Artist Cover" class="img-fluid rounded shadow" id="artistCover" />
             </div>
-            <div class="col-md-8">
+            <div class="">
               <p><i class="verified-iconC bi bi-patch-check-fill"></i> Artista verificato</p>
-              <h1 class="display-3 fw-bold">Yellowcard</h1>
+              <h1 class="display-3 fw-bold" id="artistName">Yellowcard</h1>
               <!--deve essere preso dell'api -->
-              <p class="lead">3.433.158 ascoltatori mensili</p>
+              <p class="lead"><span id="fans">3.433.158</span> ascoltatori mensili</p>
               <!--deve essere preso dell'api -->
               <div class="d-flex align-items-center gap-3 mb-4">
                 <!-- <button class="btn btn-lg rounded-circle">
@@ -237,9 +237,9 @@
 
           <!-- Brani popolari -->
           <div class="row">
-            <div class="col-md-6">
-              <h4>Popolari</h4>
-              <table class="table table-dark table-hover">
+            <div class="col">
+              <h4>Brani scelti per te</h4>
+              <table style="background-color: #0000001f; /* color: aqua; */ border-radius: 0.5rem; /* margin: 1rem; */ width: -webkit-fill-available">
                 <thead>
                   <tr>
                     <th scope="col">#</th>
@@ -247,8 +247,8 @@
                     <th scope="col"><i class="bi bi-clock"></i></th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
+                <tbody id="trackList">
+                  <!-- <tr>
                     <th scope="row">1</th>
                     <td>Ocean Avenue</td>
                     <td>3:18</td>
@@ -272,14 +272,13 @@
                     <th scope="row">5</th>
                     <td>Way Away</td>
                     <td>3:22</td>
-                  </tr>
+                  </tr> -->
                 </tbody>
               </table>
-              <a href="#" class="text-light">Visualizza altro</a>
             </div>
 
             <!-- Brani che ti piacciono -->
-            <div class="col-md-6">
+            <!-- <div class="col-md-6">
               <h4>Brani che ti piacciono</h4>
               <div class="d-flex align-items-center mb-3">
                 <img src="./assets/imgs/main/image-8.jpg" alt="Playlist Cover" class="rounded me-2" width="40" height="40" />
@@ -288,7 +287,7 @@
                   <span class="text-secondary">Di Yellowcard</span>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
 
