@@ -1,6 +1,9 @@
 const searchForm = document.getElementById("search-form");
 const searchInput = document.getElementById("search-input");
+const searchForm3 = document.getElementById("search-form3");
+const searchInput2 = document.getElementById("search-input2");
 const resultsContainer = document.getElementById("song-results");
+let searchButton = document.querySelector(".searchButton");
 
 searchForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -9,6 +12,25 @@ searchForm.addEventListener("submit", (e) => {
     searchSongs(query);
   }
 });
+
+//searchbar mobile
+searchForm3.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const query = searchInput2.value;
+  if (query) {
+    searchSongs(query);
+  }
+});
+
+// document.getElementById("searchIcon").addEventListener("click", (e) => {
+//   e.preventDefault();
+//   console.log("cerco");
+//   const query = searchInput.value;
+//   if (query) {
+//     searchSongs(query);
+//   }
+// });
 
 const searchSongs = (query) => {
   const searchUrl = `https://striveschool-api.herokuapp.com/api/deezer/search?q=${query}`;
@@ -36,16 +58,26 @@ const displaySearchResults = (songs) => {
 
   songs.forEach((song) => {
     const songItem = document.createElement("div");
+    songItem.classList.add("col-6");
     songItem.classList.add("col-md-3");
+    songItem.classList.add("col-lg-2");
 
     songItem.innerHTML = `
-      <div class="card h-100 border-0 text-white bg-dark position-relative">
-        <div class="rounded p-2 m-0 badgePlay">
+    <a href="album.html?albumId=${song.album.id}">
+      <div class="card h-100 border-0 text-white testH" style="max-width: max-content">
+        <div class="rounded p-2 m-0 badgePlay position-relative">
           <img src="${song.album.cover_medium}" class="img-fluid rounded" alt="${song.title}" />
           <a class="play-song-btn" href="#" data-preview="${song.preview}" data-title="${song.title}" data-artist="${song.artist.name}" data-cover="${song.album.cover_medium}">
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#63D566" class="bi bi-play-circle-fill position-absolute" viewBox="0 0 16 16">
-              <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814z"/>
-            </svg>
+           <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="40"
+                            height="40"
+                            fill="#63D566"
+                            class="bi bi-play-circle-fill position-absolute translate-middle-y bottom-0"
+                            viewBox="0 0 16 16"
+                          >
+                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814z" />
+                          </svg>
           </a>
         </div>
         <div class="card-body pt-0">
@@ -53,6 +85,7 @@ const displaySearchResults = (songs) => {
           <p class="text-secondary mb-0">${song.artist.name}</p>
         </div>
       </div>
+    </a>
     `;
 
     resultsContainer.appendChild(songItem);

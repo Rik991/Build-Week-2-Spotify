@@ -7,9 +7,20 @@ const duration = document.getElementById("duration");
 const currentAudio = document.getElementById("current-audio");
 const footerPlayBtn = document.querySelector(".footerPlay");
 const currentAudioTime = document.getElementById("current-time");
-
+const homepageSection = document.getElementById("homepage-section");
+const searchForm2 = document.getElementById("search-form");
+const resultContainer = document.getElementById("song-results");
 const hiddenAsideBtn = document.querySelector(".bi-view-list");
 const hiddenAside = document.querySelector(".hiddenAside");
+
+// // funzione per la searchBar
+
+searchForm2.addEventListener("submit", (e) => {
+  e.preventDefault();
+  homepageSection.classList.add("d-none");
+});
+
+//nascondo la sidebar
 hiddenAsideBtn.addEventListener("click", () => {
   hiddenAsideBtn.classList.toggle("text-success");
   hiddenAside.classList.toggle("d-none");
@@ -250,7 +261,7 @@ const artisti = [
   "angelina",
   "cremonini",
   "litfiba",
-  "coldpaly",
+  "coldpaly"
 ];
 
 getData(genericUrl + artisti[Math.floor(Math.random() * artisti.length)]);
@@ -380,6 +391,21 @@ function formatTime(seconds) {
   return `${minutes}:${secs}`;
 }
 //fine progress bar
+
+document.getElementById("searchIcon").addEventListener("click", (e) => {
+  e.preventDefault();
+  let searchButton = document.querySelector(".searchButton");
+  if (!searchButton.classList.contains("show")) {
+    searchButton.classList.remove("d-none");
+    searchButton.classList.add("d-block");
+    const aside1 = document.getElementById("aside1");
+    aside1.classList.add("d-none");
+    homepageSection.classList.add("d-none");
+    searchButton.focus();
+  } else {
+    searchButton.classList.remove("show");
+  }
+});
 
 duration.innerText = formatDuration(song.duration);
 //vecchio codice qui sotto commentato

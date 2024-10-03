@@ -27,7 +27,7 @@
               <input
                 id="search-input"
                 type="text"
-                class="form-control bg-dark text-light ps-4 pe-5 rounded-pill"
+                class="form-control bg-dark text-light ps-5 pe-5 rounded-pill"
                 placeholder="Cosa vuoi ascoltare?"
                 style="height: 38px; padding-left: 40px; padding-right: 40px; border: none"
               />
@@ -77,7 +77,7 @@
       <div class="container-fluid">
         <div class="d-flex gap-2 g-2" style="height: 80vh; overflow: hidden">
           <!-- aside 1  -->
-          <div class="asideScroll rounded-1 overflow-y-scroll" style="min-width: max-content">
+          <div class="asideScroll rounded-1 overflow-y-scroll" style="min-width: max-content" id="aside1">
             <aside
               class="d-flex flex-column bg-dark text-white vh-100 p-3 barra-laterale album-section-gradient"
               style="background: linear-gradient(to top, rgb(0 0 0 / 50%), rgba(10, 10, 10, 0.5))"
@@ -128,7 +128,9 @@
               </ul>
             </aside>
           </div>
-          <!--main content -->
+          <!-- main content search result -->
+          <div id="song-results" class="asideScroll overflow-y-scroll row g-3 mt-3"></div>
+          <!--main content homepage -->
           <div id="homepage-section" class="asideScroll rounded-1 p-3 overflow-y-scroll flex-grow-1">
             <!-- hero -->
             <div class="card mb-3 text-white position-relative border-0 fw-bolder hero-HomeG">
@@ -205,7 +207,7 @@
               </div> -->
             </div>
             <!-- true footer -->
-            <section class="true-footer mt-5">
+            <section class="true-footer mt-5 d-none d-md-block">
               <div class="container">
                 <div class="row-main-footer row-cols-md-5 d-flex border-bottom">
                   <div class="col text-f">
@@ -259,11 +261,11 @@
             </section>
           </div>
           <!-- aside 2 -->
-          <div class="asideScroll rounded-1 hiddenAside overflow-y-scroll d-none">
+          <div class="asideScroll rounded-1 hiddenAside overflow-y-scroll d-none" style="min-width: max-content">
             <aside class="aside-coda text-white py-4 px-3">
               <div class="d-flex justify-content-center align-items-center mb-4">
                 <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked />
-                <label class="btn btn-outline-spotify fw-semibold text-dark fs-3" for="btnradio1">Track List</label>
+                <label class="btn btn-outline-white semibold text-dark fs-3 shadow" for="btnradio1">Track List</label>
 
                 <!-- <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
                   <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" />
@@ -339,9 +341,24 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./search.html">
-                <i class="bi bi-search text-light"></i>
-              </a>
+              <!-- <form class="d-flex" role="search" id="search-form3">
+                <input class="form-control me-2 searchButton d-none" type="search" placeholder="cosa vuoi ascoltare?" aria-label="Search" id="search-input2" />
+                <button class="btn btn-outline-light border-0" type="submit" id="searchIcon">
+                  <i class="bi bi-search"></i>
+                </button>
+              </form> -->
+              <form id="search-form3" class="d-flex">
+                <input
+                  id="search-input2"
+                  type="text"
+                  class="form-control bg-dark text-light ps-5 pe-5 rounded-pill searchButton d-none"
+                  placeholder="Cosa vuoi ascoltare?"
+                  style="height: 38px; padding-left: 40px; padding-right: 40px; border: none"
+                />
+                <div class="btn btn-outline-light border-0" id="searchIcon">
+                  <i class="bi bi-search"></i>
+                </div>
+              </form>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#libreria">
@@ -361,5 +378,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="./script/index.js"></script>
+    <script src="./search.js"></script>
   </body>
 </html>

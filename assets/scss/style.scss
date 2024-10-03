@@ -6,11 +6,11 @@
 $spotify: #1ed760;
 
 $new-theme-colors: (
-  "spotify": $spotify,
+  "spotify": $spotify
 );
 $theme-colors: map-merge($theme-colors, $new-theme-colors);
 $new-colors: (
-  "spotify": $spotify,
+  "spotify": $spotify
 );
 $colors: map-merge($colors, $new-colors);
 body {
@@ -195,6 +195,19 @@ footer input:hover::-webkit-slider-thumb {
 .search-bar input:focus {
   box-shadow: none;
   outline: none;
+}
+
+//searchbar mobile
+.searchButton {
+  transition: width 0.3s ease, opacity 0.3s ease;
+  width: 0;
+  opacity: 0;
+}
+
+.searchButton.show {
+  width: 200px;
+  display: inline-block;
+  opacity: 1;
 }
 
 @import "./bootstrap.scss";
