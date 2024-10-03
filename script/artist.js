@@ -12,8 +12,22 @@ const footerImgServer = localStorage.getItem("footerImgServer");
 const currentAudioServer = localStorage.getItem("currentAudioServer");
 const currentArtisServer = localStorage.getItem("currentArtisServer");
 const currentNameSongServer = localStorage.getItem("currentNameSongServer");
-
+// dom album
+const albumCover = document.getElementById("albumCover");
+const albumTitle = document.getElementById("albumTitle");
+const albumInfo = document.getElementById("albumInfo");
+const trackList = document.getElementById("trackList");
+const table = document.querySelector("table");
+// dom artist
+const artistCover = document.getElementById("artistCover");
+const artistName = document.getElementById("artistName");
+const fans = document.getElementById("fans");
+// button
+const playBtnC = document.querySelector(".playBtnC");
+const btnPrevious = document.getElementById("btnPrevious");
+const btnNext = document.getElementById("btnNext");
 // Url barra
+
 const idBar = new URLSearchParams(location.search);
 const artistId = idBar.get("artistId");
 
@@ -35,7 +49,70 @@ const getData = () => {
     })
     .then((albums) => {
       console.log("album disponibili", albums);
-      const albArray = albums.data;
+      const songsArray = albums.tracks.data;
+      artistCover.src = albums.artist.picture_medium;
+      artistName.innerText = albums.artist.name;
+      fans.innerText = `${albums.fans.toString().slice(0, 3)}.${albums.fans.toString().slice(3, 7)}`;
+      songsArray.forEach((singleTrack, i) => {
+        const tr = document.createElement("tr");
+        tr.classList.add("hoverRiga");
+        tr.innerHTML = `
+                  <th style="padding: 1rem; width: 30px;" scope="row"><div class="d-flex justify-content-start align-items-center">${
+                    i + 1
+                  }<img src="../assets/imgs/ImgSpotLoop.gif" height="40" style="margin-block: -1rem;" class="d-none"/></div></th>
+                  <td class="hoverTr">${singleTrack.title}</td>                
+                  <td>${formatDuration(singleTrack.duration)}</td>`;
+
+        trackList.appendChild(tr);
+
+        const playSong = tr.querySelector(".hoverTr");
+        playSong.addEventListener("click", () => {
+          footerImg.src = album.cover;
+          nameSong.innerText = singleTrack.title;
+          artistSong.innerText = album.artist.name;
+          duration.innerText = (singleTrack.duration / 60).toFixed(2);
+
+          currentAudio.src = albumArray[i].preview;
+          currentAudio.play();
+          footerPlayBtn.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
+
+          const imgAll = table.querySelectorAll("img");
+
+          imgAll.forEach((element) => {
+            element.classList.add("d-none");
+          });
+
+          const img = tr.querySelector("img");
+          img.classList.remove("d-none");
+          img.classList.add("d-block");
+        });
+      });
+
+      playBtnC.addEventListener("click", () => {
+        let x = 0;
+        btnPrevious.addEventListener("click", () => {
+          x--;
+          currentAudio.src = albumArray[x].preview;
+          currentAudio.play();
+          footerPlayBtn.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
+        });
+
+        btnNext.addEventListener("click", () => {
+          x++;
+          currentAudio.src = albumArray[x].preview;
+          currentAudio.play();
+          footerPlayBtn.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
+        });
+
+        console.log(albumArray[x].preview);
+        currentAudio.src = albumArray[x].preview;
+        currentAudio.play();
+        footerPlayBtn.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
+        footerImg.src = album.cover;
+        nameSong.innerText = albumArray[x].title;
+        artistSong.innerText = album.artist.name;
+        duration.innerText = `${formatDuration(singleTrack.duration)}`;
+      });
     })
     .catch((err) => {
       console.log("ERROR", err);
@@ -91,6 +168,15 @@ progress.addEventListener("input", () => {
 });
 
 getData();
+
+const formatDuration = (seconds) => {
+  //minuti
+  const minutes = Math.floor(seconds / 60);
+  //secondi che rimangono dalla trasformazione in minuti
+  const remainingSeconds = Math.floor(seconds % 60);
+  //ternary per prendere 2 cifre di secondi
+  return `${minutes}:${remainingSeconds < 10 ? "0" : ""}${remainingSeconds}`;
+};
 
 //progress bar da sistemare
 const audio = document.getElementById("current-audio");
