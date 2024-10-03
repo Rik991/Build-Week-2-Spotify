@@ -73,7 +73,10 @@
       <div class="d-flex gap-2 g-2" style="height: 80vh; overflow: hidden">
         <!-- aside 1  -->
         <div class="asideScroll overflow-y-scroll rounded mt-2" style="min-width: max-content">
-          <aside class="d-flex flex-column bg-dark text-white vh-100 p-3 barra-laterale artist-section-gradient">
+          <aside
+            class="d-flex flex-column bg-dark text-white vh-100 p-3 barra-laterale album-section-gradient"
+            style="background: linear-gradient(to top, rgb(0 0 0 / 50%), rgba(10, 10, 10, 0.5))"
+          >
             <div class="d-flex align-items-center justify-content-between mb-4">
               <div class="d-flex align-items-center">
                 <h3 class="mb-0">La tua libreria</h3>
@@ -90,7 +93,6 @@
               <a href="album.html" class="btn btn-outline-secondary rounded-pill text-white text-decoration-none">Album</a>
               <a href="artist.html" class="btn btn-outline-secondary rounded-pill text-white text-decoration-none">Artisti</a>
             </div>
-
             <!-- Input di ricerca  -->
             <div class="d-flex justify-content-between mb-3">
               <div class="input-group" style="width: 150px">
@@ -108,70 +110,14 @@
             </div>
 
             <!-- Lista di Playlist e Album -->
-            <ul class="list-unstyled flex-grow-1">
-              <li class="d-flex align-items-center mb-3">
+            <ul id="albumList" class="list-unstyled flex-grow-1">
+              <!-- <li class="d-flex align-items-center mb-3">
                 <img src="./assets/imgs/search/image-1.jpeg" class="me-2 rounded" alt="Cover" width="40" height="40" />
                 <div class="playlist-text">
                   <strong>Brani che ti piacciono</strong><br />
-                  <span class="playlist-description text-dark">Playlist · 181 brani</span>
+                  <span class="playlist-description text-light-emphasis">Playlist · 181 brani</span>
                 </div>
-              </li>
-              <li class="d-flex align-items-center mb-3">
-                <img src="./assets/imgs/search/image-10.jpg" class="me-2 rounded" alt="Cover" width="40" height="40" />
-                <div>
-                  <strong>Brani che ti piacciono</strong><br />
-                  <span class="playlist-description text-dark">Playlist · 140 brani</span>
-                </div>
-              </li>
-              <li class="d-flex align-items-center mb-3">
-                <img src="./assets/imgs/search/image-11.jpg" class="me-2 rounded" alt="Cover" width="40" height="40" />
-                <div>
-                  <strong>Brani che ti piacciono</strong><br />
-                  <span class="playlist-description text-dark">Playlist · 115 brani</span>
-                </div>
-              </li>
-              <li class="d-flex align-items-center mb-3">
-                <img src="./assets/imgs/search/image-12.jpg" class="me-2 rounded" alt="Cover" width="40" height="40" />
-                <div>
-                  <strong>Brani che ti piacciono</strong><br />
-                  <span class="playlist-description text-dark">Playlist · 136 brani</span>
-                </div>
-              </li>
-              <li class="d-flex align-items-center mb-3">
-                <img src="./assets/imgs/search/image-2.jpg" class="me-2 rounded" alt="Cover" width="40" height="40" />
-                <div>
-                  <strong>Brani che ti piacciono</strong><br />
-                  <span class="playlist-description text-dark">Playlist · 117 brani</span>
-                </div>
-              </li>
-              <li class="d-flex align-items-center mb-3">
-                <img src="./assets/imgs/search/image-14.jpg" class="me-2 rounded" alt="Cover" width="40" height="40" />
-                <div>
-                  <strong>Brani che ti piacciono</strong><br />
-                  <span class="playlist-description text-darky">Playlist · 125 brani</span>
-                </div>
-              </li>
-              <li class="d-flex align-items-center mb-3">
-                <img src="./assets/imgs/search/image-15.jpg" class="me-2 rounded" alt="Cover" width="40" height="40" />
-                <div>
-                  <strong>Brani che ti piacciono</strong><br />
-                  <span class="playlist-description text-dark">Playlist · 180 brani</span>
-                </div>
-              </li>
-              <li class="d-flex align-items-center mb-3">
-                <img src="./assets/imgs/search/image-16.jpg" class="me-2 rounded" alt="Cover" width="40" height="40" />
-                <div>
-                  <strong>Brani che ti piacciono</strong><br />
-                  <span class="playlist-description text-dark">Playlist · 178 brani</span>
-                </div>
-              </li>
-              <li class="d-flex align-items-center mb-3">
-                <img src="./assets/imgs/search/image-17.jpg" class="me-2 rounded" alt="Cover" width="40" height="40" />
-                <div>
-                  <strong>Brani che ti piacciono</strong><br />
-                  <span class="playlist-description text-dark">Playlist · 181 brani</span>
-                </div>
-              </li>
+              </li> -->
 
               <!-- Altre contenuti li aggiungiamo -->
             </ul>

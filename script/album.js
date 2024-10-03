@@ -12,6 +12,34 @@ const footerImgServer = localStorage.getItem("footerImgServer");
 const currentAudioServer = localStorage.getItem("currentAudioServer");
 const currentArtisServer = localStorage.getItem("currentArtisServer");
 const currentNameSongServer = localStorage.getItem("currentNameSongServer");
+// dom libreria
+let albumLibreria = [];
+const albumLibreriaServerFase2 = JSON.parse(localStorage.getItem("albumLibreria"));
+if (albumLibreriaServerFase2) {
+  albumLibreriaServerFase2.forEach((element) => {
+    const liAlbumLibreria = document.createElement("li");
+    liAlbumLibreria.innerHTML = `
+      <li class="d-flex align-items-center mb-3">
+                <img src="${element.img}" class="me-2 rounded" alt="Cover" width="40" height="40" />
+                <div class="playlist-text">
+                  <strong>${element.albumTitle}</strong><br />
+                </div>
+              </li>
+      `;
+    albumList.appendChild(liAlbumLibreria);
+  });
+} else {
+  localStorage.setItem("albumLibreria", JSON.stringify(albumLibreria));
+}
+
+// co
+class MyAlbum {
+  constructor(_img, _albumTitle) {
+    this.img = _img;
+    this.albumTitle = _albumTitle;
+  }
+}
+
 // dom album
 const albumCover = document.getElementById("albumCover");
 const albumTitle = document.getElementById("albumTitle");
@@ -47,6 +75,39 @@ const getData = () => {
       albumInfo.innerHTML = `${albums.artist.name} • ${albums.release_date.substring(0, 4)} • ${albums.nb_tracks} brani, ${(albums.duration / 60).toFixed(
         0
       )} min`;
+
+      const albumSegui = document.getElementById("albumSegui");
+      albumSegui.addEventListener("click", () => {
+        // creo l'oggetto
+        const followAlbum = new MyAlbum(albums.cover_medium, albums.title);
+        // pusho
+        albumLibreria = albumLibreriaServerFase2;
+
+        albumLibreria.push(followAlbum);
+        console.log(albumLibreria);
+        // salvo in libreria
+        localStorage.setItem("albumLibreria", JSON.stringify(albumLibreria));
+        // convertire array
+        const albumLibreriaServer = JSON.parse(localStorage.getItem("albumLibreria"));
+
+        // albumList ul contenitore
+        const albumList = document.getElementById("albumList");
+        albumList.innerHTML = "";
+
+        // for each
+        albumLibreriaServer.forEach((element) => {
+          const liAlbumLibreria = document.createElement("li");
+          liAlbumLibreria.innerHTML = `
+            <li class="d-flex align-items-center mb-3">
+                      <img src="${element.img}" class="me-2 rounded" alt="Cover" width="40" height="40" />
+                      <div class="playlist-text">
+                        <strong>${element.albumTitle}</strong><br />
+                      </div>
+                    </li>
+            `;
+          albumList.appendChild(liAlbumLibreria);
+        });
+      });
 
       console.log(albums.tracks);
       const albumArray = albums.tracks.data;

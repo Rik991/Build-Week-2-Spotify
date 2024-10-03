@@ -12,6 +12,23 @@ const footerImgServer = localStorage.getItem("footerImgServer");
 const currentAudioServer = localStorage.getItem("currentAudioServer");
 const currentArtisServer = localStorage.getItem("currentArtisServer");
 const currentNameSongServer = localStorage.getItem("currentNameSongServer");
+// libreria
+const albumLibreriaServerFase2 = JSON.parse(localStorage.getItem("albumLibreria"));
+if (albumLibreriaServerFase2) {
+  albumLibreriaServerFase2.forEach((element) => {
+    const liAlbumLibreria = document.createElement("li");
+    liAlbumLibreria.innerHTML = `
+      <li class="d-flex align-items-center mb-3">
+                <img src="${element.img}" class="me-2 rounded" alt="Cover" width="40" height="40" />
+                <div class="playlist-text">
+                  <strong>${element.albumTitle}</strong><br />
+                </div>
+              </li>
+      `;
+    albumList.appendChild(liAlbumLibreria);
+  });
+}
+// fine libreria
 // dom album
 const albumCover = document.getElementById("albumCover");
 const albumTitle = document.getElementById("albumTitle");

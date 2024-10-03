@@ -14,7 +14,23 @@ hiddenAsideBtn.addEventListener("click", () => {
   hiddenAsideBtn.classList.toggle("text-success");
   hiddenAside.classList.toggle("d-none");
 });
-
+// libreria
+const albumLibreriaServerFase2 = JSON.parse(localStorage.getItem("albumLibreria"));
+if (albumLibreriaServerFase2) {
+  albumLibreriaServerFase2.forEach((element) => {
+    const liAlbumLibreria = document.createElement("li");
+    liAlbumLibreria.innerHTML = `
+      <li class="d-flex align-items-center mb-3">
+                <img src="${element.img}" class="me-2 rounded" alt="Cover" width="40" height="40" />
+                <div class="playlist-text">
+                  <strong>${element.albumTitle}</strong><br />
+                </div>
+              </li>
+      `;
+    albumList.appendChild(liAlbumLibreria);
+  });
+}
+// fine libreria
 const getData = (url) => {
   fetch(url)
     .then((response) => {
@@ -153,7 +169,6 @@ const getData = (url) => {
                       <img src="${singleTrack.album.cover}" class="me-2 rounded" alt="Cover" width="40" height="40" />
                       <div class="playlist-text">
                         <strong>${singleTrack.title}</strong><br />
-                        <span class="playlist-description text-secondary">Playlist · 181 brani</span>
                       </div>
                     </li>
             `;
