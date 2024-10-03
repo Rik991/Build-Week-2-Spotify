@@ -186,16 +186,16 @@
             </div>
             <div class="">
               <p><i class="verified-iconC bi bi-patch-check-fill"></i> Artista verificato</p>
-              <h1 class="display-3 fw-bold" id="artistName">Yellowcard</h1>
+              <h1 class="display-3 fw-bold" id="artistName"></h1>
               <!--deve essere preso dell'api -->
-              <p class="lead"><span id="fans">3.433.158</span> ascoltatori mensili</p>
+              <p class="lead"><span id="fans"></span> ascoltatori mensili</p>
               <!--deve essere preso dell'api -->
               <div class="d-flex align-items-center gap-3 mb-4">
                 <!-- <button class="btn btn-lg rounded-circle">
                   <i class="bi bg-playBtnC bi-play-fill"></i>
                 </button> -->
                 <div>
-                  <i class="playBtnC bi bi-play-circle-fill fs-1"></i>
+                  <a href="#"><i class="playBtnC bi bi-play-circle-fill fs-1"></i></a>
                 </div>
                 <button class="btn btn-outline-light">Segui</button>
                 <div>
@@ -327,7 +327,7 @@
             </div>
             <div class="col text-f">
               <h6 class="fw-bold text-light">Community</h6>
-              <p><a class="text-white text-decoration-none" href="#"> Per artisti </a></p>
+              <p><a class="text-white text-decoration-none" href="#">Per artisti </a></p>
               <p><a class="text-white text-decoration-none" href="#">Sviluppatori</a></p>
               <p><a class="text-white text-decoration-none" href="#">Pubblicità</a></p>
               <p><a class="text-white text-decoration-none" href="#">Investitori</a></p>
@@ -374,7 +374,7 @@
         <source id="source" src="" type="audio/mpeg" />
       </audio>
       <div class="container-fluid bg-black text-light">
-        <div class="row p-2 align-items-center">
+        <div class="row align-items-center" style="/* padding: 0.5rem; */ padding-top: 0; padding-bottom: 0.8rem">
           <div class="col d-flex">
             <img id="footer-img" class="rounded-1" src="./assets/imgs/search/image-10.jpg" alt="Copertina album" height="60" />
             <div class="d-flex flex-column justify-content-center px-3">
@@ -384,9 +384,9 @@
           </div>
           <div class="col controlli-riproduzione fs-4 text-center">
             <button class="bg-black fs-5"><i class="bi bi-shuffle"></i></button>
-            <button class="bg-black"><i class="bi bi-skip-start-fill"></i></button>
+            <button id="btnPrevious" class="bg-black"><i class="bi bi-skip-start-fill"></i></button>
             <button class="bg-black fs-2 footerPlay"><i class="bi bi-play-circle-fill footerPlayIcon"></i></button>
-            <button class="bg-black"><i class="bi bi-skip-end-fill"></i></button>
+            <button id="btnNext" class="bg-black"><i class="bi bi-skip-end-fill"></i></button>
             <button class="bg-black"><i class="bi bi-repeat"></i></button>
             <div class="d-flex align-items-center justify-content-center">
               <span class="fs-6" id="current-time">0:00</span>

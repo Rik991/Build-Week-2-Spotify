@@ -50,6 +50,7 @@ const getData = () => {
     .then((albums) => {
       console.log("album disponibili", albums);
       const songsArray = albums.tracks.data;
+      const albumArray = albums.tracks.data;
       artistCover.src = albums.artist.picture_medium;
       artistName.innerText = albums.artist.name;
       fans.innerText = `${albums.fans.toString().slice(0, 3)}.${albums.fans.toString().slice(3, 7)}`;
@@ -67,9 +68,9 @@ const getData = () => {
 
         const playSong = tr.querySelector(".hoverTr");
         playSong.addEventListener("click", () => {
-          footerImg.src = album.cover;
+          footerImg.src = albums.cover;
           nameSong.innerText = singleTrack.title;
-          artistSong.innerText = album.artist.name;
+          artistSong.innerText = albums.artist.name;
           duration.innerText = (singleTrack.duration / 60).toFixed(2);
 
           currentAudio.src = albumArray[i].preview;
@@ -108,9 +109,9 @@ const getData = () => {
         currentAudio.src = albumArray[x].preview;
         currentAudio.play();
         footerPlayBtn.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
-        footerImg.src = album.cover;
+        footerImg.src = albums.cover;
         nameSong.innerText = albumArray[x].title;
-        artistSong.innerText = album.artist.name;
+        artistSong.innerText = albums.artist.name;
         duration.innerText = `${formatDuration(singleTrack.duration)}`;
       });
     })
