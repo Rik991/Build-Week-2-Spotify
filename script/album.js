@@ -54,11 +54,11 @@ const getData = () => {
       albumArray.forEach((singleTrack, i) => {
         // console.log(singleTrack);
         const tr = document.createElement("tr");
-        tr.classList.add("hoverTr");
+        tr.classList.add("hoverRiga");
         tr.innerHTML = `
-                  <th scope="row"><div class="d-flex justify-content-start align-items-center">${
+                  <th style="padding: 1rem; width: 30px;" scope="row"><div class="d-flex justify-content-start align-items-center">${
                     i + 1
-                  }<img src="../assets/imgs/sound Sp.gif" height="20"  class="d-none"/></div></th>
+                  }<img src="../assets/imgs/ImgSpotLoop.gif" height="40" style="margin-block: -1rem;" class="d-none"/></div></th>
                   <td class="hoverTr">${singleTrack.title}</td>
                   <td>${singleTrack.rank.toString().slice(0, 3)}.${singleTrack.rank.toString().slice(3, 7)}</td>
                   <td>${formatDuration(singleTrack.duration)}</td>`;
@@ -226,8 +226,9 @@ function formatTime(seconds) {
 }
 //fine progress bar
 
-duration.innerText = formatDuration(song.duration);
+// duration.innerText = formatDuration(song.duration);
 //vecchio codice qui sotto commentato
 // duration.innerText = parseFloat((song.duration / 60).toFixed(2));
-currentAudio.src = song.preview;
-currentAudio.play();
+// s
+
+// color pick

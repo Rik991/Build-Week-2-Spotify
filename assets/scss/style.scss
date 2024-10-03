@@ -52,10 +52,10 @@ main {
   background: #cd9cf2;
 
   /* Chrome 10-25, Safari 5.1-6 */
-  background: -webkit-linear-gradient(to right, rgba(205, 156, 242, 0.5), rgba(10, 10, 10, 0.5));
+  background: -webkit-linear-gradient(to bottom, rgba(205, 156, 242, 0.5), rgba(10, 10, 10, 0.5));
 
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background: linear-gradient(to right, rgba(205, 156, 242, 0.5), rgba(10, 10, 10, 0.5));
+  background: linear-gradient(to bottom, rgba(205, 156, 242, 0.5), rgba(10, 10, 10, 0.5));
 }
 .artist-section-gradient {
   /* fallback for old browsers */
@@ -156,8 +156,9 @@ footer input:hover::-webkit-slider-thumb {
 
 // album page
 
-.hoverTr:hover {
-  color: green !important;
+.hoverRiga:hover {
+  color: #55cf59 !important;
+  background-color: #1c1c1c3c;
 }
 
 .search-bar {
