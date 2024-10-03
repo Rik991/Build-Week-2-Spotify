@@ -1,4 +1,22 @@
+@import "./functions";
+@import "./variables";
 @import "./partials/hero.scss";
+
+//main
+$spotify: #1ed760;
+
+$new-theme-colors: (
+  "spotify": $spotify,
+);
+$theme-colors: map-merge($theme-colors, $new-theme-colors);
+$new-colors: (
+  "spotify": $spotify,
+);
+$colors: map-merge($colors, $new-colors);
+body {
+  height: 100%;
+  overflow: hidden; /* Evita lo scroll del body */
+}
 
 //main
 

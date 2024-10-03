@@ -9,8 +9,8 @@ const footerPlayBtn = document.querySelector(".footerPlay");
 const currentAudioTime = document.getElementById("current-time");
 
 const hiddenAsideBtn = document.querySelector(".bi-view-list");
+const hiddenAside = document.querySelector(".hiddenAside");
 hiddenAsideBtn.addEventListener("click", () => {
-  const hiddenAside = document.querySelector(".hiddenAside");
   hiddenAsideBtn.classList.toggle("text-success");
   hiddenAside.classList.toggle("d-none");
 });
@@ -27,6 +27,8 @@ const getData = (url) => {
     .then((albums) => {
       console.log("album disponibili", albums);
       const albArray = albums.data;
+      // console.log(albArray[0].album.tracklist);
+
       const element = albArray[Math.floor(Math.random() * 25)];
       const song = new Songs(element.artist.name, element.title_short, element.preview, element.artist.picture, element.duration, element.album.id);
 
@@ -103,6 +105,7 @@ const getData = (url) => {
       almbusRow.appendChild(colAlbum);
       //funzione per il bottone play
       const playSongBtn = colRadio.querySelector(".play-song-btn");
+
       playSongBtn.addEventListener("click", (e) => {
         e.preventDefault();
         footerPlayBtn.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
@@ -113,16 +116,64 @@ const getData = (url) => {
         currentAudio.src = song.preview;
         currentAudio.play();
       });
+
       //album row
       const playSongBtn1 = colAlbum.querySelector(".play-song-btn");
       playSongBtn1.addEventListener("click", (e) => {
         e.preventDefault();
+        hiddenAside.classList.remove("d-none");
+        hiddenAsideBtn.classList.toggle("text-success");
         footerPlayBtn.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
         nameSong.innerText = song2.title_short;
         artistSong.innerText = song2.artist;
         footerImg.src = song2.cover;
         currentAudio.src = song2.preview;
         currentAudio.play();
+
+        // test album track
+
+        const urlTrack = `https://striveschool-api.herokuapp.com/api/deezer/album/${song2.id}`;
+        function getTrack() {
+          fetch(urlTrack)
+            .then((response) => {
+              if (response.ok) {
+                return response.json();
+              } else {
+                throw new Error("Errore nel recupero dei dati");
+              }
+            })
+            .then((trackList) => {
+              ulCoda.innerHTML = "";
+              console.log("trackList", trackList.tracks.data);
+              const listArray = trackList.tracks.data;
+              listArray.forEach((singleTrack) => {
+                const li = document.createElement("li");
+                li.innerHTML = `
+            <li class="d-flex align-items-center mb-3">
+                      <img src="${singleTrack.album.cover}" class="me-2 rounded" alt="Cover" width="40" height="40" />
+                      <div class="playlist-text">
+                        <strong>${singleTrack.title}</strong><br />
+                        <span class="playlist-description text-secondary">Playlist · 181 brani</span>
+                      </div>
+                    </li>
+            `;
+
+                console.log(li);
+                ulCoda.appendChild(li);
+
+                const btnradio1 = document.getElementById("btnradio1");
+
+                btnradio1.addEventListener("click", () => {
+                  window.location.href = `album.html?albumId=${song2.id}`;
+                });
+              });
+            })
+            .catch((err) => {
+              console.log("ERROR", err);
+            });
+        }
+
+        getTrack();
       });
     })
     .catch((err) => {
@@ -184,7 +235,7 @@ const artisti = [
   "angelina",
   "cremonini",
   "litfiba",
-  "coldpaly"
+  "coldpaly",
 ];
 
 getData(genericUrl + artisti[Math.floor(Math.random() * artisti.length)]);
