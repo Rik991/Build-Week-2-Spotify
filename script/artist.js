@@ -64,6 +64,54 @@ const getData = () => {
                   <td>${formatDuration(singleTrack.duration)}</td>`;
 
         trackList.appendChild(tr);
+
+        const playSong = tr.querySelector(".hoverTr");
+        playSong.addEventListener("click", () => {
+          footerImg.src = album.cover;
+          nameSong.innerText = singleTrack.title;
+          artistSong.innerText = album.artist.name;
+          duration.innerText = (singleTrack.duration / 60).toFixed(2);
+
+          currentAudio.src = albumArray[i].preview;
+          currentAudio.play();
+          footerPlayBtn.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
+
+          const imgAll = table.querySelectorAll("img");
+
+          imgAll.forEach((element) => {
+            element.classList.add("d-none");
+          });
+
+          const img = tr.querySelector("img");
+          img.classList.remove("d-none");
+          img.classList.add("d-block");
+        });
+      });
+
+      playBtnC.addEventListener("click", () => {
+        let x = 0;
+        btnPrevious.addEventListener("click", () => {
+          x--;
+          currentAudio.src = albumArray[x].preview;
+          currentAudio.play();
+          footerPlayBtn.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
+        });
+
+        btnNext.addEventListener("click", () => {
+          x++;
+          currentAudio.src = albumArray[x].preview;
+          currentAudio.play();
+          footerPlayBtn.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
+        });
+
+        console.log(albumArray[x].preview);
+        currentAudio.src = albumArray[x].preview;
+        currentAudio.play();
+        footerPlayBtn.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
+        footerImg.src = album.cover;
+        nameSong.innerText = albumArray[x].title;
+        artistSong.innerText = album.artist.name;
+        duration.innerText = `${formatDuration(singleTrack.duration)}`;
       });
     })
     .catch((err) => {
