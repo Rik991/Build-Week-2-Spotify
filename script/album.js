@@ -32,7 +32,7 @@ if (albumLibreriaServerFase2) {
   localStorage.setItem("albumLibreria", JSON.stringify(albumLibreria));
 }
 
-// co
+// classe per creare oggetto in memoria libreria
 class MyAlbum {
   constructor(_img, _albumTitle) {
     this.img = _img;
