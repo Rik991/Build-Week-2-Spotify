@@ -28,7 +28,7 @@ const getData = (url) => {
       console.log("album disponibili", albums);
       const albArray = albums.data;
       const element = albArray[Math.floor(Math.random() * 25)];
-      const song = new Songs(element.artist.name, element.title_short, element.preview, element.album.cover, element.duration, element.album.id);
+      const song = new Songs(element.artist.name, element.title_short, element.preview, element.artist.picture, element.duration, element.album.id);
 
       const popularRow = document.getElementById("popularRow");
       const colRadio = document.createElement("div");
@@ -37,7 +37,7 @@ const getData = (url) => {
         <a href="artist.html?artistId=${song.id}">
           <div class="card h-100 border-0 text-white testH position-relative">
                     <div class="rounded p-2 m-0 badgePlay">
-                      <img src="${song.cover}" class="img-fluid rounded" alt="..." />
+                      <img  src="${song.cover}" class="img-fluid rounded" alt="..." />
                      <a class="play-song-btn" href="#">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -52,7 +52,7 @@ const getData = (url) => {
                       </a>
                     </div>
                     <div class="card-body pt-0">
-                      <p class="card-text overflow-hidden text-white" style="max-height: 3rem">${song.title_short}</p>
+                      <p class="card-text overflow-hidden text-white" style="max-height: 3rem">${song.artist}</p>
                     </div>
                   </div>
         </a>
@@ -61,7 +61,15 @@ const getData = (url) => {
       popularRow.appendChild(colRadio);
 
       const element2 = albArray[Math.floor(Math.random() * 25)];
-      const song2 = new Songs(element2.artist.name, element2.title_short, element2.preview, element2.album.cover, element2.duration, element2.album.id);
+      const song2 = new Songs(
+        element2.artist.name,
+        element2.title_short,
+        element2.preview,
+        element2.album.cover,
+        element2.duration,
+        element2.album.id,
+        element2.album.title
+      );
 
       const almbusRow = document.getElementById("almbusRow");
       const colAlbum = document.createElement("div");
@@ -87,7 +95,7 @@ const getData = (url) => {
                       </div>
                       <div class="card-body pt-0">
                           <h6>${song2.artist}</h6>
-                          <p class="card-text overflow-hidden text-secondary" style="max-height: 1.5rem">${song2.title_short}</p>
+                          <p class="card-text overflow-hidden text-secondary" style="max-height: 1.5rem">${song2.albumTitle}</p>
                       </div>
                       </div>
     </a>
@@ -137,7 +145,46 @@ const artisti = [
   "lady",
   "adele",
   "guns",
-  "greenday"
+  "greenday",
+  "linkin",
+  "gazzelle",
+  "ironmaiden",
+  "coez",
+  "metallica",
+  "blink",
+  "slipknot",
+  "offspring",
+  "rosevillain",
+  "achille",
+  "irama",
+  "ultimo",
+  "geolier",
+  "rancore",
+  "imaginedragons",
+  "mengoni",
+  "cristinadavena",
+  "giorgiovanni",
+  "gigidag",
+  "eiffel",
+  "muse",
+  "giggione",
+  "ligabue",
+  "corinne",
+  "vasco",
+  "guccini",
+  "deandre",
+  "ivangraziani",
+  "tananai",
+  "maneskin",
+  "giancane",
+  "mammoudh",
+  "gali",
+  "lunapop",
+  "883",
+  "angelina",
+  "cremonini",
+  "litfiba",
+  "coldpaly"
 ];
 
 getData(genericUrl + artisti[Math.floor(Math.random() * artisti.length)]);
@@ -150,13 +197,14 @@ getData(genericUrl + artisti[Math.floor(Math.random() * artisti.length)]);
 getData(genericUrl + artisti[Math.floor(Math.random() * artisti.length)]);
 
 class Songs {
-  constructor(_artist, _title_short, _preview, _cover, _duration, _id) {
+  constructor(_artist, _title_short, _preview, _cover, _duration, _id, _albumTitle) {
     this.artist = _artist;
     this.title_short = _title_short;
     this.preview = _preview;
     this.cover = _cover;
     this.duration = _duration;
     this.id = _id;
+    this.albumTitle = _albumTitle;
   }
 }
 
@@ -272,80 +320,3 @@ duration.innerText = formatDuration(song.duration);
 // duration.innerText = parseFloat((song.duration / 60).toFixed(2));
 currentAudio.src = song.preview;
 currentAudio.play();
-
-//search-bar su navbar
-
-// const searchForm = document.getElementById("search-form");
-// const searchInput = document.getElementById("search-input");
-// const resultsContainer = document.getElementById("search-results");
-
-// // Funzione per la ricerca dei brani dall'API Deezer
-// const searchSongs = (query) => {
-//   const searchUrl = `https://striveschool-api.herokuapp.com/api/deezer/search?q=${query}`;
-
-//   fetch(searchUrl)
-//     .then((response) => {
-//       if (response.ok) {
-//         return response.json();
-//       } else {
-//         throw new Error("Errore nel recupero dei dati");
-//       }
-//     })
-//     .then((data) => {
-//       displaySearchResults(data.data);
-//     })
-//     .catch((error) => {
-//       console.error("Errore nella ricerca:", error);
-//     });
-// };
-
-// searchForm.addEventListener("submit", (e) => {
-//   e.preventDefault();
-//   const query = searchInput.value;
-//   if (query) {
-//     searchSongs(query); // Esegui la ricerca
-//   }
-// });
-
-// const popularArtistsRow = document.getElementById("popularRow");
-// const popularAlbumsRow = document.getElementById("almbusRow");
-
-// const displaySearchResults = (songs) => {
-//   popularArtistsRow.innerHTML = "";
-//   popularAlbumsRow.innerHTML = "";
-
-//   songs.forEach((song) => {
-//     const songItem = document.createElement("div");
-//     songItem.classList.add("col", "mb-4");
-
-//     songItem.innerHTML = `
-//       <div class="card h-100 border-0 text-white bg-dark position-relative">
-//         <div class="rounded p-2 m-0 badgePlay">
-//           <img src="${song.album.cover_medium}" class="img-fluid rounded" alt="${song.title}" />
-//           <a class="play-song-btn" href="#" data-preview="${song.preview}" data-title="${song.title}" data-artist="${song.artist.name}" data-cover="${song.album.cover_medium}">
-//             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#63D566" class="bi bi-play-circle-fill position-absolute" viewBox="0 0 16 16">
-//               <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814z"/>
-//             </svg>
-//           </a>
-//         </div>
-//         <div class="card-body pt-0">
-//           <h6>${song.title}</h6>
-//           <p class="text-secondary mb-0">${song.artist.name}</p>
-//         </div>
-//       </div>
-//     `;
-
-//     popularArtistsRow.appendChild(songItem);
-
-//     const playSongBtn = songItem.querySelector(".play-song-btn");
-//     playSongBtn.addEventListener("click", (e) => {
-//       e.preventDefault();
-//       const previewUrl = e.target.getAttribute("data-preview");
-//       const songTitle = e.target.getAttribute("data-title");
-//       const songArtist = e.target.getAttribute("data-artist");
-//       const songCover = e.target.getAttribute("data-cover");
-
-//       playSong(previewUrl, songTitle, songArtist, songCover);
-//     });
-//   });
-// };
