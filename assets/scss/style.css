@@ -28,6 +28,13 @@ body {
   overflow: hidden; /* Evita lo scroll del body */
 }
 
+.strong-text {
+  width: 200px; /* Imposta una larghezza */
+  white-space: nowrap; /* Mantiene il testo su una sola riga */
+  overflow: hidden; /* Nasconde l'overflow */
+  text-overflow: ellipsis; /* Aggiunge i tre puntini */
+}
+
 body {
   height: 100%;
   overflow: hidden; /* Evita lo scroll del body */

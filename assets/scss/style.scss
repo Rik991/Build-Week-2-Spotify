@@ -15,11 +15,11 @@ body * {
 $spotify: #1ed760;
 
 $new-theme-colors: (
-  "spotify": $spotify
+  "spotify": $spotify,
 );
 $theme-colors: map-merge($theme-colors, $new-theme-colors);
 $new-colors: (
-  "spotify": $spotify
+  "spotify": $spotify,
 );
 $colors: map-merge($colors, $new-colors);
 body {
@@ -28,6 +28,13 @@ body {
 }
 
 //main
+
+.strong-text {
+  width: 200px; /* Imposta una larghezza */
+  white-space: nowrap; /* Mantiene il testo su una sola riga */
+  overflow: hidden; /* Nasconde l'overflow */
+  text-overflow: ellipsis; /* Aggiunge i tre puntini */
+}
 
 body {
   height: 100%;

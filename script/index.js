@@ -44,8 +44,8 @@ if (albumLibreriaServerFase2) {
     liAlbumLibreria.innerHTML = `
       <li class="d-flex align-items-center mb-3">
                 <img src="${element.img}" class="me-2 rounded" alt="Cover" width="40" height="40" />
-                <div class="playlist-text">
-                  <strong>${element.albumTitle}</strong><br />
+                <div class="playlist-text d-flex align-content-center">
+                  <p class="strong-text m-0" >${element.albumTitle}</p><br />
                 </div>
               </li>
       `;
@@ -189,20 +189,21 @@ const getData = (url) => {
                 li.innerHTML = `
             <li class="d-flex align-items-center mb-3">
                       <img src="${singleTrack.album.cover}" class="me-2 rounded" alt="Cover" width="40" height="40" />
-                      <div class="playlist-text">
-                        <strong >${singleTrack.title}</strong><br />                        
+                      <div class="playlist-text d-flex align-content-center">
+                        <p class="strong-text m-0" >${singleTrack.title}</p><br />                        
                       </div>
                     </li>
             `;
 
                 ulCoda.appendChild(li);
+
                 //array con le tracce del disco selezionato
                 tracklistArray.push({
                   preview: singleTrack.preview,
                   title: singleTrack.title,
                   artist: singleTrack.artist.name,
                   cover: singleTrack.album.cover,
-                  duration: singleTrack.duration
+                  duration: singleTrack.duration,
                 });
 
                 li.addEventListener("click", () => {
@@ -313,7 +314,7 @@ const artisti = [
   "angelina",
   "cremonini",
   "litfiba",
-  "coldpaly"
+  "coldpaly",
 ];
 
 getData(genericUrl + artisti[Math.floor(Math.random() * artisti.length)]);

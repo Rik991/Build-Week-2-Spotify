@@ -35,8 +35,8 @@ if (albumLibreriaServerFase2) {
     liAlbumLibreria.innerHTML = `
       <li class="d-flex align-items-center mb-3">
                 <img src="${element.img}" class="me-2 rounded" alt="Cover" width="40" height="40" />
-                <div class="playlist-text">
-                  <strong>${element.albumTitle}</strong><br />
+                <div class="playlist-text d-flex align-content-center">
+                  <p class="strong-text m-0" >${element.albumTitle}</p><br />
                 </div>
               </li>
       `;
@@ -114,9 +114,9 @@ const getData = () => {
           liAlbumLibreria.innerHTML = `
             <li class="d-flex align-items-center mb-3">
                       <img src="${element.img}" class="me-2 rounded" alt="Cover" width="40" height="40" />
-                      <div class="playlist-text">
-                        <strong>${element.albumTitle}</strong><br />
-                      </div>
+                      <div class="playlist-text d-flex align-content-center">
+                  <p class="strong-text m-0" >${element.albumTitle}</p><br />
+                </div>
                     </li>
             `;
           albumList.appendChild(liAlbumLibreria);
@@ -277,12 +277,12 @@ const getData = () => {
 };
 
 //mostro o nascondo aside 2
-const hiddenAsideBtn = document.querySelector(".bi-view-list");
-hiddenAsideBtn.addEventListener("click", () => {
-  const hiddenAside = document.querySelector(".hiddenAside");
-  hiddenAsideBtn.classList.toggle("text-success");
-  hiddenAside.classList.toggle("d-none");
-});
+// const hiddenAsideBtn = document.querySelector(".bi-view-list");
+// hiddenAsideBtn.addEventListener("click", () => {
+//   const hiddenAside = document.querySelector(".hiddenAside");
+//   hiddenAsideBtn.classList.toggle("text-success");
+//   hiddenAside.classList.toggle("d-none");
+// });
 
 // player nel footer
 //recupero i dati della canzone in riproduzione
