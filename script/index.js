@@ -15,6 +15,10 @@ const hiddenAside = document.querySelector(".hiddenAside");
 const aside1 = document.getElementById("aside1");
 const libreriaIcon = document.getElementById("libreria-icon");
 const homeIcon = document.getElementById("home-icon");
+const btnPrevious = document.getElementById("btnPrevious");
+const btnNext = document.getElementById("btnNext");
+const tracklistArray = [];
+let tracklistIndex = 0;
 
 // // funzione per la searchBar
 
@@ -55,7 +59,7 @@ const getData = (url) => {
       }
     })
     .then((albums) => {
-      console.log("album disponibili", albums);
+      // console.log("album disponibili", albums);
       const albArray = albums.data;
       // console.log(albArray[0].album.tracklist);
 
@@ -174,7 +178,7 @@ const getData = (url) => {
             })
             .then((trackList) => {
               ulCoda.innerHTML = "";
-              console.log("trackList", trackList.tracks.data);
+              tracklistArray.length = 0;
               const listArray = trackList.tracks.data;
               listArray.forEach((singleTrack) => {
                 const li = document.createElement("li");
@@ -182,24 +186,65 @@ const getData = (url) => {
             <li class="d-flex align-items-center mb-3">
                       <img src="${singleTrack.album.cover}" class="me-2 rounded" alt="Cover" width="40" height="40" />
                       <div class="playlist-text">
-                        <strong>${singleTrack.title}</strong><br />
+                        <strong >${singleTrack.title}</strong><br />                        
                       </div>
                     </li>
             `;
 
-                console.log(li);
                 ulCoda.appendChild(li);
+                //array con le tracce del disco selezionato
+                tracklistArray.push({
+                  preview: singleTrack.preview,
+                  title: singleTrack.title,
+                  artist: singleTrack.artist.name,
+                  cover: singleTrack.album.cover,
+                  duration: singleTrack.duration
+                });
 
-                const btnradio1 = document.getElementById("btnradio1");
-
-                btnradio1.addEventListener("click", () => {
-                  window.location.href = `album.html?albumId=${song2.id}`;
+                li.addEventListener("click", () => {
+                  tracklistIndex = index;
+                  playTrack(tracklistIndex);
                 });
               });
+
+              // Controllo del footer dalla songList
+              btnPrevious.addEventListener("click", () => {
+                if (tracklistIndex > 0) {
+                  tracklistIndex--;
+                  playTrack(tracklistIndex);
+                  nameSong.innerText = singleTrack.title;
+                }
+              });
+
+              btnNext.addEventListener("click", () => {
+                if (tracklistIndex < tracklistArray.length - 1) {
+                  tracklistIndex++;
+                  playTrack(tracklistIndex);
+                  nameSong.innerText = singleTrack.title;
+                }
+              });
+            });
+          const btnradio1 = document.getElementById("btnradio1");
+
+          btnradio1
+            .addEventListener("click", () => {
+              window.location.href = `album.html?albumId=${song2.id}`;
             })
             .catch((err) => {
               console.log("ERROR", err);
             });
+        }
+
+        //funzione per player su tracklist
+        function playTrack(index) {
+          const track = tracklistArray[index]; // Prendi la traccia corrente
+          currentAudio.src = track.preview;
+          currentAudio.play();
+          // Puoi aggiornare qui anche l'interfaccia del footer
+          footerPlayBtn.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
+          nameSong.innerText = track.title;
+
+          console.log(`Stai riproducendo la traccia: ${track}`);
         }
 
         getTrack();
@@ -264,7 +309,7 @@ const artisti = [
   "angelina",
   "cremonini",
   "litfiba",
-  "coldpaly",
+  "coldpaly"
 ];
 
 getData(genericUrl + artisti[Math.floor(Math.random() * artisti.length)]);
@@ -428,6 +473,7 @@ homeIcon.addEventListener("click", (e) => {
     homepageSection.classList.remove("d-none");
   }
 });
+
 duration.innerText = formatDuration(song.duration);
 //vecchio codice qui sotto commentato
 // duration.innerText = parseFloat((song.duration / 60).toFixed(2));
