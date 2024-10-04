@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Spotify</title>
+    <link rel="icon" type="image/png" href="./assets/imgs/spotify-app-logo-spotify-icon-transparent-free-png.webp" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./assets/scss/style.scss" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Arial", sans-serif;
+      }
+
+      body {
+        background-color: #000;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .login-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      .login-box {
+        background-color: #121212;
+        padding: 40px;
+        border-radius: 10px;
+        width: 400px;
+        text-align: center;
+      }
+
+      .spotify-logo {
+        width: 120px;
+        margin-bottom: 20px;
+      }
+
+      h2 {
+        font-size: 24px;
+        margin-bottom: 30px;
+      }
+
+      .btn-login {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: none;
+        border-radius: 5px;
+        background-color: #333;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .btn-login:hover {
+        background-color: #444;
+      }
+
+      .social-icon {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+      }
+
+      .login-form input {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        background-color: #333;
+        color: white;
+      }
+
+      .login-submit {
+        width: 100%;
+        padding: 10px;
+        background-color: #1db954;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .login-submit:hover {
+        background-color: #1ed760;
+      }
+
+      .forgotten-password,
+      .signup-link {
+        margin-top: 20px;
+      }
+
+      .forgotten-password a,
+      .signup-link a {
+        color: #1db954;
+        text-decoration: none;
+      }
+
+      .forgotten-password a:hover,
+      .signup-link a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login-container">
+      <div class="login-box">
+        <img class="spotify-logo" src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Green.png" alt="Spotify Logo" />
+        <h2>Accedi a Spotify</h2>
+
+        <button
+          class="btn-login social-google"
+          onclick="window.location.href='https:accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Fwww.google.com%3Fhl%3Dit&ec=GAlA8wE&hl=it&flowName=GlifWebSignIn&flowEntry=AddSession&dsh=S152878339%3A1728030797422828&ddm=0'"
+        >
+          <img class="social-icon" src="https://www.google.com/favicon.ico" alt="Google Logo" /> Continua con Google
+        </button>
+
+        <button class="btn-login social-facebook" onclick="window.location.href='https:www.facebook.com/login/'">
+          <img class="social-icon" src="https://www.facebook.com/favicon.ico" alt="Facebook Logo" /> Continua con Facebook
+        </button>
+
+        <button class="btn-login social-apple" onclick="window.location.href='https:account.apple.com/sign-in'">
+          <img class="social-icon" src="https://www.apple.com/favicon.ico" alt="Apple Logo" /> Continua con Apple
+        </button>
+
+        <form class="login-form" id="login-form">
+          <input type="email" id="email" placeholder="Indirizzo e-mail o nome utente" required />
+          <input type="password" id="password" placeholder="Password" required />
+          <button type="submit" class="login-submit">Accedi</button>
+        </form>
+
+        <div class="forgotten-password">
+          <a href="#">Hai dimenticato la password?</a>
+        </div>
+
+        <div class="signup-link">
+          <p>
+            Non hai un account?
+            <a
+              href="https://www.spotify.com/it/signup?flow_id=4620f4e7-4fb2-46e3-a4d4-0d754c643734%3A1728052723&forward_url=https%3A%2F%2Faccounts.spotify.com%2Fit%2Fstatus%3Fflow_ctx%3D4620f4e7-4fb2-46e3-a4d4-0d754c643734%3A1728052723"
+              >Iscriviti a Spotify</a
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.getElementById("login-form").addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+
+        if (email === "team4@gmail.com" && password === "forzateam4") {
+          window.location.href = "./homepage.html";
+        } else {
+          alert("Credenziali errate, riprova!");
+        }
+      });
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
