@@ -80,13 +80,7 @@ main {
 }
 
 .main-gradientC {
-  background: linear-gradient(
-    185deg,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.43040966386554624) 7%,
-    rgba(0, 0, 0, 0.6152836134453781) 20%,
-    rgba(0, 0, 0, 0.9290091036414566) 50%
-  );
+  background: linear-gradient(358deg, rgb(0 0 0 / 98%) 0%, rgb(0 0 0) 7%, rgb(0 0 0) 20%, rgb(58 19 19) 50%);
 }
 .album-section-gradient {
   /* fallback for old browsers */
@@ -176,7 +170,7 @@ footer input:hover::-webkit-slider-thumb {
   .badgePlay {
     svg {
       opacity: 0;
-      bottom: 4.5rem;
+      top: 7rem;
       right: 1rem;
     }
   }
@@ -188,7 +182,7 @@ footer input:hover::-webkit-slider-thumb {
     svg {
       opacity: 1;
       transition: 200ms;
-      bottom: 5rem;
+      top: 6.5rem;
       right: 1rem;
       cursor: pointer;
     }
