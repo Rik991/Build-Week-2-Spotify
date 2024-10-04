@@ -133,6 +133,8 @@ const getData = () => {
         });
       });
 
+      let x = 0;
+
       songsArray.forEach((singleTrack, i) => {
         const tr = document.createElement("tr");
         tr.classList.add("hoverRiga");
@@ -149,7 +151,7 @@ const getData = () => {
         playSong.addEventListener("click", () => {
           const hoverValue = tr.querySelector(".hoverValue");
           x = hoverValue.getAttribute("data-value");
-          console.log(x);
+          console.log("sono il tasto verde");
           footerImg.src = albums.cover;
           nameSong.innerText = singleTrack.title;
           artistSong.innerText = albums.artist.name;
