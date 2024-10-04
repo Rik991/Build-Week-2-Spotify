@@ -113,6 +113,8 @@ const getData = () => {
         });
       });
 
+      let x = 0;
+
       console.log(albums.tracks);
       const albumArray = albums.tracks.data;
       albumArray.forEach((singleTrack, i) => {
@@ -127,10 +129,12 @@ const getData = () => {
                   <td>${formatDuration(singleTrack.duration)}</td>`;
 
         trackList.appendChild(tr);
-        let x = 0;
+
         const playSong = tr.querySelector(".hoverTr");
         playSong.addEventListener("click", () => {
           const hoverValue = tr.querySelector(".hoverValue");
+          console.log(hoverValue.getAttribute("data-value"));
+
           x = hoverValue.getAttribute("data-value");
           footerImg.src = albums.cover;
           nameSong.innerText = singleTrack.title;
@@ -142,29 +146,29 @@ const getData = () => {
           footerPlayBtn.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
 
           // controlli footer dalla songList
-          btnPrevious.addEventListener("click", () => {
-            x--;
-            console.log(x);
-            currentAudio.src = albumArray[x].preview;
-            currentAudio.play();
-            footerPlayBtn.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
-            footerImg.src = albums.cover;
-            nameSong.innerText = albumArray[x].title;
-            artistSong.innerText = albums.artist.name;
-            duration.innerText = `${formatDuration(singleTrack.duration)}`;
-          });
+          // btnPrevious.addEventListener("click", () => {
+          //   x--;
+          //   console.log(x);
+          //   currentAudio.src = albumArray[x].preview;
+          //   currentAudio.play();
+          //   footerPlayBtn.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
+          //   footerImg.src = albums.cover;
+          //   nameSong.innerText = albumArray[x].title;
+          //   artistSong.innerText = albums.artist.name;
+          //   duration.innerText = `${formatDuration(singleTrack.duration)}`;
+          // });
 
-          btnNext.addEventListener("click", () => {
-            x++;
-            console.log(x);
-            currentAudio.src = albumArray[x].preview;
-            currentAudio.play();
-            footerPlayBtn.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
-            footerImg.src = albums.cover;
-            nameSong.innerText = albumArray[x].title;
-            artistSong.innerText = albums.artist.name;
-            duration.innerText = `${formatDuration(singleTrack.duration)}`;
-          });
+          // btnNext.addEventListener("click", () => {
+          //   x++;
+          //   console.log(x);
+          //   currentAudio.src = albumArray[x].preview;
+          //   currentAudio.play();
+          //   footerPlayBtn.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
+          //   footerImg.src = albums.cover;
+          //   nameSong.innerText = albumArray[x].title;
+          //   artistSong.innerText = albums.artist.name;
+          //   duration.innerText = `${formatDuration(singleTrack.duration)}`;
+          // });
 
           const imgAll = table.querySelectorAll("img");
 
@@ -177,8 +181,6 @@ const getData = () => {
           img.classList.add("d-block");
         });
       });
-
-      let x = 0;
 
       playBtnC.addEventListener("click", () => {
         if (currentAudio.paused) {
