@@ -15,6 +15,10 @@ const hiddenAside = document.querySelector(".hiddenAside");
 const aside1 = document.getElementById("aside1");
 const libreriaIcon = document.getElementById("libreria-icon");
 const homeIcon = document.getElementById("home-icon");
+const artistSection = document.getElementById("artist-section");
+const albumSection = document.getElementById("album-section");
+const spinnerIcon = document.getElementById("spinner-icon");
+const aside2 = document.getElementById("aside2");
 
 // // funzione per la searchBar
 
@@ -413,10 +417,49 @@ document.getElementById("searchIcon").addEventListener("click", (e) => {
 libreriaIcon.addEventListener("click", (e) => {
   console.log("Icon clicked!");
   e.preventDefault();
-  aside1.classList.remove("d-none");
-  aside1.classList.add("d-block");
-  aside1.classList.add("fullscreen-aside");
-  homepageSection.classList.add("d-none");
+
+  if (aside1.classList.contains("d-block")) {
+    aside1.classList.remove("d-block");
+    aside1.classList.add("d-none");
+    aside1.classList.remove("fullscreen-aside");
+    homepageSection.classList.remove("d-none");
+  } else {
+    aside1.classList.remove("d-none");
+    aside1.classList.add("d-block");
+    aside1.classList.add("fullscreen-aside");
+    homepageSection.classList.add("d-none");
+  }
+});
+spinnerIcon.addEventListener("click", (e) => {
+  console.log("Icon clicked!");
+  e.preventDefault();
+
+  // Log della larghezza della finestra per debug
+  console.log("Window width:", window.innerWidth);
+
+  // Verifica se aside2 esiste
+  console.log("Aside2 exists:", aside2 !== null);
+
+  // Controlla se la larghezza della finestra è inferiore a 768px
+  if (window.innerWidth < 768) {
+    if (aside2.classList.contains("d-block")) {
+      // Se l'aside è visibile, nascondilo
+
+      aside2.classList.remove("d-block");
+      aside2.classList.add("d-none");
+      aside2.classList.remove("fullscreen-aside2");
+      homepageSection.classList.remove("d-none");
+    } else {
+      // Se l'aside è nascosto, mostralo
+
+      aside2.classList.remove("d-none");
+      aside2.classList.add("d-block");
+      aside2.classList.add("fullscreen-aside2");
+      homepageSection.classList.add("d-none");
+    }
+  } else {
+    console.log("Screen is larger than 768px, no changes made.");
+  }
 });
 homeIcon.addEventListener("click", (e) => {
   console.log("Icon clicked!");
@@ -428,9 +471,9 @@ homeIcon.addEventListener("click", (e) => {
     homepageSection.classList.remove("d-none");
   }
 });
-duration.innerText = formatDuration(song.duration);
-//vecchio codice qui sotto commentato
-// duration.innerText = parseFloat((song.duration / 60).toFixed(2));
-currentAudio.src = song.preview;
-currentAudio.play();
+// duration.innerText = formatDuration(song.duration);
+// //vecchio codice qui sotto commentato
+// // duration.innerText = parseFloat((song.duration / 60).toFixed(2));
+// currentAudio.src = song.preview;
+// currentAudio.play();
 //non scrivere qui sotto

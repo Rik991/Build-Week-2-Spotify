@@ -34,6 +34,35 @@ body {
   z-index: 999;
 }
 
+.fullscreen-aside2 {
+  position: fixed; /* Posiziona l'aside in modo fisso rispetto alla viewport */
+  top: 0;
+  left: 0;
+  width: 100vw; /* Imposta la larghezza al 100% della viewport */
+  height: 80vh; /* Imposta l'altezza al 100% della viewport */
+  z-index: 999;
+}
+
+#search-input::-moz-placeholder {
+  color: white; /* Imposta il colore del placeholder a bianco */
+  opacity: 1; /* Imposta l'opacità del placeholder per renderlo completamente visibile */
+}
+
+#search-input::placeholder {
+  color: white; /* Imposta il colore del placeholder a bianco */
+  opacity: 1; /* Imposta l'opacità del placeholder per renderlo completamente visibile */
+}
+
+#search-input2::-moz-placeholder {
+  color: white; /* Imposta il colore del placeholder a bianco */
+  opacity: 1; /* Imposta l'opacità del placeholder per renderlo completamente visibile */
+}
+
+#search-input2::placeholder {
+  color: white; /* Imposta il colore del placeholder a bianco */
+  opacity: 1; /* Imposta l'opacità del placeholder per renderlo completamente visibile */
+}
+
 .asideScroll {
   --sb-track-color: #ffffff00;
   --sb-thumb-color: #a3a3a35f;

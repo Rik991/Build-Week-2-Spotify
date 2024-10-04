@@ -16,6 +16,16 @@ const aside1 = document.getElementById("aside1");
 const libreriaIcon = document.getElementById("libreria-icon");
 const homeIcon = document.getElementById("home-icon");
 const homepageSection = document.getElementById("homepage-section");
+const artistSection = document.getElementById("artist-section");
+const albumSection = document.getElementById("album-section");
+const searchForm2 = document.getElementById("search-form");
+const spinnerIcon = document.getElementById("spinner-icon");
+
+searchForm2.addEventListener("submit", (e) => {
+  e.preventDefault();
+  artistSection.classList.add("d-none");
+});
+
 // libreria
 let albumLibreria = [];
 const albumLibreriaServerFase2 = JSON.parse(localStorage.getItem("albumLibreria"));
@@ -344,7 +354,7 @@ document.getElementById("searchIcon").addEventListener("click", (e) => {
     searchButton.classList.add("d-block");
     const aside1 = document.getElementById("aside1");
     aside1.classList.add("d-none");
-    homepageSection.classList.add("d-none");
+    artistSection.classList.add("d-none");
     searchButton.focus();
   } else {
     searchButton.classList.remove("show");
@@ -354,10 +364,18 @@ document.getElementById("searchIcon").addEventListener("click", (e) => {
 libreriaIcon.addEventListener("click", (e) => {
   console.log("Icon clicked!");
   e.preventDefault();
-  aside1.classList.remove("d-none");
-  aside1.classList.add("d-block");
-  aside1.classList.add("fullscreen-aside");
-  homepageSection.classList.add("d-none");
+
+  if (aside1.classList.contains("d-block")) {
+    aside1.classList.remove("d-block");
+    aside1.classList.add("d-none");
+    aside1.classList.remove("fullscreen-aside");
+    homepageSection.classList.remove("d-none");
+  } else {
+    aside1.classList.remove("d-none");
+    aside1.classList.add("d-block");
+    aside1.classList.add("fullscreen-aside");
+    homepageSection.classList.add("d-none");
+  }
 });
 homeIcon.addEventListener("click", (e) => {
   console.log("Icon clicked!");

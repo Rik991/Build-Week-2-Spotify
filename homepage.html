@@ -261,7 +261,7 @@
             </section>
           </div>
           <!-- aside 2 -->
-          <div class="asideScroll rounded-1 hiddenAside overflow-y-scroll d-none" style="min-width: max-content">
+          <div id="aside2" class="asideScroll rounded-1 hiddenAside overflow-y-scroll d-none" style="min-width: max-content">
             <aside class="aside-coda text-white py-4 px-3">
               <div class="d-flex justify-content-center align-items-center mb-4">
                 <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked />
@@ -308,9 +308,9 @@
             </div>
           </div>
           <div class="col controlli-riproduzione fs-4 text-center">
-            <button class="bg-black d-none d-md-inline-block"><i class="bi bi-skip-start-fill"></i></button>
+            <button id="btnPrevious" class="bg-black d-none d-md-inline-block"><i class="bi bi-skip-start-fill"></i></button>
             <button class="bg-black fs-2 footerPlay"><i class="bi bi-play-circle-fill footerPlayIcon"></i></button>
-            <button class="bg-black d-none d-md-inline-block"><i class="bi bi-skip-end-fill"></i></button>
+            <button id="btnNext" class="bg-black d-none d-md-inline-block"><i class="bi bi-skip-end-fill"></i></button>
             <div class="d-flex align-items-center justify-content-center">
               <span class="fs-6 d-none d-md-inline-block" id="current-time"></span>
               <!-- progress-bar -->
@@ -321,7 +321,7 @@
           <div class="col volume d-flex justify-content-end fs-6 gap-3 align-items-center end-icon">
             <i class="d-none d-md-inline-block bi bi-file-play"></i>
             <i class="d-none d-md-inline-block bi bi-mic-fill"></i>
-            <i class="d-none d-md-inline-block bi bi-view-list"></i>
+            <i id="spinner-icon" class="d-block bi bi-view-list"></i>
             <i class="d-none d-md-inline-block bi bi-headphones"></i>
             <i class="d-none d-md-inline-block bi bi-volume-down-fill"></i>
             <!-- volume -->
@@ -347,11 +347,11 @@
                   <i class="bi bi-search"></i>
                 </button>
               </form> -->
-              <form id="search-form3" class="d-flex">
+              <form id="search-form3" class="text- white d-flex">
                 <input
                   id="search-input2"
                   type="text"
-                  class="form-control bg-dark text-light ps-5 pe-5 rounded-pill searchButton d-none"
+                  class="form-control bg-dark text-white ps-5 pe-5 rounded-pill searchButton d-none"
                   placeholder="Cosa vuoi ascoltare?"
                   style="height: 38px; padding-left: 40px; padding-right: 40px; border: none"
                 />
