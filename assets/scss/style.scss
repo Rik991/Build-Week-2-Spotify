@@ -2,15 +2,24 @@
 @import "./variables";
 @import "./partials/hero.scss";
 
+// font
+@font-face {
+  font-family: "Gotham"; /* Nome che assegni al font */
+  src: url("../spotyfont/Gotham-Bold.otf");
+}
+
+body * {
+  font-family: "Gotham", sans-serif; /* Usa il font nel tuo CSS */
+}
 //main
 $spotify: #1ed760;
 
 $new-theme-colors: (
-  "spotify": $spotify,
+  "spotify": $spotify
 );
 $theme-colors: map-merge($theme-colors, $new-theme-colors);
 $new-colors: (
-  "spotify": $spotify,
+  "spotify": $spotify
 );
 $colors: map-merge($colors, $new-colors);
 body {

@@ -15,6 +15,14 @@
   color: #1ed760;
 }
 
+@font-face {
+  font-family: "Gotham"; /* Nome che assegni al font */
+  src: url("../spotyfont/Gotham-Bold.otf");
+}
+body * {
+  font-family: "Gotham", sans-serif; /* Usa il font nel tuo CSS */
+}
+
 body {
   height: 100%;
   overflow: hidden; /* Evita lo scroll del body */
