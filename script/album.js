@@ -128,13 +128,12 @@ const getData = () => {
         playSong.addEventListener("click", () => {
           const hoverValue = tr.querySelector(".hoverValue");
           x = hoverValue.getAttribute("data-value");
-          console.log(x);
           footerImg.src = albums.cover;
           nameSong.innerText = singleTrack.title;
           artistSong.innerText = albums.artist.name;
           duration.innerText = (singleTrack.duration / 60).toFixed(2);
 
-          currentAudio.src = albumArray[i].preview;
+          currentAudio.src = albumArray[x].preview;
           currentAudio.play();
           footerPlayBtn.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
 
@@ -180,7 +179,22 @@ const getData = () => {
       playBtnC.addEventListener("click", () => {
         if (currentAudio.paused) {
           // Se l'audio è in pausa, inizia la riproduzione
+          currentAudio.src = albumArray[x].preview;
+          const imgAll = table.querySelectorAll("img");
+          console.log(x);
+
+          imgAll.forEach((element) => {
+            element.classList.add("d-none");
+          });
+
+          imgAll.forEach((element) => {
+            element.classList.add("d-none");
+          });
+
+          imgAll[x].classList.remove("d-none");
+          imgAll[x].classList.add("d-block");
           currentAudio.play();
+
           playBtnC.classList.remove("bi-play-circle-fill");
           playBtnC.classList.add("bi-pause-circle-fill");
           footerPlayBtn.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
@@ -197,19 +211,39 @@ const getData = () => {
         if (x > 0) {
           x--; // Riduci l'indice
           currentAudio.src = albumArray[x].preview;
+          console.log(x);
+
           currentAudio.play();
           footerPlayBtn.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
           aggiornaDettagliBrano(); // Funzione per aggiornare dettagli
+          const imgAll = table.querySelectorAll("img");
+
+          imgAll.forEach((element) => {
+            element.classList.add("d-none");
+          });
+
+          imgAll[x].classList.remove("d-none");
+          imgAll[x].classList.add("d-block");
         }
       });
 
       btnNext.addEventListener("click", () => {
-        if (x < albumArray.length - 1) {
+        if (x < albumArray.length - 1 && x >= 0) {
           x++; // Aumenta l'indice
           currentAudio.src = albumArray[x].preview;
+          console.log(x);
+
           currentAudio.play();
           footerPlayBtn.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
           aggiornaDettagliBrano(); // Funzione per aggiornare dettagli
+          const imgAll = table.querySelectorAll("img");
+
+          imgAll.forEach((element) => {
+            element.classList.add("d-none");
+          });
+
+          imgAll[x].classList.remove("d-none");
+          imgAll[x].classList.add("d-block");
         }
       });
 

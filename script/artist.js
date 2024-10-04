@@ -185,7 +185,21 @@ const getData = () => {
       playBtnC.addEventListener("click", () => {
         if (currentAudio.paused) {
           // Se l'audio è in pausa, inizia la riproduzione
+          currentAudio.src = albumArray[x].preview;
+          const imgAll = table.querySelectorAll("img");
+
+          imgAll.forEach((element) => {
+            element.classList.add("d-none");
+          });
+
+          imgAll.forEach((element) => {
+            element.classList.add("d-none");
+          });
+
+          imgAll[x].classList.remove("d-none");
+          imgAll[x].classList.add("d-block");
           currentAudio.play();
+
           playBtnC.classList.remove("bi-play-circle-fill");
           playBtnC.classList.add("bi-pause-circle-fill");
           footerPlayBtn.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
@@ -205,6 +219,14 @@ const getData = () => {
           currentAudio.play();
           footerPlayBtn.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
           aggiornaDettagliBrano(); // Funzione per aggiornare dettagli
+          const imgAll = table.querySelectorAll("img");
+
+          imgAll.forEach((element) => {
+            element.classList.add("d-none");
+          });
+
+          imgAll[x].classList.remove("d-none");
+          imgAll[x].classList.add("d-block");
         }
       });
 
@@ -212,11 +234,29 @@ const getData = () => {
         if (x < albumArray.length - 1) {
           x++; // Aumenta l'indice
           currentAudio.src = albumArray[x].preview;
+          console.log(albumArray[x]);
+
           currentAudio.play();
           footerPlayBtn.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
           aggiornaDettagliBrano(); // Funzione per aggiornare dettagli
+          const imgAll = table.querySelectorAll("img");
+
+          imgAll.forEach((element) => {
+            element.classList.add("d-none");
+          });
+
+          imgAll[x].classList.remove("d-none");
+          imgAll[x].classList.add("d-block");
         }
       });
+
+      // Funzione per aggiornare i dettagli del brano
+      function aggiornaDettagliBrano() {
+        footerImg.src = albums.cover;
+        nameSong.innerText = albumArray[x].title;
+        artistSong.innerText = albums.artist.name;
+        duration.innerText = `${formatDuration(albumArray[x].duration)}`;
+      }
     })
     .catch((err) => {
       console.log("ERROR", err);
