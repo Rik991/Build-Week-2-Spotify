@@ -69,7 +69,7 @@ const getData = (url) => {
         <a href="artist.html?artistId=${song.id}">
           <div class="card h-100 border-0 text-white testH position-relative">
                     <div class="rounded p-2 m-0 badgePlay">
-                      <img  src="${song.cover}" class="img-fluid rounded" alt="..." />
+                      <img  src="${song.cover}" class="img-fluid rounded" style="box-shadow: -2px 4px 9px 1px rgb(0 0 0 / 28%);" />
                      <a class="play-song-btn" href="#">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -111,7 +111,7 @@ const getData = (url) => {
     <a href="album.html?albumId=${song2.id}">
       <div class="card h-100 border-0 text-white testH position-relative">
                       <div class="rounded p-2 m-0 badgePlay ">
-                          <img src="${song2.cover}" class="img-fluid rounded" alt="..." />
+                          <img src="${song2.cover}" class="img-fluid rounded" style="box-shadow: -2px 4px 9px 1px rgb(0 0 0 / 28%);" />
                          <a class="play-song-btn" href="#">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
