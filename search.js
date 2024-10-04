@@ -51,6 +51,25 @@ const searchSongs = (query) => {
       console.error("Errore nella ricerca:", error);
     });
 };
+const searchSongsArtist = (artistId) => {
+  const searchUrlArtist = `https://striveschool-api.herokuapp.com/api/deezer/album/${artistId}`;
+
+  fetch(searchUrl)
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error("Errore nel recupero dei dati");
+      }
+    })
+    .then((data) => {
+      console.log("Risultati ottenuti:", data);
+      displaySearchResults(data.data);
+    })
+    .catch((error) => {
+      console.error("Errore nella ricerca:", error);
+    });
+};
 
 // Funzione per visualizzare i risultati della ricerca
 const displaySearchResults = (songs) => {

@@ -12,6 +12,9 @@ const searchForm2 = document.getElementById("search-form");
 const resultContainer = document.getElementById("song-results");
 const hiddenAsideBtn = document.querySelector(".bi-view-list");
 const hiddenAside = document.querySelector(".hiddenAside");
+const aside1 = document.getElementById("aside1");
+const libreriaIcon = document.getElementById("libreria-icon");
+const homeIcon = document.getElementById("home-icon");
 
 // // funzione per la searchBar
 
@@ -261,7 +264,7 @@ const artisti = [
   "angelina",
   "cremonini",
   "litfiba",
-  "coldpaly"
+  "coldpaly",
 ];
 
 getData(genericUrl + artisti[Math.floor(Math.random() * artisti.length)]);
@@ -398,7 +401,7 @@ document.getElementById("searchIcon").addEventListener("click", (e) => {
   if (!searchButton.classList.contains("show")) {
     searchButton.classList.remove("d-none");
     searchButton.classList.add("d-block");
-    const aside1 = document.getElementById("aside1");
+
     aside1.classList.add("d-none");
     homepageSection.classList.add("d-none");
     searchButton.focus();
@@ -407,8 +410,27 @@ document.getElementById("searchIcon").addEventListener("click", (e) => {
   }
 });
 
+libreriaIcon.addEventListener("click", (e) => {
+  console.log("Icon clicked!");
+  e.preventDefault();
+  aside1.classList.remove("d-none");
+  aside1.classList.add("d-block");
+  aside1.classList.add("fullscreen-aside");
+  homepageSection.classList.add("d-none");
+});
+homeIcon.addEventListener("click", (e) => {
+  console.log("Icon clicked!");
+  e.preventDefault();
+  if (aside1.classList.contains("d-block")) {
+    aside1.classList.remove("d-block");
+    aside1.classList.add("d-none");
+    aside1.classList.remove("fullscreen-aside");
+    homepageSection.classList.remove("d-none");
+  }
+});
 duration.innerText = formatDuration(song.duration);
 //vecchio codice qui sotto commentato
 // duration.innerText = parseFloat((song.duration / 60).toFixed(2));
 currentAudio.src = song.preview;
 currentAudio.play();
+//non scrivere qui sotto

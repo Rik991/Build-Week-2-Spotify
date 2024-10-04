@@ -25,6 +25,15 @@ body {
   overflow: hidden; /* Evita lo scroll del body */
 }
 
+.fullscreen-aside {
+  position: fixed; /* Posiziona l'aside in modo fisso rispetto alla viewport */
+  top: 0;
+  left: 0;
+  width: 100vw; /* Imposta la larghezza al 100% della viewport */
+  height: 80vh; /* Imposta l'altezza al 100% della viewport */
+  z-index: 999;
+}
+
 .asideScroll {
   --sb-track-color: #ffffff00;
   --sb-thumb-color: #a3a3a35f;

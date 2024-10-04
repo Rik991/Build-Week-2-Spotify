@@ -12,6 +12,10 @@ const footerImgServer = localStorage.getItem("footerImgServer");
 const currentAudioServer = localStorage.getItem("currentAudioServer");
 const currentArtisServer = localStorage.getItem("currentArtisServer");
 const currentNameSongServer = localStorage.getItem("currentNameSongServer");
+const aside1 = document.getElementById("aside1");
+const libreriaIcon = document.getElementById("libreria-icon");
+const homeIcon = document.getElementById("home-icon");
+const homepageSection = document.getElementById("homepage-section");
 // dom libreria
 let albumLibreria = [];
 const albumLibreriaServerFase2 = JSON.parse(localStorage.getItem("albumLibreria"));
@@ -370,6 +374,35 @@ function formatTime(seconds) {
   return `${minutes}:${secs}`;
 }
 //fine progress bar
+document.getElementById("searchIcon").addEventListener("click", (e) => {
+  e.preventDefault();
+  let searchButton = document.querySelector(".searchButton");
+  if (!searchButton.classList.contains("show")) {
+    searchButton.classList.remove("d-none");
+    searchButton.classList.add("d-block");
+    const aside1 = document.getElementById("aside1");
+    aside1.classList.add("d-none");
+    homepageSection.classList.add("d-none");
+    searchButton.focus();
+  } else {
+    searchButton.classList.remove("show");
+  }
+});
+//libreria e home icon
+libreriaIcon.addEventListener("click", (e) => {
+  console.log("Icon clicked!");
+  e.preventDefault();
+  aside1.classList.remove("d-none");
+  aside1.classList.add("d-block");
+  aside1.classList.add("fullscreen-aside");
+  homepageSection.classList.add("d-none");
+});
+homeIcon.addEventListener("click", (e) => {
+  console.log("Icon clicked!");
+  e.preventDefault();
+
+  window.location.href = "homepage.html";
+});
 
 // duration.innerText = formatDuration(song.duration);
 //vecchio codice qui sotto commentato
