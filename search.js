@@ -23,15 +23,6 @@ searchForm3.addEventListener("submit", (e) => {
   }
 });
 
-// document.getElementById("searchIcon").addEventListener("click", (e) => {
-//   e.preventDefault();
-//   console.log("cerco");
-//   const query = searchInput.value;
-//   if (query) {
-//     searchSongs(query);
-//   }
-// });
-
 const searchSongs = (query) => {
   const searchUrl = `https://striveschool-api.herokuapp.com/api/deezer/search?q=${query}`;
 
@@ -64,7 +55,7 @@ const displaySearchResults = (songs) => {
 
     songItem.innerHTML = `
     <a href="album.html?albumId=${song.album.id}">
-      <div class="card h-100 border-0 text-white testH" style="max-width: max-content">
+      <div class="card h-100 border-0 text-white testSearch" style="max-width: max-content">
         <div class="rounded p-2 m-0 badgePlay position-relative">
           <img src="${song.album.cover_medium}" class="img-fluid rounded" alt="${song.title}" />
           <a class="play-song-btn" href="#" data-preview="${song.preview}" data-title="${song.title}" data-artist="${song.artist.name}" data-cover="${song.album.cover_medium}">
@@ -73,7 +64,7 @@ const displaySearchResults = (songs) => {
                             width="40"
                             height="40"
                             fill="#63D566"
-                            class="bi bi-play-circle-fill position-absolute translate-middle-y bottom-0"
+                            class="bi bi-play-circle-fill position-absolute translate-middle-y"
                             viewBox="0 0 16 16"
                           >
                             <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814z" />

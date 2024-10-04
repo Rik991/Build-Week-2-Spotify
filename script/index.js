@@ -461,7 +461,6 @@ document.getElementById("searchIcon").addEventListener("click", (e) => {
 });
 
 libreriaIcon.addEventListener("click", (e) => {
-  console.log("Icon clicked!");
   e.preventDefault();
 
   if (aside1.classList.contains("d-block")) {
@@ -477,14 +476,7 @@ libreriaIcon.addEventListener("click", (e) => {
   }
 });
 spinnerIcon.addEventListener("click", (e) => {
-  console.log("Icon clicked!");
   e.preventDefault();
-
-  // Log della larghezza della finestra per debug
-  console.log("Window width:", window.innerWidth);
-
-  // Verifica se aside2 esiste
-  console.log("Aside2 exists:", aside2 !== null);
 
   // Controlla se la larghezza della finestra è inferiore a 768px
   if (window.innerWidth < 768) {
@@ -496,8 +488,6 @@ spinnerIcon.addEventListener("click", (e) => {
       aside2.classList.remove("fullscreen-aside2");
       homepageSection.classList.remove("d-none");
     } else {
-      // Se l'aside è nascosto, mostralo
-
       aside2.classList.remove("d-none");
       aside2.classList.add("d-block");
       aside2.classList.add("fullscreen-aside2");
@@ -517,9 +507,3 @@ homeIcon.addEventListener("click", (e) => {
     homepageSection.classList.remove("d-none");
   }
 });
-duration.innerText = formatDuration(song.duration);
-//vecchio codice qui sotto commentato
-// duration.innerText = parseFloat((song.duration / 60).toFixed(2));
-currentAudio.src = song.preview;
-currentAudio.play();
-//non scrivere qui sotto

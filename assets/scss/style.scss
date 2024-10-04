@@ -205,6 +205,30 @@ footer input:hover::-webkit-slider-thumb {
   }
 }
 
+.testSearch {
+  background-color: rgba(48, 48, 48, 0) !important;
+  .badgePlay {
+    svg {
+      opacity: 0;
+      top: 8rem;
+      right: 1rem;
+    }
+  }
+}
+
+.testSearch:hover {
+  background-color: rgb(48, 48, 48, 1) !important;
+  .badgePlay:hover {
+    svg {
+      opacity: 1;
+      transition: 200ms;
+      top: 7.5rem;
+      right: 1rem;
+      cursor: pointer;
+    }
+  }
+}
+
 // album page
 
 .hoverRiga:hover {

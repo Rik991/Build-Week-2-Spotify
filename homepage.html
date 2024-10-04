@@ -38,7 +38,7 @@
           <div class="d-flex me-3">
             <div>
               <li class="nav-item dropdown d-flex ms-3">
-                <a class="nav-link" href="#" role="button" aria-expanded="false">
+                <a class="nav-link" href="#" target="_blank" role="button" onclick="window.location.href='https:open.spotify.com/content-feed'">
                   <i class="bi bi-bell fs-4"></i>
                 </a>
               </li>
@@ -50,22 +50,34 @@
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end mt-3 bg-secondary">
                   <li>
-                    <a class="dropdown-item text-black" href="settings.html"><i class="far fa-user"></i> Account <i class="bi bi-box-arrow-up-right"></i></a>
+                    <a
+                      class="dropdown-item text-black"
+                      href="https://www.spotify.com/it/account/overview/?utm_source=spotify&utm_medium=menu&utm_campaign=your_account"
+                      target="_blank"
+                    >
+                      <i class="far fa-user"></i> Account <i class="bi bi-box-arrow-up-right"></i>
+                    </a>
                   </li>
                   <li>
-                    <a href="profile.html" class="dropdown-item text-black" href="#"><i class="fas fa-pencil-alt"></i>Profilo</a>
+                    <a class="dropdown-item text-black" href="https://open.spotify.com/user/21u4yz5ifkguhmaqvjc3gh5ay" target="_blank">
+                      <i class="fas fa-pencil-alt"></i> Profilo
+                    </a>
                   </li>
                   <li>
-                    <a class="dropdown-item text-black" href="#">
-                      <i class="fas fa-random"></i> Effettua l'upgrade a premium <i class="bi bi-box-arrow-up-right"></i
-                    ></a>
+                    <a class="dropdown-item text-black" href="https://www.spotify.com/it/premium/?ref=web_loggedin_upgrade_menu" target="_blank">
+                      <i class="fas fa-random"></i> Effettua l'upgrade a premium <i class="bi bi-box-arrow-up-right"></i>
+                    </a>
                   </li>
 
                   <li>
-                    <a class="dropdown-item text-black" href="#"><i class="far fa-question-circle"></i> Impostazioni</a>
+                    <a class="dropdown-item text-black" href="https://open.spotify.com/preferences" target="_blank">
+                      <i class="far fa-question-circle"></i> Impostazioni
+                    </a>
                   </li>
                   <li><hr class="dropdown-divider" /></li>
-                  <li><a class="dropdown-item text-black" href="#">Esci</a></li>
+                  <li>
+                    <a class="dropdown-item text-black" href="./login.html"> Esci </a>
+                  </li>
                 </ul>
               </li>
             </div>
@@ -87,27 +99,10 @@
                 <div class="d-flex align-items-center">
                   <h3 id="libreria" class="mb-0">La tua libreria <i class="bi bi-music-note-list"></i></h3>
                 </div>
-                <!-- <div class="d-flex align-items-center">
-                  <button class="btn btn-outline-light p-1 me-2"><i class="bi bi-plus"></i></button>
-                  <button class="btn btn-outline-light p-1"><i class="bi bi-arrow-right"></i></button>
-                </div> -->
               </div>
 
-              <!-- Bottoni per Playlist, Album, Artisti con link -->
-              <!-- <div class="d-flex gap-2 mb-4">
-                <a href="#" class="btn btn-outline-secondary rounded-pill text-white text-decoration-none">Playlist</a>
-                <a href="album.html" class="btn btn-outline-secondary rounded-pill text-white text-decoration-none">Album</a>
-                <a href="artist.html" class="btn btn-outline-secondary rounded-pill text-white text-decoration-none">Artisti</a>
-              </div> -->
               <!-- Input di ricerca  -->
               <div class="d-flex justify-content-between mb-3">
-                <!-- <div class="input-group" style="width: 150px">
-                  <span class="input-group-text bg-dark border-0 text-white">
-                    <i class="bi bi-search"></i>
-                  </span>
-                  <input type="text" class="form-control bg-dark text-white border-0" placeholder="Cerca" />
-                </div> -->
-
                 <!-- Sezione Recenti con icona -->
                 <div class="d-flex justify-content-between ms-3">
                   <span class="text-secondary me-2" style="font-size: 14px">Recenti</span>
@@ -117,14 +112,6 @@
 
               <!-- Lista di Playlist e Album -->
               <ul id="albumList" class="list-unstyled flex-grow-1">
-                <!-- <li class="d-flex align-items-center mb-3">
-                <img src="./assets/imgs/search/image-1.jpeg" class="me-2 rounded" alt="Cover" width="40" height="40" />
-                <div class="playlist-text">
-                  <strong>Brani che ti piacciono</strong><br />
-                  <span class="playlist-description text-light-emphasis">Playlist · 181 brani</span>
-                </div>
-              </li> -->
-
                 <!-- Altre contenuti li aggiungiamo -->
               </ul>
             </aside>
@@ -163,53 +150,10 @@
             <!-- fine radio button -->
             <!-- carosello Popular radio -->
             <h2 class="mb-3 text-light">Popular Artist</h2>
-            <div id="popularRow" class="d-flex flex-wrap justify-content-between overflow-hidden" style="height: 182px">
-              <!-- <div class="col">
-                <div class="card h-100 border-0 text-white testH position-relative">
-                  <div class="rounded p-2 m-0 badgePlay">
-                    <img src="./assets/imgs/main/image-11.jpg" class="img-fluid rounded" alt="..." />
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="30"
-                      height="30"
-                      fill="#63D566"
-                      class="bi bi-play-circle-fill position-absolute"
-                      viewBox="0 0 16 16"
-                    >
-                      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814z" />
-                    </svg>
-                  </div>
-                  <div class="card-body pt-0">
-                    <p class="card-text overflow-hidden text-white" style="max-height: 3rem">With Chase Atlantic, SZA,</p>
-                  </div>
-                </div>
-              </div> -->
-            </div>
+            <div id="popularRow" class="d-flex flex-wrap justify-content-between overflow-hidden" style="height: 182px"></div>
             <!-- carosello Popular albums -->
             <h2 class="mb-3 text-light">Popular Albums</h2>
-            <div id="almbusRow" class="d-flex flex-wrap justify-content-between overflow-hidden" style="height: 200px">
-              <!-- <div class="col">
-                <div class="card h-100 border-0 text-white testH position-relative">
-                  <div class="rounded p-2 m-0 badgePlay">
-                    <img src="./assets/imgs/main/image-11.jpg" class="img-fluid rounded" alt="..." />
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="30"
-                      height="30"
-                      fill="#63D566"
-                      class="bi bi-play-circle-fill position-absolute mb-2"
-                      viewBox="0 0 16 16"
-                    >
-                      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814z" />
-                    </svg>
-                  </div>
-                  <div class="card-body pt-0">
-                    <h5>Pino</h5>
-                    <p class="card-text overflow-hidden text-secondary" style="max-height: 1.5rem">With Chase Atlantic, SZA,</p>
-                  </div>
-                </div>
-              </div> -->
-            </div>
+            <div id="almbusRow" class="d-flex flex-wrap justify-content-between overflow-hidden" style="height: 200px"></div>
             <!-- true footer -->
             <section class="true-footer mt-5 d-none d-md-block">
               <div class="container">
@@ -270,11 +214,6 @@
               <div class="d-flex justify-content-center align-items-center mb-4">
                 <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked />
                 <label class="btn btn-outline-white semibold fs-3 shadow" for="btnradio1">Scopri di piu!</label>
-
-                <!-- <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                  <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" />
-                  <label class="btn btn-outline-spotify fw-semibold text-black" for="btnradio2">Ascoltate di recente</label>
-                </div> -->
               </div>
 
               <!-- Lista di coda e recenti -->
@@ -283,13 +222,7 @@
                 <div class="text-center mt-5">
                   <h3 class="fw-bold">Riproduci Qualcosa</h3>
                 </div>
-                <!-- <li class="d-flex align-items-center mb-3">
-                  <img src="./assets/imgs/search/image-1.jpeg" class="me-2 rounded" alt="Cover" width="40" height="40" />
-                  <div class="playlist-text">
-                    <strong>Brani che ti piacciono</strong><br />
-                    <span class="playlist-description text-secondary">Playlist · 181 brani</span>
-                  </div>
-                </li> -->
+
                 <!-- Altre contenuti li aggiungiamo -->
               </ul>
             </aside>
@@ -345,12 +278,6 @@
               </a>
             </li>
             <li class="nav-item">
-              <!-- <form class="d-flex" role="search" id="search-form3">
-                <input class="form-control me-2 searchButton d-none" type="search" placeholder="cosa vuoi ascoltare?" aria-label="Search" id="search-input2" />
-                <button class="btn btn-outline-light border-0" type="submit" id="searchIcon">
-                  <i class="bi bi-search"></i>
-                </button>
-              </form> -->
               <form id="search-form3" class="d-flex">
                 <input
                   id="search-input2"

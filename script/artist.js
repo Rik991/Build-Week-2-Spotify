@@ -74,8 +74,6 @@ const btnNext = document.getElementById("btnNext");
 const idBar = new URLSearchParams(location.search);
 const artistId = idBar.get("artistId");
 
-// (genericUrl + "/" + artistId)
-
 // get artist
 const genericUrl = `https://striveschool-api.herokuapp.com/api/deezer/album/${artistId}`;
 
@@ -106,7 +104,7 @@ const getData = () => {
         albumLibreria = albumLibreriaServerFase2;
 
         albumLibreria.push(followAlbum);
-        console.log(albumLibreria);
+
         // salvo in libreria
         localStorage.setItem("albumLibreria", JSON.stringify(albumLibreria));
         // convertire array
@@ -151,7 +149,7 @@ const getData = () => {
         playSong.addEventListener("click", () => {
           const hoverValue = tr.querySelector(".hoverValue");
           x = hoverValue.getAttribute("data-value");
-          console.log("sono il tasto verde");
+
           footerImg.src = albums.cover;
           nameSong.innerText = singleTrack.title;
           artistSong.innerText = albums.artist.name;
@@ -160,31 +158,6 @@ const getData = () => {
           currentAudio.src = albumArray[i].preview;
           currentAudio.play();
           footerPlayBtn.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
-
-          // controlli footer dalla songList
-          // btnPrevious.addEventListener("click", () => {
-          //   x--;
-          //   console.log(x);
-          //   currentAudio.src = albumArray[x].preview;
-          //   currentAudio.play();
-          //   footerPlayBtn.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
-          //   footerImg.src = albums.cover;
-          //   nameSong.innerText = albumArray[x].title;
-          //   artistSong.innerText = albums.artist.name;
-          //   duration.innerText = `${formatDuration(singleTrack.duration)}`;
-          // });
-
-          // btnNext.addEventListener("click", () => {
-          //   x++;
-          //   console.log(x);
-          //   currentAudio.src = albumArray[x].preview;
-          //   currentAudio.play();
-          //   footerPlayBtn.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
-          //   footerImg.src = albums.cover;
-          //   nameSong.innerText = albumArray[x].title;
-          //   artistSong.innerText = albums.artist.name;
-          //   duration.innerText = `${formatDuration(singleTrack.duration)}`;
-          // });
 
           const imgAll = table.querySelectorAll("img");
 
@@ -199,8 +172,8 @@ const getData = () => {
       });
 
       playBtnC.addEventListener("click", () => {
+        aggiornaDettagliBrano();
         if (currentAudio.paused) {
-          // Se l'audio è in pausa, inizia la riproduzione
           currentAudio.src = albumArray[x].preview;
           const imgAll = table.querySelectorAll("img");
 
@@ -220,7 +193,6 @@ const getData = () => {
           playBtnC.classList.add("bi-pause-circle-fill");
           footerPlayBtn.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
         } else {
-          // Se l'audio è in riproduzione, metti in pausa
           currentAudio.pause();
           playBtnC.classList.remove("bi-pause-circle-fill");
           playBtnC.classList.add("bi-play-circle-fill");
@@ -234,7 +206,7 @@ const getData = () => {
           currentAudio.src = albumArray[x].preview;
           currentAudio.play();
           footerPlayBtn.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
-          aggiornaDettagliBrano(); // Funzione per aggiornare dettagli
+          aggiornaDettagliBrano();
           const imgAll = table.querySelectorAll("img");
 
           imgAll.forEach((element) => {
@@ -250,11 +222,10 @@ const getData = () => {
         if (x < albumArray.length - 1) {
           x++; // Aumenta l'indice
           currentAudio.src = albumArray[x].preview;
-          console.log(albumArray[x]);
 
           currentAudio.play();
           footerPlayBtn.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
-          aggiornaDettagliBrano(); // Funzione per aggiornare dettagli
+          aggiornaDettagliBrano();
           const imgAll = table.querySelectorAll("img");
 
           imgAll.forEach((element) => {
@@ -279,16 +250,6 @@ const getData = () => {
     });
 };
 
-//mostro o nascondo aside 2
-// const hiddenAsideBtn = document.querySelector(".bi-view-list");
-// hiddenAsideBtn.addEventListener("click", () => {
-//   const hiddenAside = document.querySelector(".hiddenAside");
-//   hiddenAsideBtn.classList.toggle("text-success");
-//   hiddenAside.classList.toggle("d-none");
-// });
-
-// player nel footer
-//recupero i dati della canzone in riproduzione
 if (time) {
   currentAudio.currentTime = time;
   footerImg.src = footerImgServer;
@@ -404,7 +365,6 @@ document.getElementById("searchIcon").addEventListener("click", (e) => {
 });
 //libreria e home icon
 libreriaIcon.addEventListener("click", (e) => {
-  console.log("Icon clicked!");
   e.preventDefault();
 
   if (aside1.classList.contains("d-block")) {
@@ -420,7 +380,6 @@ libreriaIcon.addEventListener("click", (e) => {
   }
 });
 homeIcon.addEventListener("click", (e) => {
-  console.log("Icon clicked!");
   e.preventDefault();
 
   window.location.href = "homepage.html";

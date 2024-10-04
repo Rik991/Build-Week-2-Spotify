@@ -207,6 +207,26 @@ footer input:hover::-webkit-slider-thumb {
   cursor: pointer;
 }
 
+.testSearch {
+  background-color: rgba(48, 48, 48, 0) !important;
+}
+.testSearch .badgePlay svg {
+  opacity: 0;
+  top: 8rem;
+  right: 1rem;
+}
+
+.testSearch:hover {
+  background-color: rgb(48, 48, 48) !important;
+}
+.testSearch:hover .badgePlay:hover svg {
+  opacity: 1;
+  transition: 200ms;
+  top: 7.5rem;
+  right: 1rem;
+  cursor: pointer;
+}
+
 .hoverRiga:hover {
   color: #55cf59 !important;
   background-color: rgba(28, 28, 28, 0.2352941176);
