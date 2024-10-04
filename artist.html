@@ -12,7 +12,7 @@
   <body class="text-white bg-dark">
     <!-- Header con la navbar -->
     <header class="bg-black">
-      <nav class="navbar navbar-expand-lg text-white justify-content-between p-3">
+      <nav class="d-none d-md-block navbar navbar-expand-lg text-white justify-content-between p-3">
         <div class="container-fluid justify-content-between">
           <div class="ms-3">
             <a class="navbar-brand" href="./homepage.html"><img class="rounded-circle" height="40" src="./assets/imgs/logoSenzaScritta.png" /></a>
@@ -23,7 +23,7 @@
               <input
                 id="search-input"
                 type="text"
-                class="form-control bg-dark text-light ps-4 pe-5 rounded-pill"
+                class="form-control bg-dark text-light ps-5 pe-5 rounded-pill"
                 placeholder="Cosa vuoi ascoltare?"
                 style="height: 38px; padding-left: 40px; padding-right: 40px; border: none"
               />
@@ -71,10 +71,10 @@
     </header>
 
     <!-- Main Content: Libreria, Album, Coda -->
-    <main class="main-gradientC container-fluid">
+    <main class="bg-black container-fluid">
       <div class="d-flex gap-2 g-2" style="height: 80vh; overflow: hidden">
         <!-- aside 1  -->
-        <div class="asideScroll overflow-y-scroll rounded mt-2" style="min-width: max-content">
+        <div id="aside1" class="d-none d-md-block asideScroll overflow-y-scroll rounded mt-2" style="min-width: max-content">
           <aside
             class="d-flex flex-column bg-dark text-white vh-100 p-3 barra-laterale album-section-gradient"
             style="background: linear-gradient(to top, rgb(0 0 0 / 50%), rgba(10, 10, 10, 0.5))"
@@ -127,7 +127,7 @@
         </div>
 
         <!-- Main Artist Content -->
-        <div class="asideScroll overflow-y-scroll rounded mt-2 text-bg-dark rounded p-3 artist-section-gradient flex-grow-1">
+        <div id="artist-section" class="asideScroll overflow-y-scroll rounded mt-2 text-bg-dark rounded p-3 artist-section-gradient flex-grow-1">
           <div class="d-flex gap-3 mt-4 mb-3">
             <div>
               <img src="" alt="Artist Cover" class="img-fluid rounded shadow" id="artistCover" />
@@ -317,12 +317,12 @@
         </div>
       </div>
     </main>
-    <footer>
-      <audio id="current-audio" cusrom-controls>
-        <source id="source" src="" type="audio/mpeg" />
-      </audio>
+    <footer class="d-flex flex-column position-fixed bottom-0">
       <div class="container-fluid bg-black text-light">
-        <div class="row align-items-center" style="/* padding: 0.5rem; */ padding-top: 0; padding-bottom: 0.8rem">
+        <audio id="current-audio" custom-controls>
+          <source id="source" src="" type="audio/mpeg" />
+        </audio>
+        <div class="row p-2 align-items-center">
           <div class="col d-flex">
             <img id="footer-img" class="rounded-1" src="./assets/imgs/search/image-10.jpg" alt="Copertina album" height="60" />
             <div class="d-flex flex-column justify-content-center px-3">
@@ -331,30 +331,69 @@
             </div>
           </div>
           <div class="col controlli-riproduzione fs-4 text-center">
-            <button class="bg-black fs-5"><i class="bi bi-shuffle"></i></button>
-            <button id="btnPrevious" class="bg-black"><i class="bi bi-skip-start-fill"></i></button>
+            <button class="bg-black d-none d-md-inline-block"><i class="bi bi-skip-start-fill"></i></button>
             <button class="bg-black fs-2 footerPlay"><i class="bi bi-play-circle-fill footerPlayIcon"></i></button>
-            <button id="btnNext" class="bg-black"><i class="bi bi-skip-end-fill"></i></button>
-            <button class="bg-black"><i class="bi bi-repeat"></i></button>
+            <button class="bg-black d-none d-md-inline-block"><i class="bi bi-skip-end-fill"></i></button>
             <div class="d-flex align-items-center justify-content-center">
-              <span class="fs-6" id="current-time">0:00</span>
+              <span class="fs-6 d-none d-md-inline-block" id="current-time"></span>
               <!-- progress-bar -->
-              <input type="range" id="progress-bar" class="w-100 mx-2" min="0" max="30" value="0" />
-              <span id="duration" class="fs-6" id="total-time">3:45</span>
+              <input type="range" id="progress-bar" class="d-none d-md-inline-block w-100 mx-2" min="0" max="30" value="0" />
+              <span id="duration" class="d-none d-md-inline-block fs-6" id="total-time"></span>
             </div>
           </div>
           <div class="col volume d-flex justify-content-end fs-6 gap-3 align-items-center end-icon">
-            <i class="bi bi-file-play"></i>
-            <i class="bi bi-mic-fill"></i>
-            <i class="bi bi-view-list"></i>
-            <i class="bi bi-headphones"></i>
-            <i class="bi bi-volume-down-fill"></i>
+            <i class="d-none d-md-inline-block bi bi-file-play"></i>
+            <i class="d-none d-md-inline-block bi bi-mic-fill"></i>
+            <i class="d-none d-md-inline-block bi bi-view-list"></i>
+            <i class="d-none d-md-inline-block bi bi-headphones"></i>
+            <i class="d-none d-md-inline-block bi bi-volume-down-fill"></i>
             <!-- volume -->
-            <input id="volume" type="range" min="0" max="100" />
-            <i class="bi bi-arrows-angle-expand"></i>
+            <input class="d-none d-md-inline-block" id="volume" type="range" min="0" max="100" />
+            <i class="d-none d-md-inline-block bi bi-arrows-angle-expand"></i>
           </div>
         </div>
       </div>
+
+      <!-- Navbar -->
+      <nav class="d-block d-md-none navbar bg-black navbar-dark navbar-expand sticky-bottom">
+        <div class="container-fluid">
+          <ul class="navbar-nav w-100 d-flex justify-content-around">
+            <li class="nav-item">
+              <a id="home-icon" class="nav-link" href="./homepage.html">
+                <i class="bi bi-house-door-fill"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <!-- <form class="d-flex" role="search" id="search-form3">
+                <input class="form-control me-2 searchButton d-none" type="search" placeholder="cosa vuoi ascoltare?" aria-label="Search" id="search-input2" />
+                <button class="btn btn-outline-light border-0" type="submit" id="searchIcon">
+                  <i class="bi bi-search"></i>
+                </button>
+              </form> -->
+              <form id="search-form3" class="d-flex">
+                <input
+                  id="search-input2"
+                  type="text"
+                  class="form-control bg-dark text-light ps-5 pe-5 rounded-pill searchButton d-none"
+                  placeholder="Cosa vuoi ascoltare?"
+                  style="height: 38px; padding-left: 40px; padding-right: 40px; border: none"
+                />
+                <div class="btn btn-outline-light border-0" id="searchIcon">
+                  <i class="bi bi-search"></i>
+                </div>
+              </form>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#libreria">
+                <i id="libreria-icon" class="bi bi-music-note-list"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="navbar-brand" href="./homepage.html"><img class="rounded-circle" height="20" src="./assets/imgs/logoSenzaScritta.png" /></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
     </footer>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -362,5 +401,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="./script/artist.js"></script>
+    <script src="./search.js"></script>
   </body>
 </html>

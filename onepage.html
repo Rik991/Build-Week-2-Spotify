@@ -77,16 +77,10 @@
       <div class="container-fluid">
         <div class="d-flex gap-2 g-2" style="height: 80vh; overflow: hidden">
           <!-- aside 1  -->
-
-          <div
-            class="asideScroll d-none d-md-block overflow-y-scroll"
-            style="border-radius: 10px; width: auto; height: -webkit-fill-available; margin-top: 1rem"
-            id="aside1"
-          >
-            <!-- <div id="aside1" class="d-none d-md-block asideScroll rounded-1 overflow-y-scroll" style="min-width: max-content"> -->
+          <div id="aside1" class="d-none d-md-block asideScroll rounded-1 overflow-y-scroll" style="min-width: max-content">
             <aside
-              class="d-flex flex-column bg-dark text-white vh-100 p-3 barra-laterale rounded-1"
-              style="background: linear-gradient(to top, rgb(0 0 0 / 64%), rgb(0 0 0 / 80%))"
+              class="d-flex flex-column bg-dark text-white vh-100 p-3 barra-laterale album-section-gradient"
+              style="background: linear-gradient(to top, rgb(0 0 0 / 50%), rgba(10, 10, 10, 0.5))"
             >
               <div class="d-flex align-items-center justify-content-between mb-4">
                 <div class="d-flex align-items-center">
@@ -135,6 +129,7 @@
             </aside>
           </div>
           <!-- main content search result -->
+          <div id="song-results" class="asideScroll overflow-y-scroll row g-3 mt-3"></div>
           <!--main content homepage -->
           <div id="homepage-section" class="asideScroll rounded-1 p-3 overflow-y-scroll flex-grow-1">
             <!-- hero -->
@@ -144,16 +139,9 @@
                   <img src="./assets/imgs/main/musica_e_viaggio.jpg" style="height: 250px; width: 250px" class="p-3" />
                 </div>
                 <div class="flex-grow-1">
-                  <div class="card-body d-flex" style="height: 100%">
-                    <p class="m-0 text-spotify" style="max-height: 90px">
-                      <span class="fs-2 text-white"
-                        >Lascia che la <br />
-                        musica ti guidi:</span
-                      >
-                      <br />
-                      <span class="fs-3 text-white">ogni canzone è un viaggio,</span>
-                      <br />
-                      <span class="fs-4 text-white">ogni melodia un'avventura</span>
+                  <div class="card-body d-flex align-items-center" style="height: 100%; margin-left: -30px">
+                    <p class="align-items-center m-0 text-spotify" style="max-height: 90px">
+                      Lascia che la musica ti guidi: ogni canzone è un viaggio, ogni melodia un'avventura
                     </p>
                   </div>
                 </div>
@@ -219,6 +207,301 @@
               </div> -->
             </div>
             <!-- true footer -->
+            <section class="true-footer mt-5 d-none d-md-block">
+              <div class="container">
+                <div class="row-main-footer row-cols-md-5 d-flex border-bottom">
+                  <div class="col text-f">
+                    <h6 class="fw-bold text-light">Azienda</h6>
+                    <p><a class="text-white text-decoration-none" href="#">Chi siamo</a></p>
+                    <p><a class="text-white text-decoration-none" href="#">Opportunità di lavoro </a></p>
+                    <p><a class="text-white text-decoration-none" href="#">Fo the record</a></p>
+                  </div>
+                  <div class="col text-f">
+                    <h6 class="fw-bold text-light">Community</h6>
+                    <p><a class="text-white text-decoration-none" href="#"> Per artisti </a></p>
+                    <p><a class="text-white text-decoration-none" href="#">Sviluppatori</a></p>
+                    <p><a class="text-white text-decoration-none" href="#">Pubblicità</a></p>
+                    <p><a class="text-white text-decoration-none" href="#">Investitori</a></p>
+                    <p><a class="text-white text-decoration-none" href="#">Venditori</a></p>
+                  </div>
+                  <div class="col text-f">
+                    <h6 class="fw-bold text-light">Link utili</h6>
+                    <p><a class="text-white text-decoration-none" href="#">Assistenza</a></p>
+                    <p><a class="text-white text-decoration-none" href="#">App per cellulare gratuita </a></p>
+                    <p><a class="text-white text-decoration-none" href="#">Diritti del consumatore</a></p>
+                  </div>
+
+                  <div class="col text-f">
+                    <h6 class="fw-bold text-light">Piani Spotify</h6>
+                    <p><a class="text-white text-decoration-none" href="#"> Premium Individual</a></p>
+                    <p><a class="text-white text-decoration-none" href="#">Premium Duo</a></p>
+                    <p><a class="text-white text-decoration-none" href="#">Premium Family</a></p>
+                    <p><a class="text-white text-decoration-none" href="#">Premium Student</a></p>
+                    <p><a class="text-white text-decoration-none" href="#">Spotify Free</a></p>
+                  </div>
+
+                  <div class="col text-end">
+                    <!--i link ai social funzionano davvero!-->
+                    <a href="https://www.instagram.com/spotify/"><i class="bi bi-instagram fs-3 text-white"></i></a>
+                    <a href="https://x.com/spotify"><i class="bi bi-twitter-x fs-3 text-white ps-3"></i></a>
+                    <a href="https://www.facebook.com/SpotifyItalia/?brand_redir=6243987495"><i class="bi bi-facebook fs-3 text-white ps-3"></i></a>
+                  </div>
+                </div>
+                <div class="row-second-footer mt-2">
+                  <div class="col fs-6">
+                    <a class="footer-text text-secondary text-decoration-none" href="#"> Informazioni legali</a>
+                    <a class="footer-text text-secondary text-decoration-none" href="#"> Sicurezza e Centro sulla privacy</a>
+                    <a class="footer-text text-secondary text-decoration-none" href="#"> Informativa sulla privacy</a>
+                    <a class="footer-text text-secondary text-decoration-none" href="#"> Informazione cookie</a>
+                    <a class="footer-text text-secondary text-decoration-none" href="#"> Info annunci</a>
+                    <a class="footer-text text-secondary text-decoration-none" href="#"> Accessibilità</a>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+          <!--artist section-->
+          <div id="artist-section" class="d-none asideScroll overflow-y-scroll rounded mt-2 text-bg-dark rounded p-3 artist-section-gradient flex-grow-1">
+            <div class="d-flex gap-3 mt-4 mb-3">
+              <div>
+                <img src="" alt="Artist Cover" class="img-fluid rounded shadow" id="artistCover" />
+              </div>
+              <div class="">
+                <p><i class="verified-iconC bi bi-patch-check-fill"></i> Artista verificato</p>
+                <h1 class="display-3 fw-bold" id="artistName"></h1>
+                <!--deve essere preso dell'api -->
+                <p class="lead"><span id="fans"></span> ascoltatori mensili</p>
+                <!--deve essere preso dell'api -->
+                <div class="d-flex align-items-center gap-3 mb-4">
+                  <!-- <button class="btn btn-lg rounded-circle">
+                    <i class="bi bg-playBtnC bi-play-fill"></i>
+                  </button> -->
+                  <div>
+                    <a href="#"><i class="playBtnC bi bi-play-circle-fill fs-1"></i></a>
+                  </div>
+                  <button id="albumSegui" class="btn btn-outline-light">Segui</button>
+                  <div>
+                    <li class="nav-item dropdown d-flex align-items-center ms-3 me-3">
+                      <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="./assets/scss/partials/imgsCorinne/polpette.png" />
+                      </a>
+                      <ul class="dropdown-menu dropdown-menu-end mt-3 bg-secondary">
+                        <li>
+                          <a class="dropdown-item text-black" href="settings.html"> <i class="bi bi-person-plus"></i> Segui</a>
+                        </li>
+                        <li>
+                          <a href="profile.html" class="dropdown-item text-black" href="#">
+                            <i class="bi bi-ban"></i> Non riprodurre i contenuti dell'artista</a
+                          >
+                        </li>
+                        <li>
+                          <a class="dropdown-item text-black" href="#"> <i class="bi bi-broadcast"></i> Vai a Radio dell'artista </a>
+                        </li>
+
+                        <li>
+                          <a class="dropdown-item text-black" href="#">
+                            <i class="bi bi-exclamation-octagon"></i> Segnala <i class="bi bi-box-arrow-up-right"></i
+                          ></a>
+                        </li>
+                        <li>
+                          <a class="dropdown-item text-black" href="#"><i class="bi bi-box-arrow-up"></i> Condividi</a>
+                        </li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li>
+                          <a class="dropdown-item text-black" href="#">
+                            <img class="rounded-circle" height="20" src="./assets/imgs/logoSenzaScritta.png" /> Apri con l'app per desktop</a
+                          >
+                        </li>
+                      </ul>
+                    </li>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Brani popolari -->
+            <div class="row">
+              <div class="col">
+                <h4>Brani scelti per te</h4>
+                <table style="background-color: #0000001f; /* color: aqua; */ border-radius: 0.5rem; /* margin: 1rem; */ width: -webkit-fill-available">
+                  <thead>
+                    <tr>
+                      <th style="padding: 1rem; width: 30px">#</th>
+                      <th scope="col">Titolo</th>
+                      <th scope="col"><i class="bi bi-clock"></i></th>
+                    </tr>
+                  </thead>
+                  <tbody id="trackList">
+                    <!-- <tr>
+                      <th scope="row">1</th>
+                      <td>Ocean Avenue</td>
+                      <td>3:18</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td>Only One</td>
+                      <td>4:17</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      <td>Breathing</td>
+                      <td>3:38</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">4</th>
+                      <td>Lights And Sounds</td>
+                      <td>3:28</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">5</th>
+                      <td>Way Away</td>
+                      <td>3:22</td>
+                    </tr> -->
+                  </tbody>
+                </table>
+                <section class="true-footer mt-5 d-none d-md-block">
+                  <div class="container">
+                    <div class="row-main-footer row-cols-md-5 d-flex border-bottom">
+                      <div class="col text-f">
+                        <h6 class="fw-bold text-light">Azienda</h6>
+                        <p><a class="text-white text-decoration-none" href="#">Chi siamo</a></p>
+                        <p><a class="text-white text-decoration-none" href="#">Opportunità di lavoro </a></p>
+                        <p><a class="text-white text-decoration-none" href="#">Fo the record</a></p>
+                      </div>
+                      <div class="col text-f">
+                        <h6 class="fw-bold text-light">Community</h6>
+                        <p><a class="text-white text-decoration-none" href="#">Per artisti </a></p>
+                        <p><a class="text-white text-decoration-none" href="#">Sviluppatori</a></p>
+                        <p><a class="text-white text-decoration-none" href="#">Pubblicità</a></p>
+                        <p><a class="text-white text-decoration-none" href="#">Investitori</a></p>
+                        <p><a class="text-white text-decoration-none" href="#">Venditori</a></p>
+                      </div>
+                      <div class="col text-f">
+                        <h6 class="fw-bold text-light">Link utili</h6>
+                        <p><a class="text-white text-decoration-none" href="#">Assistenza</a></p>
+                        <p><a class="text-white text-decoration-none" href="#">App per cellulare gratuita </a></p>
+                        <p><a class="text-white text-decoration-none" href="#">Diritti del consumatore</a></p>
+                      </div>
+
+                      <div class="col text-f">
+                        <h6 class="fw-bold text-light">Piani Spotify</h6>
+                        <p><a class="text-white text-decoration-none" href="#"> Premium Individual</a></p>
+                        <p><a class="text-white text-decoration-none" href="#">Premium Duo</a></p>
+                        <p><a class="text-white text-decoration-none" href="#">Premium Family</a></p>
+                        <p><a class="text-white text-decoration-none" href="#">Premium Student</a></p>
+                        <p><a class="text-white text-decoration-none" href="#">Spotify Free</a></p>
+                      </div>
+
+                      <div class="col text-end">
+                        <!--i link ai social funzionano davvero!-->
+                        <a href="https://www.instagram.com/spotify/"><i class="bi bi-instagram fs-3 text-white"></i></a>
+                        <a href="https://x.com/spotify"><i class="bi bi-twitter-x fs-3 text-white ps-3"></i></a>
+                        <a href="https://www.facebook.com/SpotifyItalia/?brand_redir=6243987495"><i class="bi bi-facebook fs-3 text-white ps-3"></i></a>
+                      </div>
+                    </div>
+                    <div class="row-second-footer mt-2">
+                      <div class="col fs-6">
+                        <a class="footer-text text-secondary text-decoration-none" href="#"> Informazioni legali</a>
+                        <a class="footer-text text-secondary text-decoration-none" href="#"> Sicurezza e Centro sulla privacy</a>
+                        <a class="footer-text text-secondary text-decoration-none" href="#"> Informativa sulla privacy</a>
+                        <a class="footer-text text-secondary text-decoration-none" href="#"> Informazione cookie</a>
+                        <a class="footer-text text-secondary text-decoration-none" href="#"> Info annunci</a>
+                        <a class="footer-text text-secondary text-decoration-none" href="#"> Accessibilità</a>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </div>
+
+              <!-- Brani che ti piacciono -->
+              <!-- <div class="col-md-6">
+                <h4>Brani che ti piacciono</h4>
+                <div class="d-flex align-items-center mb-3">
+                  <img src="./assets/imgs/main/image-8.jpg" alt="Playlist Cover" class="rounded me-2" width="40" height="40" />
+                  <div>
+                    <strong>Hai messo Mi piace a 11 brani</strong><br />
+                    <span class="text-secondary">Di Yellowcard</span>
+                  </div>
+                </div>
+              </div> -->
+            </div>
+          </div>
+          <!--album section-->
+          <div id="album-section" class="d-none asideScroll overflow-y-scroll mt-2 text-bg-dark rounded p-3 album-section-gradient flex-grow-1">
+            <div class="d-flex gap-3 mt-4 mb-3">
+              <div>
+                <img id="albumCover" src="https://via.placeholder.com/200" alt="Album Cover" class="img-fluid rounded shadow" />
+              </div>
+              <div>
+                <p>Public Playlist</p>
+
+                <h1 id="albumTitle" class="display-3 fw-bold fs-1">LOCURA</h1>
+                <!--deve prendere i dati dell'api, se riuscuamo il colore dell'album-->
+                <p><i class="verified-iconC bi bi-patch-check-fill"></i> Artista verificato</p>
+                <p id="albumInfo" class="lead">Lazza • 2024 • 18 brani, 59 min 32 sec</p>
+                <div class="d-flex align-items-center gap-3 mb-4">
+                  <div>
+                    <a href="#"><i class="playBtnC bi bi-play-circle-fill fs-1"></i></a>
+                  </div>
+                  <button id="albumSegui" class="btn btn-outline-light">Segui</button>
+                  <div>
+                    <li class="nav-item dropdown d-flex align-items-center ms-3 me-3">
+                      <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="./assets/scss/partials/imgsCorinne/polpette.png" />
+                      </a>
+                      <ol class="dropdown-menu dropdown-menu-end mt-3 bg-secondary">
+                        <li>
+                          <a class="dropdown-item text-black" href="settings.html"> <i class="bi bi-person-plus"></i> Segui</a>
+                        </li>
+                        <li>
+                          <a href="profile.html" class="dropdown-item text-black" href="#">
+                            <i class="bi bi-ban"></i> Non riprodurre i contenuti dell'artista</a
+                          >
+                        </li>
+                        <li>
+                          <a class="dropdown-item text-black" href="#"> <i class="bi bi-broadcast"></i> Vai a Radio dell'artista </a>
+                        </li>
+
+                        <li>
+                          <a class="dropdown-item text-black" href="#">
+                            <i class="bi bi-exclamation-octagon"></i> Segnala <i class="bi bi-box-arrow-up-right"></i
+                          ></a>
+                        </li>
+                        <li>
+                          <a class="dropdown-item text-black" href="#"><i class="bi bi-box-arrow-up"></i> Condividi</a>
+                        </li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li>
+                          <a class="dropdown-item text-black" href="#">
+                            <img class="rounded-circle" height="20" src="./assets/imgs/logoSenzaScritta.png" /> Apri con l'app per desktop</a
+                          >
+                        </li>
+                      </ol>
+                    </li>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tabella con la lista delle tracce -->
+            <table style="background-color: #0000001f; /* color: aqua; */ border-radius: 0.5rem; /* margin: 1rem; */ width: -webkit-fill-available">
+              <thead>
+                <tr>
+                  <th scope="col" style="padding: 1rem; width: 30px">#</th>
+                  <th scope="col">Titolo</th>
+                  <th scope="col">Rank</th>
+                  <th scope="col"><i class="bi bi-clock"></i></th>
+                </tr>
+              </thead>
+              <tbody id="trackList">
+                <!-- <tr>
+                  <th scope="row">1</th>
+                  <td>ZERI IN PIÙ (LOCURA) (feat. Laura Pausini)</td>
+                  <td>10.180.322</td>
+                  <td>4:07</td>
+                </tr> -->
+              </tbody>
+            </table>
             <section class="true-footer mt-5 d-none d-md-block">
               <div class="container">
                 <div class="row-main-footer row-cols-md-5 d-flex border-bottom">

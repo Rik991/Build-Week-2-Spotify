@@ -12,6 +12,10 @@ const footerImgServer = localStorage.getItem("footerImgServer");
 const currentAudioServer = localStorage.getItem("currentAudioServer");
 const currentArtisServer = localStorage.getItem("currentArtisServer");
 const currentNameSongServer = localStorage.getItem("currentNameSongServer");
+const aside1 = document.getElementById("aside1");
+const libreriaIcon = document.getElementById("libreria-icon");
+const homeIcon = document.getElementById("home-icon");
+const homepageSection = document.getElementById("homepage-section");
 // dom libreria
 let albumLibreria = [];
 const albumLibreriaServerFase2 = JSON.parse(localStorage.getItem("albumLibreria"));
@@ -128,13 +132,12 @@ const getData = () => {
         playSong.addEventListener("click", () => {
           const hoverValue = tr.querySelector(".hoverValue");
           x = hoverValue.getAttribute("data-value");
-          console.log(x);
           footerImg.src = albums.cover;
           nameSong.innerText = singleTrack.title;
           artistSong.innerText = albums.artist.name;
           duration.innerText = (singleTrack.duration / 60).toFixed(2);
 
-          currentAudio.src = albumArray[i].preview;
+          currentAudio.src = albumArray[x].preview;
           currentAudio.play();
           footerPlayBtn.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
 
@@ -180,7 +183,22 @@ const getData = () => {
       playBtnC.addEventListener("click", () => {
         if (currentAudio.paused) {
           // Se l'audio è in pausa, inizia la riproduzione
+          currentAudio.src = albumArray[x].preview;
+          const imgAll = table.querySelectorAll("img");
+          console.log(x);
+
+          imgAll.forEach((element) => {
+            element.classList.add("d-none");
+          });
+
+          imgAll.forEach((element) => {
+            element.classList.add("d-none");
+          });
+
+          imgAll[x].classList.remove("d-none");
+          imgAll[x].classList.add("d-block");
           currentAudio.play();
+
           playBtnC.classList.remove("bi-play-circle-fill");
           playBtnC.classList.add("bi-pause-circle-fill");
           footerPlayBtn.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
@@ -197,19 +215,39 @@ const getData = () => {
         if (x > 0) {
           x--; // Riduci l'indice
           currentAudio.src = albumArray[x].preview;
+          console.log(x);
+
           currentAudio.play();
           footerPlayBtn.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
           aggiornaDettagliBrano(); // Funzione per aggiornare dettagli
+          const imgAll = table.querySelectorAll("img");
+
+          imgAll.forEach((element) => {
+            element.classList.add("d-none");
+          });
+
+          imgAll[x].classList.remove("d-none");
+          imgAll[x].classList.add("d-block");
         }
       });
 
       btnNext.addEventListener("click", () => {
-        if (x < albumArray.length - 1) {
+        if (x < albumArray.length - 1 && x >= 0) {
           x++; // Aumenta l'indice
           currentAudio.src = albumArray[x].preview;
+          console.log(x);
+
           currentAudio.play();
           footerPlayBtn.innerHTML = `<i class="bi bi-pause-circle-fill"></i>`;
           aggiornaDettagliBrano(); // Funzione per aggiornare dettagli
+          const imgAll = table.querySelectorAll("img");
+
+          imgAll.forEach((element) => {
+            element.classList.add("d-none");
+          });
+
+          imgAll[x].classList.remove("d-none");
+          imgAll[x].classList.add("d-block");
         }
       });
 
@@ -336,6 +374,35 @@ function formatTime(seconds) {
   return `${minutes}:${secs}`;
 }
 //fine progress bar
+document.getElementById("searchIcon").addEventListener("click", (e) => {
+  e.preventDefault();
+  let searchButton = document.querySelector(".searchButton");
+  if (!searchButton.classList.contains("show")) {
+    searchButton.classList.remove("d-none");
+    searchButton.classList.add("d-block");
+    const aside1 = document.getElementById("aside1");
+    aside1.classList.add("d-none");
+    homepageSection.classList.add("d-none");
+    searchButton.focus();
+  } else {
+    searchButton.classList.remove("show");
+  }
+});
+//libreria e home icon
+libreriaIcon.addEventListener("click", (e) => {
+  console.log("Icon clicked!");
+  e.preventDefault();
+  aside1.classList.remove("d-none");
+  aside1.classList.add("d-block");
+  aside1.classList.add("fullscreen-aside");
+  homepageSection.classList.add("d-none");
+});
+homeIcon.addEventListener("click", (e) => {
+  console.log("Icon clicked!");
+  e.preventDefault();
+
+  window.location.href = "homepage.html";
+});
 
 // duration.innerText = formatDuration(song.duration);
 //vecchio codice qui sotto commentato
