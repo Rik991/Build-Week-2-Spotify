@@ -148,7 +148,7 @@ footer input:hover::-webkit-slider-thumb {
 }
 .testH .badgePlay svg {
   opacity: 0;
-  bottom: 4.5rem;
+  top: 7rem;
   right: 1rem;
 }
 
@@ -158,7 +158,7 @@ footer input:hover::-webkit-slider-thumb {
 .testH:hover .badgePlay:hover svg {
   opacity: 1;
   transition: 200ms;
-  bottom: 5rem;
+  top: 6.5rem;
   right: 1rem;
   cursor: pointer;
 }
